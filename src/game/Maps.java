@@ -6,13 +6,9 @@
 package game;
 
 /**
- *
+ * Here the combat maps will be stored as arrays
  * @author Magnus
  */
-public abstract class Accesory extends Item {
-
-    public Accesory(long itemID, String name, int amount, int reqAtribute, int reqLevel) {
-        super(itemID, name, amount, reqAtribute, reqLevel);
-    }
-
+public class Maps {
+    
 }

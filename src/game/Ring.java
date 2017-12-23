@@ -10,9 +10,9 @@ package game;
  * @author Magnus
  */
 public class Ring extends Accesory {    
-  
-    public Ring(long itemID, String name, int amount) {
-        super(itemID, name, amount);
+
+    public Ring(long itemID, String name, int amount, int reqAtribute, int reqLevel) {
+        super(itemID, name, amount, reqAtribute, reqLevel);
     }
-  
+
 }

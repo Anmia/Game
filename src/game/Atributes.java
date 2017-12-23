@@ -59,32 +59,12 @@ public class Atributes {
         return atributesActual[whichAtribute];
     }
     
-    /**
-     * the functions below reset the atributes in atributesActual
-     * to the value in the atributesBase
-     */
-    
-    public void resetStr() {
-        atributesActual[0] = atributesBase[0];
+        
+    public void resetAtribute(int atribute) {
+        atributesActual[atribute] = atributesBase[atribute];
     }
     
-    public void resetDex() {
-        atributesActual[1] = atributesBase[1];
-    }
-    
-    public void resetCons() {
-        atributesActual[2] = atributesBase[2];
-    }
-    
-    public void resetWis() {
-        atributesActual[3] = atributesBase[3];
-    }
-    
-    public void resetInt() {
-        atributesActual[4] = atributesBase[4];
-    }
-    
-    public void resetCha() {
-        atributesActual[5] = atributesBase[5];
+    public void modifyAtribute(int atribute, int modifier) {
+        atributesActual[atribute] = atributesActual[atribute] + modifier;
     }
 }

@@ -10,10 +10,10 @@ package game;
  * @author Magnus
  */
 public class Armour extends Item {
-    private byte armourClass;
+    private int armourClass;
     
-    public Armour(long itemID, String name, int amount, byte armourClass) {
-        super(itemID, name, amount);
+    public Armour(long itemID, String name, int amount, int reqAtribute, int reqLevel, int armourClass) {
+        super(itemID, name, amount, reqAtribute, reqLevel);
         this.armourClass = armourClass;
     }
     

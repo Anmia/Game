@@ -14,25 +14,23 @@ public abstract class Weapon extends Item {
     private int[] damageDice = new int[2];
     private int modifierAtribute;
     
-    public Weapon(long itemID, String name, int amount, boolean withShield, 
+    public Weapon(long itemID, String name, int amount, int reqAtribute, int reqLevel, boolean withShield, 
             int[] damageDice, int modifierAtribute) {
-        super(itemID, name, amount);
+        super(itemID, name, amount, reqAtribute, reqLevel);
         this.withShield = withShield;
         this.damageDice = damageDice;
         this.modifierAtribute = modifierAtribute;
-    }
-    
-    public int doDamage(Atributes help) {
-        Dice dice = new Dice();
-        int result = dice.rollDice(damageDice[0], damageDice[1]);
-        
-        int mod = help.getModifier(modifierAtribute);
-        
-        return result + mod;
     }
     
     public boolean getWithShield() {
         return withShield;
     }
     
+    public int getModifierAtribute() {
+        return modifierAtribute;
+    }
+    
+    public int[] getDamageDice() {
+        return damageDice;
+    }
 }

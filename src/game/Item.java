@@ -13,11 +13,16 @@ public abstract class Item {
     protected long itemID;
     private String name;
     private int amount;
+    private int reqAtribute;
+    private int reqLevel;
     
-    public Item(long itemID, String name, int amount) {
+    public Item(long itemID, String name, int amount, 
+            int reqAtribute, int reqLevel) {
         this.itemID = itemID;
         this.name = name;
         this.amount = amount;
+        this.reqAtribute = reqAtribute;
+        this.reqLevel = reqLevel;
     }
     
     public int getAmount() {
@@ -30,5 +35,13 @@ public abstract class Item {
     
     public void increaseAmount(int mod) {
         amount = amount + mod;
+    }
+    
+    public int getReqAtribute() {
+        return reqAtribute;
+    }
+    
+    public int getReqLevel() {
+        return reqLevel;
     }
 }

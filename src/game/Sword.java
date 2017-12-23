@@ -11,8 +11,8 @@ package game;
  */
 public class Sword extends Melee {
 
-    public Sword(long itemID, String name, int amount, boolean withShield, int[] damageDice, int modifierDmg) {
-        super(itemID, name, amount, withShield, damageDice, modifierDmg);
+    public Sword(long itemID, String name, int amount, int reqAtribute, int reqLevel, boolean withShield, int[] damageDice, int modifierAtribute) {
+        super(itemID, name, amount, reqAtribute, reqLevel, withShield, damageDice, modifierAtribute);
     }
 
 }

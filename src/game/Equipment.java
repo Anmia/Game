@@ -80,4 +80,8 @@ public class Equipment{
     public void unequipWeaponLeft() {
         this.weaponLeft = null;
     }
+    
+    public Weapon getWeaponRight() {
+        return weaponRight;
+    }
 }
