@@ -97,7 +97,7 @@ public class Character {
         Weapon weapon = inventory.equipment.getWeapon();
         
         int attackRoll = dice.rollDice(20, 1) + 
-                atributes.getModifier(weapon.getModifierAtribute());
+                atributes.getModifier(weapon.getModifierAtribute() + 2);
         
         System.out.println(attackRoll);
         

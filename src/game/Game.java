@@ -24,7 +24,7 @@ public class Game {
         Race elf = new Race((byte)001, "Elf", (byte)30, 'm');
         Armour armour = new Armour((long)1000, "Chainmail", 1, 0, 13, 16);
         
-        Equipment equip = new Equipment(null, null, null, null, sword, true);
+        Equipment equip = new Equipment(armour, null, null, null, sword, true);
         
         Inventory inv = new Inventory(equip, null);
        
