@@ -43,7 +43,7 @@ public class Game {
         
         System.out.println(me.rollInitiative());
         
-        Race dwarf = new Dwarf();
+        Race dwarf = new Race_Dwarf();
     }
     
 }

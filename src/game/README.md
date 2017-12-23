@@ -15,3 +15,6 @@ For now it is esentialy a text adventure, but a graphical interface might become
 
 A save function might also one day be a thing, but who knows.
 (I know how to do it in theory with PHP and SQL, but not with Java)
+
+
+There is UML for this, if you were wondering, and it is only slightly less messy at the moment of writing

@@ -6,18 +6,18 @@
 package game;
 
 /**
- * Uses stats for wood elf 
+ * Based on Lightfoot Halfling
  * @author nerdi
  */
-public class Race_Elf extends Race{
-    private final static int raceID = 03;
-    private final static String raceName = "Elf";
-    private final static int speed = 30;
-    private final static char size = 'm';
+public class Race_Halfling extends Race{
+    private final static int raceID = 05;
+    private final static String raceName = "Halfling";
+    private final static int speed = 25;
+    private final static char size = 's';
     private final static boolean darkvision = false;
-    private final static int[] raceModifiers = {0, 2, 0, 0, 1, 0};
+    private final static int[] raceModifiers = {0, 2, 0, 0, 0, 1};
 
-    public Race_Elf() {
+    public Race_Halfling() {
         super(raceID, raceName, speed, size, darkvision, raceModifiers);
     }
 }

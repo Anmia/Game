@@ -30,6 +30,14 @@ public class Race {
         this.raceModifiers = raceModifiers;
     }
     
+    public int getRaceID() {
+        return raceID;
+    }
+    
+    public String getRaceName() {
+        return raceName;
+    }
+    
     public int getSpeed() {
         return speed;
     }
