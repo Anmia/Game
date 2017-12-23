@@ -13,28 +13,36 @@ package game;
  * @author Magnus
  */
 public class Race {
-    protected byte raceID;
+    protected int raceID;
     protected String raceName;
-    protected byte speed;
+    protected int speed;
     protected char size;
-    /**
-     * 
-     * @param raceID:
-     * this atribute helps with identyfying the class and saves space
-     * 
-     * @param speed:
-     * speed describes the distance the character can travel during combat
-     * 
-     * @param size Sizes are:
-     * Small, Meddium, Large, Xlarge
-     * This describes some weird movement stuff (figure out)
-     */
+    protected boolean darkvision;
+    protected int[] raceModifiers;
     
-    
-    public Race(byte raceID, String raceName, byte speed, char size) {
+    public Race(int raceID, String raceName, int speed, 
+            char size, boolean darkvision) {
         this.raceID = raceID;
         this.raceName = raceName;
         this.speed = speed;
         this.size = size;
+        this.darkvision = darkvision;
+        
+    }
+    
+    public int getSpeed() {
+        return speed;
+    }
+    
+    public char getSize() {
+        return size;
+    }
+    
+    public boolean getDarkvision() {
+        return darkvision;
+    }
+    
+    public int[] getRaceModifiers() {
+        return raceModifiers;
     }
 }
