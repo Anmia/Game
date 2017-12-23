@@ -14,11 +14,14 @@ public class C_Class {
     private int classID;
     private int hitDice;
     private boolean[] savingThrow = new boolean[6];
+    private int[] classAbilities;
     
     
-    public C_Class(int classID, int hitDice, boolean[] savingThrow) {
+    public C_Class(int classID, int hitDice, boolean[] savingThrow, 
+            int[] classAbilities) {
         this.classID = classID;
         this.hitDice = hitDice;
         this.savingThrow = savingThrow;
+        this.classAbilities = classAbilities;
     }
 }
