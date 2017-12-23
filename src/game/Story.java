@@ -11,4 +11,16 @@ package game;
  */
 public class Story {
     private long storyStep;
+    
+    public String getWarning() {
+        String warning = "There is a real chance that any attempt at playing "
+                + "this game might fail. \n"
+                + "This game uses D&D combat, meaning that dice are used and "
+                + "that damage given and taken are, "
+                + "within set paramaters, random. \n "
+                + "Think of it as rougelike, just kind of oposite. \n"
+                + "This game is not completed as of yet!";
+        
+        return warning;
+    }
 }

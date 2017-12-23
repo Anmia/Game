@@ -16,6 +16,9 @@ public class Game {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Story warning = new Story();
+        System.out.println(warning.getWarning());
+        
         int[] tab = {8, 1};
         int[] atr = {18, 14, 16, 12, 9, 8};
         
@@ -35,6 +38,8 @@ public class Game {
         System.out.println(me.checkUse(sword));
         
         System.out.println(me.rollInitiative());
+        
+        
     }
     
 }
