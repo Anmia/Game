@@ -99,8 +99,6 @@ public class Character {
         int attackRoll = dice.rollDice(20, 1) + 
                 atributes.getModifier(weapon.getModifierAtribute() + 2);
         
-        System.out.println(attackRoll);
-        
         if (enemyAC <= attackRoll) {
             int[] wD = weapon.getDamageDice();
 

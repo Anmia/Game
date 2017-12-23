@@ -11,9 +11,14 @@ package game;
  * @author Magnus
  */
 public class C_Class {
-    protected int classID;
+    private int classID;
+    private int hitDice;
+    private boolean[] savingThrow = new boolean[6];
     
-    public C_Class(int classID) {
+    
+    public C_Class(int classID, int hitDice, boolean[] savingThrow) {
         this.classID = classID;
+        this.hitDice = hitDice;
+        this.savingThrow = savingThrow;
     }
 }
