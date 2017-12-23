@@ -43,10 +43,6 @@ public class Game {
         System.out.println(me.checkUse(sword));
         
         System.out.println(me.rollInitiative());
-        
-        Race human = new Human();
-        
-        System.out.println(human);
     }
     
 }

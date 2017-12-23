@@ -23,4 +23,7 @@ public class Story {
         
         return warning;
     }
+    
+    protected String storyone = " The story starts \n"
+            + "You are traveling with a caravan towards the city of Krohnhagen";
 }
