@@ -13,21 +13,21 @@ package game;
  * @author Magnus
  */
 public class Race {
-    protected int raceID;
-    protected String raceName;
-    protected int speed;
-    protected char size;
-    protected boolean darkvision;
-    protected int[] raceModifiers;
+    private int raceID;
+    private String raceName;
+    private int speed;
+    private char size;
+    private boolean darkvision;
+    private int[] raceModifiers = new int[6];
     
     public Race(int raceID, String raceName, int speed, 
-            char size, boolean darkvision) {
+            char size, boolean darkvision, int[] raceModifiers) {
         this.raceID = raceID;
         this.raceName = raceName;
         this.speed = speed;
         this.size = size;
         this.darkvision = darkvision;
-        
+        this.raceModifiers = raceModifiers;
     }
     
     public int getSpeed() {

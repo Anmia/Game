@@ -4,6 +4,8 @@ pet project
 This is a pet project and I am still learning the ropes.
 I am trying to do as much I can from scratch.
 
+
+
 The premise is DnD based combat set in a short adventure (or longer if i can be bothered).
 I know that in basing the combat, and everything else, on DnD I risk making it so that there is a probability that I will never complete the game.
 
