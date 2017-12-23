@@ -6,7 +6,7 @@
 package game;
 
 /**
- *
+ * 
  * @author Magnus
  */
 public class Game {
@@ -16,6 +16,11 @@ public class Game {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        /**
+         * Curently there is test stuff here.
+         * NetBeans gives me a warning if stuff don't work when I do changes <3
+         */
         Story warning = new Story();
         System.out.println(warning.getWarning());
         
@@ -39,7 +44,9 @@ public class Game {
         
         System.out.println(me.rollInitiative());
         
+        Race human = new Human();
         
+        System.out.println(human);
     }
     
 }
