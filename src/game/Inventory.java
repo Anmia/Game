@@ -10,15 +10,15 @@ package game;
  * @author Magnus
  */
 public class Inventory {
-    private Equipment equipment;
-    private Backpack backpack;
+    protected Equipment equipment;
+    protected Backpack backpack;
     
     public Inventory (Equipment equipment, Backpack backpack) {
         this.equipment = equipment;
         this.backpack = backpack;
     }
     
-    public void unequipt() {
-        
+    public Equipment getEquipment() {
+        return equipment;
     }
 }

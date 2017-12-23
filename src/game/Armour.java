@@ -17,6 +17,7 @@ public class Armour extends Item {
         this.armourClass = armourClass;
     }
     
-    
-
+    public int getAC() {
+        return armourClass;
+    }
 }

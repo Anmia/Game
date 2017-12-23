@@ -10,21 +10,22 @@ package game;
  * @author Magnus
  */
 public class Equipment{
-    private Armour armour;
-    private Necklace necklace;
-    private Ring ringRight;
-    private Ring ringLeft;
-    private Weapon weaponRight;
-    private Weapon weaponLeft;
+    protected Armour armour;
+    protected Necklace necklace;
+    protected Ring ringRight;
+    protected Ring ringLeft;
+    protected Weapon weapon;
+    protected boolean shield;
+    
     
     public Equipment(Armour armour, Necklace necklace, Ring ringRight, 
-            Ring ringLeft, Weapon weaponRight, Weapon weaponLeft) {
+            Ring ringLeft, Weapon weapon, boolean shield) {
         this.armour = armour;
         this.necklace = necklace;
         this.ringRight = ringRight;
         this.ringLeft = ringLeft;
-        this.weaponRight = weaponRight;
-        this.weaponLeft = weaponLeft;
+        this.weapon = weapon;
+        this.shield = shield;
     }
     
     /**
@@ -66,22 +67,14 @@ public class Equipment{
     }
     
     public void equipWeaponRight(Weapon weapon) {
-        this.weaponRight = weapon;
+        this.weapon = weapon;
     }
     
     public void unequipWeaponRight() {
-        this.weaponRight = null;
+        this.weapon = null;
     }
     
-    public void equipWeaponLeft(Weapon weapon) {
-        this.weaponLeft = weapon;
-    }
-    
-    public void unequipWeaponLeft() {
-        this.weaponLeft = null;
-    }
-    
-    public Weapon getWeaponRight() {
-        return weaponRight;
+    public Weapon getWeapon() {
+        return weapon;
     }
 }

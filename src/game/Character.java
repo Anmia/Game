@@ -9,6 +9,8 @@ package game;
  *
  * @author Magnus
  */
+
+
 public class Character {
     protected String name;
     protected Race race;
@@ -18,6 +20,17 @@ public class Character {
     private int level;
     private byte alignment;
     
+    
+    /**
+     * 
+     * @param name String
+     * @param race (see race)
+     * @param inventory (see inventory) (needs work)
+     * @param atributes (see atributes)
+     * @param healthPoints
+     * @param level
+     * @param alignment 
+     */
     
     public Character (String name, Race race, Inventory inventory, 
             Atributes atributes, int healthPoints, int level, byte alignment) {
@@ -76,18 +89,31 @@ public class Character {
         }
     }
     
-    public int rollAttack(Weapon weapon) {
+    public int rollAttack(Character enemy) {
+        int enemyAC;
+        enemyAC = enemy.inventory.equipment.armour.getAC();
+        
         Dice dice = new Dice();
+        Weapon weapon = inventory.equipment.getWeapon();
         
-        int[] roll = weapon.getDamageDice();
-        
-        int damage = dice.rollDice(roll[0], roll[1]) + 
+        int attackRoll = dice.rollDice(20, 1) + 
                 atributes.getModifier(weapon.getModifierAtribute());
         
-        if (damage < 0) {
-            return 0;
+        System.out.println(attackRoll);
+        
+        if (enemyAC <= attackRoll) {
+            int[] wD = weapon.getDamageDice();
+
+            int damage = dice.rollDice(wD[0], wD[1]) + 
+                    atributes.getModifier(weapon.getModifierAtribute());
+
+            if (damage < 0) {
+                return 0;
+            } else {
+                return damage;
+            }
         } else {
-            return damage;
-        }
+            return 0;
+        }  
     }
 }
