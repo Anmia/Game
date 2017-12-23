@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Race_HalfOrc extends Race{
-    private final static int raceID = 06;
+    private final static int raceID = 106;
     private final static String raceName = "Half Orc";
     private final static int speed = 30;
     private final static char size = 'm';
