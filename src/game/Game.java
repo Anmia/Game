@@ -29,9 +29,9 @@ public class Game {
         
         Weapon sword = new Sword((long)5000, "Sword", 1, 0, 8, true, tab, 0);
         Atributes atri = new Atributes(atr);
-        Armour armour = new Armour((long)1000, "Chainmail", 1, 0, 13, 16);
+        Armour armour = new Armour_Plate();
         
-        Equipment equip = new Equipment(armour, null, null, null, sword, true);
+        Equipment equip = new Equipment(armour, null, null, null, sword, false);
         
         Inventory inv = new Inventory(equip, null);
         

@@ -9,15 +9,36 @@ package game;
  *
  * @author Magnus
  */
-public class Armour extends Item {
+public abstract class Armour extends Item {
     private int armourClass;
+    private int armourType;
+    private boolean dexMod;
+    private boolean stealthCheck;
     
-    public Armour(long itemID, String name, int amount, int reqAtribute, int reqLevel, int armourClass) {
+    public Armour(long itemID, String name, int amount, int reqAtribute, 
+            int reqLevel, int armourClass, int armourType, boolean dexMod, 
+            boolean stealthCheck) {
+        
         super(itemID, name, amount, reqAtribute, reqLevel);
         this.armourClass = armourClass;
+        this.armourType = armourType;
+        this.dexMod = dexMod;
+        this.stealthCheck = stealthCheck;
     }
     
     public int getAC() {
         return armourClass;
+    }
+    
+    public int getArmourType() {
+        return armourType;
+    }
+    
+    public boolean getDexMod() {
+        return dexMod;
+    }
+    
+    public boolean getStealthCheck() {
+        return stealthCheck;
     }
 }

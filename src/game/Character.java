@@ -126,19 +126,24 @@ public abstract class Character {
     
     public int rollAttack(Character enemy) {
         int enemyAC;
-        enemyAC = enemy.inventory.equipment.armour.getAC();
+        
+        if (enemy.inventory.equipment.getShield()) {
+            enemyAC = enemy.inventory.equipment.armour.getAC() + 2;
+        } else {
+            enemyAC = enemy.inventory.equipment.armour.getAC();
+        }
         
         Dice dice = new Dice();
-        Weapon weapon = inventory.equipment.getWeapon();
-        
+                
         int attackRoll = dice.rollDice(20, 1) + 
-                atributes.getModifier(weapon.getModifierAtribute() + 2);
+                atributes.getModifier(inventory.equipment.
+                        weapon.getModifierAtribute() + 2);
         
         if (enemyAC <= attackRoll) {
-            int[] wD = weapon.getDamageDice();
+            int[] wD = inventory.equipment.weapon.getDamageDice();
 
             int damage = dice.rollDice(wD[0], wD[1]) + 
-                    atributes.getModifier(weapon.getModifierAtribute());
+                    atributes.getModifier(inventory.equipment.weapon.getModifierAtribute());
 
             if (damage < 0) {
                 return 0;
