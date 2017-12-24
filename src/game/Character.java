@@ -20,6 +20,7 @@ public abstract class Character {
     private int healthPoints;
     private int level;
     private int alignment;
+    private int charArmourClass;
     
     
     /**
@@ -166,6 +167,29 @@ public abstract class Character {
     public void levelUp() {
         Dice dice = new Dice();
         healthPoints = healthPoints + dice.rollDice(proffesion.getHitDice(), 1);
+    }
+    
+    public void setCharArmourClass() {
+        
+        if (inventory.equipment.armour.getDexMod()) {
+            
+            if (inventory.equipment.armour.getArmourType() == 2) {
+                
+                if (atributes.getModifier(1) > 2) {
+                    charArmourClass = inventory.equipment.armour.getAC() + 2;
+                } else {
+                    charArmourClass = inventory.equipment.armour.getAC() + 
+                            atributes.getModifier(1);
+                }
+                
+            } else {
+                charArmourClass = inventory.equipment.armour.getAC() + 
+                        atributes.getModifier(1);
+            }
+            
+        } else {
+            charArmourClass = inventory.equipment.armour.getAC();
+        }
     }
     
 }
