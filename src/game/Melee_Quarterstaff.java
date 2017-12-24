@@ -7,19 +7,19 @@ package game;
 
 /**
  *
- * @author Magnus
+ * @author nerdi
  */
-public class Melee_Club extends Melee {
-    private final static long itemID = 10001;
-    private final static String name = "Club";
+public class Melee_Quarterstaff extends Melee {
+    private final static long itemID = 10007;
+    private final static String name = "Mace";
     private final static int amount = 1;
     
-    private final static boolean twoHanded = false;
-    private final static int damageDice = 4;
+    private final static boolean twoHanded = true;
+    private final static int damageDice = 8;
     
     private final static boolean reach = false;
 
-    public Melee_Club() {
+    public Melee_Quarterstaff() {
         super(itemID, name, amount, twoHanded, 
                 damageDice, reach);
     }

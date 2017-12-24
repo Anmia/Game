@@ -10,21 +10,21 @@ package game;
  * @author Magnus
  */
 public abstract class Weapon extends Item {
-    private boolean withShield;
+    private boolean twoHanded;
     private int damageDice;
     private int modifierAtribute;
     
     public Weapon(long itemID, String name, int amount, int reqAtribute, 
-            int reqLevel, boolean withShield, 
+            int reqLevel, boolean twoHanded, 
             int damageDice, int modifierAtribute) {
         super(itemID, name, amount, reqAtribute, reqLevel);
-        this.withShield = withShield;
+        this.twoHanded = twoHanded;
         this.damageDice = damageDice;
         this.modifierAtribute = modifierAtribute;
     }
     
-    public boolean getWithShield() {
-        return withShield;
+    public boolean getTwoHanded() {
+        return twoHanded;
     }
     
     public int getModifierAtribute() {

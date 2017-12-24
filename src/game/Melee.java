@@ -11,11 +11,14 @@ package game;
  */
 public abstract class Melee extends Weapon {
     private boolean reach;
+    private final static int modifierAtribute = 0;
+    private final static int reqAtribute = 0; 
+    private final static int reqLevel = 0;
 
-    public Melee(long itemID, String name, int amount, int reqAtribute, 
-            int reqLevel, boolean withShield, int damageDice, 
-            int modifierAtribute) {
-        super(itemID, name, amount, reqAtribute, reqLevel, withShield, damageDice, modifierAtribute);
+    public Melee(long itemID, String name, int amount, boolean twoHanded, int damageDice, boolean reach) {
+        super(itemID, name, amount, reqAtribute, reqLevel, twoHanded, 
+                damageDice, modifierAtribute);
+        this.reach = reach;
     }
     
     public boolean getReach() {

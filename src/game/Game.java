@@ -24,7 +24,6 @@ public class Game {
         Story warning = new Story();
         System.out.println(warning.getWarning());
         
-        int[] tab = {8, 1};
         int[] atr = {18, 14, 16, 12, 9, 8};
         
         Weapon sword = new Melee_Club();
