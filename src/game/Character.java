@@ -141,9 +141,9 @@ public abstract class Character {
                         weapon.getModifierAtribute() + 2);
         
         if (enemyAC <= attackRoll) {
-            int[] wD = inventory.equipment.weapon.getDamageDice();
+            int wD = inventory.equipment.weapon.getDamageDice();
 
-            int damage = dice.rollDice(wD[0], wD[1]) + 
+            int damage = dice.rollDice(wD, 1) + 
                     atributes.getModifier(inventory.equipment.weapon.getModifierAtribute());
 
             if (damage < 0) {

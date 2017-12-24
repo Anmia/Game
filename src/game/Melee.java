@@ -10,9 +10,16 @@ package game;
  * @author Magnus
  */
 public abstract class Melee extends Weapon {
+    private boolean reach;
 
-    public Melee(long itemID, String name, int amount, int reqAtribute, int reqLevel, boolean withShield, int[] damageDice, int modifierAtribute) {
+    public Melee(long itemID, String name, int amount, int reqAtribute, 
+            int reqLevel, boolean withShield, int damageDice, 
+            int modifierAtribute) {
         super(itemID, name, amount, reqAtribute, reqLevel, withShield, damageDice, modifierAtribute);
+    }
+    
+    public boolean getReach() {
+        return reach;
     }
 
 }

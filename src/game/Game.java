@@ -27,7 +27,7 @@ public class Game {
         int[] tab = {8, 1};
         int[] atr = {18, 14, 16, 12, 9, 8};
         
-        Weapon sword = new Sword((long)5000, "Sword", 1, 0, 8, true, tab, 0);
+        Weapon sword = new Melee_Club();
         Atributes atri = new Atributes(atr);
         Armour armour = new Armour_Plate();
         

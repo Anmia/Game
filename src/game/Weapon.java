@@ -11,11 +11,12 @@ package game;
  */
 public abstract class Weapon extends Item {
     private boolean withShield;
-    private int[] damageDice = new int[2];
+    private int damageDice;
     private int modifierAtribute;
     
-    public Weapon(long itemID, String name, int amount, int reqAtribute, int reqLevel, boolean withShield, 
-            int[] damageDice, int modifierAtribute) {
+    public Weapon(long itemID, String name, int amount, int reqAtribute, 
+            int reqLevel, boolean withShield, 
+            int damageDice, int modifierAtribute) {
         super(itemID, name, amount, reqAtribute, reqLevel);
         this.withShield = withShield;
         this.damageDice = damageDice;
@@ -30,7 +31,7 @@ public abstract class Weapon extends Item {
         return modifierAtribute;
     }
     
-    public int[] getDamageDice() {
+    public int getDamageDice() {
         return damageDice;
     }
 }

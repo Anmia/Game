@@ -11,7 +11,8 @@ package game;
  */
 public abstract class Ranged extends Weapon {
 
-    public Ranged(long itemID, String name, int amount, int reqAtribute, int reqLevel, boolean withShield, int[] damageDice, int modifierAtribute) {
+    public Ranged(long itemID, String name, int amount, int reqAtribute, 
+            int reqLevel, boolean withShield, int damageDice, int modifierAtribute) {
         super(itemID, name, amount, reqAtribute, reqLevel, withShield, damageDice, modifierAtribute);
     }
 
