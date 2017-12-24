@@ -34,8 +34,11 @@ public class Game {
         Equipment equip = new Equipment(armour, null, null, null, sword, true);
         
         Inventory inv = new Inventory(equip, null);
+        
+        Proffesion fighter = new Proffesion_Fighter();
        
-        Character me = new Player("Anmia", null, inv, atri, 22, 1, (byte)22, 0);
+        Character me = new Player("Anmia", null, fighter, 
+                inv, atri, 22, 1, (byte)22, 0);
         
         System.out.println(me.rollAttack(me));
         

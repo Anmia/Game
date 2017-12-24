@@ -12,8 +12,11 @@ package game;
 public class NPC extends Character {
     private int expWorth;
     
-    public NPC(String name, Race race, Inventory inventory, Atributes atributes, int healthPoints, int level, byte alignment, int expWorth) {
-        super(name, race, inventory, atributes, healthPoints, level, alignment);
+    public NPC(String name, Race race, Proffesion proffesion, 
+            Inventory inventory, Atributes atributes, int healthPoints, 
+            int level, byte alignment, int expWorth) {
+        super(name, race, proffesion, inventory, atributes, 
+                healthPoints, level, alignment);
         this.expWorth = expWorth;
     }
     

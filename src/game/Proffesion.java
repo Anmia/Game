@@ -10,14 +10,14 @@ package game;
  * creation and leveling up
  * @author Magnus
  */
-public class C_Class {
+public class Proffesion {
     private int classID;
     private int hitDice;
     private boolean[] savingThrow = new boolean[6];
     private int[] classAbilities;
     
     
-    public C_Class(int classID, int hitDice, boolean[] savingThrow, 
+    public Proffesion(int classID, int hitDice, boolean[] savingThrow, 
             int[] classAbilities) {
         this.classID = classID;
         this.hitDice = hitDice;

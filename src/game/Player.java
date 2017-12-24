@@ -12,8 +12,12 @@ package game;
 public class Player extends Character {
     private int exp;
     
-    public Player(String name, Race race, Inventory inventory, Atributes atributes, int healthPoints, int level, byte alignment, int exp) {
-        super(name, race, inventory, atributes, healthPoints, level, alignment);
+    public Player(String name, Race race, Proffesion proffesion, 
+            Inventory inventory, Atributes atributes, int healthPoints, 
+            int level, byte alignment, int exp) {
+        super(name, race, proffesion, inventory, atributes, 
+                healthPoints, level, alignment);
+        this.exp = exp;
     }
     
 }

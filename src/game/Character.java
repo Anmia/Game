@@ -12,11 +12,12 @@ package game;
 
 
 public class Character {
-    protected String name;
-    protected Race race;
+    private String name;
+    private Race race;
+    private Proffesion proffesion;
     private Inventory inventory;
     private Atributes atributes;
-    private int healtPoints;
+    private int healthPoints;
     private int level;
     private byte alignment;
     
@@ -32,13 +33,14 @@ public class Character {
      * @param alignment 
      */
     
-    public Character (String name, Race race, Inventory inventory, 
+    public Character (String name, Race race, Proffesion proffesion, Inventory inventory, 
             Atributes atributes, int healthPoints, int level, byte alignment) {
         this.name = name;
         this.race = race;
+        this.proffesion = proffesion;
         this.inventory = inventory;
         this.atributes = atributes;
-        this.healtPoints = healthPoints;
+        this.healthPoints = healthPoints;
         this.level = level;
         this.alignment = alignment;
     }
@@ -114,4 +116,18 @@ public class Character {
             return 0;
         }  
     }
+    
+    public void createCharacter() {
+        for (int i = 0; i < atributes.atributesBase.length; i++) {
+            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
+        }
+        
+        healthPoints = proffesion.getHitDice() + atributes.getModifier(2);
+    }
+    
+    public void levelUp() {
+        Dice dice = new Dice();
+        healthPoints = healthPoints + dice.rollDice(proffesion.getHitDice(), 1);
+    }
+    
 }

@@ -9,14 +9,14 @@ package game;
  *
  * @author nerdi
  */
-public class C_Class_Fighter extends C_Class {
+public class Proffesion_Fighter extends Proffesion {
     private static final int classID = 101;
     private static final int hitDice = 10;
     private static final boolean[] savingThrow = {true, 
         false, true, false, false, false};
     private static final int[] classAbilities = {1};
     
-    public C_Class_Fighter() {
+    public Proffesion_Fighter() {
         super(classID, hitDice, savingThrow, classAbilities);
     }
     
