@@ -10,7 +10,7 @@ package game;
  * creation and leveling up
  * @author Magnus
  */
-public class Proffesion {
+public abstract class Proffesion {
     private int classID;
     private int hitDice;
     private boolean[] savingThrow = new boolean[6];

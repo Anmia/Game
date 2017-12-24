@@ -12,7 +12,7 @@ package game;
  * creation and leveling up
  * @author Magnus
  */
-public class Race {
+public abstract class Race {
     private int raceID;
     private String raceName;
     private int speed;
