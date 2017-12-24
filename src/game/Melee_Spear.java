@@ -9,16 +9,16 @@ package game;
  *
  * @author nerdi
  */
-public class Melee_LightHammer extends Melee {
-    private final static long itemID = 11005;
-    private final static String name = "Light Hammer";
+public class Melee_Spear extends Melee {
+    private final static long itemID = 11009;
+    private final static String name = "Spear";
     
     private final static boolean twoHanded = false;
-    private final static int damageDice = 4;
+    private final static int damageDice = 6;
     
     private final static boolean reach = false;
 
-    public Melee_LightHammer() {
+    public Melee_Spear() {
         super(itemID, name, twoHanded, damageDice, reach);
     }
 }

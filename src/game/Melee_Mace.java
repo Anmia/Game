@@ -10,9 +10,8 @@ package game;
  * @author nerdi
  */
 public class Melee_Mace extends Melee {
-    private final static long itemID = 10006;
+    private final static long itemID = 11006;
     private final static String name = "Mace";
-    private final static int amount = 1;
     
     private final static boolean twoHanded = true;
     private final static int damageDice = 6;
@@ -20,7 +19,6 @@ public class Melee_Mace extends Melee {
     private final static boolean reach = false;
 
     public Melee_Mace() {
-        super(itemID, name, amount, twoHanded, 
-                damageDice, reach);
+        super(itemID, name, twoHanded, damageDice, reach);
     }
 }
