@@ -53,7 +53,7 @@ public class Race {
         return darkvision;
     }
     
-    public int[] getRaceModifiers() {
-        return raceModifiers;
+    public int getRaceModifiers(int atribute) {
+        return raceModifiers[atribute];
     }
 }

@@ -67,4 +67,9 @@ public class Atributes {
     public void modifyAtribute(int atribute, int modifier) {
         atributesActual[atribute] = atributesActual[atribute] + modifier;
     }
+    
+    public void setCharacterCreationBase(int atribute, int modifier) {
+        atributesBase[atribute] = atributesBase[atribute] + modifier;
+        atributesActual[atribute] = atributesBase[atribute];
+    }
 }

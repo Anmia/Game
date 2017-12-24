@@ -24,4 +24,20 @@ public class C_Class {
         this.savingThrow = savingThrow;
         this.classAbilities = classAbilities;
     }
+    
+    public int getClassID() {
+        return classID;
+    }
+    
+    public int getHitDice() {
+        return hitDice;
+    }
+    
+    public boolean[] getSavingThrow() {
+        return savingThrow;
+    }
+    
+    public int[] getClassAbilities() {
+        return classAbilities;
+    }
 }
