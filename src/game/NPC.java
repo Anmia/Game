@@ -14,10 +14,14 @@ public class NPC extends Character {
     
     public NPC(String name, Race race, Proffesion proffesion, 
             Inventory inventory, Atributes atributes, int healthPoints, 
-            int level, byte alignment, int expWorth) {
+            int level, int alignment, int expWorth) {
         super(name, race, proffesion, inventory, atributes, 
                 healthPoints, level, alignment);
         this.expWorth = expWorth;
+    }
+    
+    public int getExpWorth() {
+        return expWorth;
     }
     
 }

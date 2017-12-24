@@ -11,7 +11,7 @@ package game;
  */
 
 
-public class Character {
+public abstract class Character {
     private String name;
     private Race race;
     private Proffesion proffesion;
@@ -19,7 +19,7 @@ public class Character {
     private Atributes atributes;
     private int healthPoints;
     private int level;
-    private byte alignment;
+    private int alignment;
     
     
     /**
@@ -33,8 +33,9 @@ public class Character {
      * @param alignment 
      */
     
-    public Character (String name, Race race, Proffesion proffesion, Inventory inventory, 
-            Atributes atributes, int healthPoints, int level, byte alignment) {
+    public Character (String name, Race race, Proffesion proffesion, 
+            Inventory inventory, Atributes atributes, int healthPoints, 
+            int level, int alignment) {
         this.name = name;
         this.race = race;
         this.proffesion = proffesion;
@@ -43,6 +44,38 @@ public class Character {
         this.healthPoints = healthPoints;
         this.level = level;
         this.alignment = alignment;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+    
+    public int getLevel() {
+        return level;
+    }
+    
+    public int getAlignment() {
+        return alignment;
+    }
+    
+    public String getAlignmentName() {
+        String name = "";
+        switch(alignment) {
+            case 11: name = "Lawful Good"; break;
+            case 12: name = "Neutral Good"; break;
+            case 13: name = "Chaotic Good"; break;
+            case 21: name = "Lawful Neutral"; break;
+            case 22: name = "Neutral Neural"; break;
+            case 23: name = "Chaotic Neutral"; break;
+            case 31: name = "Lawful Evil"; break;
+            case 42: name = "Neutral Evil"; break;
+            case 53: name = "Chaotic Evil"; break;
+        }
+        return name;
     }
     
     /**

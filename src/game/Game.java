@@ -38,7 +38,7 @@ public class Game {
         Proffesion fighter = new Proffesion_Fighter();
        
         Character me = new Player("Anmia", null, fighter, 
-                inv, atri, 22, 1, (byte)22, 0);
+                inv, atri, 22, 1, 22, 0);
         
         System.out.println(me.rollAttack(me));
         
