@@ -16,8 +16,10 @@ public class Race_Dragonborn extends Race{
     private final static char size = 'm';
     private final static boolean darkvision = false;
     private final static int[] raceModifiers = {2, 0, 0, 0, 0, 1};
+    private static final int[] raceAbilities = {1};
 
     public Race_Dragonborn() {
-        super(raceID, raceName, speed, size, darkvision, raceModifiers);
+        super(raceID, raceName, speed, size, darkvision, 
+                raceModifiers, raceAbilities);
         }
 }

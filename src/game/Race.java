@@ -19,15 +19,18 @@ public class Race {
     private char size;
     private boolean darkvision;
     private int[] raceModifiers = new int[6];
+    private int[] raceAbilities;
     
     public Race(int raceID, String raceName, int speed, 
-            char size, boolean darkvision, int[] raceModifiers) {
+            char size, boolean darkvision, int[] raceModifiers,
+            int[] raceAbilities) {
         this.raceID = raceID;
         this.raceName = raceName;
         this.speed = speed;
         this.size = size;
         this.darkvision = darkvision;
         this.raceModifiers = raceModifiers;
+        this.raceAbilities = raceAbilities;
     }
     
     public int getRaceID() {

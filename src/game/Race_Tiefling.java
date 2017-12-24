@@ -16,8 +16,10 @@ public class Race_Tiefling extends Race{
     private final static char size = 'm';
     private final static boolean darkvision = true;
     private final static int[] raceModifiers = {0, 0, 0, 0, 1, 2};
+    private static final int[] raceAbilities = {1};
 
     public Race_Tiefling() {
-        super(raceID, raceName, speed, size, darkvision, raceModifiers);
+        super(raceID, raceName, speed, size, darkvision, raceModifiers, 
+                raceAbilities);
     }
 }

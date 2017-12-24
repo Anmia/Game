@@ -16,8 +16,10 @@ public class Race_Human extends Race{
     private final static char size = 'm';
     private final static boolean darkvision = false;
     private final static int[] raceModifiers = {1, 1, 1, 1, 1, 1};
+    private static final int[] raceAbilities = {1};
 
     public Race_Human() {
-        super(raceID, raceName, speed, size, darkvision, raceModifiers);
+        super(raceID, raceName, speed, size, darkvision, raceModifiers,
+                 raceAbilities);
     }
 }

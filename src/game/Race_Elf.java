@@ -16,8 +16,10 @@ public class Race_Elf extends Race{
     private final static char size = 'm';
     private final static boolean darkvision = false;
     private final static int[] raceModifiers = {0, 2, 0, 1, 0, 0};
+    private static final int[] raceAbilities = {1};
 
     public Race_Elf() {
-        super(raceID, raceName, speed, size, darkvision, raceModifiers);
+        super(raceID, raceName, speed, size, darkvision, raceModifiers, 
+                raceAbilities);
     }
 }
