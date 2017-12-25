@@ -22,5 +22,8 @@ public abstract class Ranged extends Weapon {
                 damageDice, modifierAtribute);
         this.range = range;
     }
-
+    
+    public int[] getRange() {
+        return range;
+    }
 }
