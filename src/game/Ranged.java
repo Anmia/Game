@@ -12,13 +12,13 @@ package game;
 public abstract class Ranged extends Weapon {
     private int[] range = new int[2];
     
-    private final static int reqAtribute = 0;
+    private final static int reqAtribute = 1;
     private final static int reqLevel = 0;
     private final static int modifierAtribute = 1;
 
-    public Ranged(long itemID, String name, boolean withShield, 
+    public Ranged(long itemID, String name, boolean towHanded, 
             int damageDice, int[] range) {
-        super(itemID, name, reqAtribute, reqLevel, withShield, 
+        super(itemID, name, reqAtribute, reqLevel, towHanded, 
                 damageDice, modifierAtribute);
         this.range = range;
     }

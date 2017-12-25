@@ -9,15 +9,15 @@ package game;
  *
  * @author nerdi
  */
-public class Ranged_LightCrossbow extends Ranged{
-    private static final long itemID = 12001;
-    private static final String name = "Light Crossbow";
+public class Ranged_Shortbow extends Ranged{
+    private static final long itemID = 12003;
+    private static final String name = "Shortbow";
     
     private static final boolean towHanded = true;
-    private static final int damageDice = 8;
+    private static final int damageDice = 6;
     private static final int[] range = {80, 320};
     
-    public Ranged_LightCrossbow() {
+    public Ranged_Shortbow () {
         super(itemID, name, towHanded, damageDice, range);
     }
 }
