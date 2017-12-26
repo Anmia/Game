@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_Padded extends Armour{
-    private final static long itemID = 20013;
+    private final static int itemID = 20013;
     private final static String name = "Padded Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;

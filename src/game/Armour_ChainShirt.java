@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_ChainShirt extends Armour{
-    private final static long itemID = 20024;
+    private final static int itemID = 20024;
     private final static String name = "Chain Shirt Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;

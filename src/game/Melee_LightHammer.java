@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Melee_LightHammer extends Melee {
-    private final static long itemID = 11005;
+    private final static int itemID = 11005;
     private final static String name = "Light Hammer";
     
     private final static boolean twoHanded = false;

@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_Hide extends Armour{
-    private final static long itemID = 20025;
+    private final static int itemID = 20025;
     private final static String name = "Hide Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;

@@ -11,19 +11,23 @@ package game;
  * @author Magnus
  */
 public abstract class Item {
-    protected long itemID;
+    protected int itemID;
     private String name;
     private int amount;
     private int reqAtribute;
     private int reqLevel;
     
-    public Item(long itemID, String name, int amount, 
+    public Item(int itemID, String name, int amount, 
             int reqAtribute, int reqLevel) {
         this.itemID = itemID;
         this.name = name;
         this.amount = amount;
         this.reqAtribute = reqAtribute;
         this.reqLevel = reqLevel;
+    }
+    
+    public int getItemID() {
+        return itemID;
     }
     
     public int getAmount() {

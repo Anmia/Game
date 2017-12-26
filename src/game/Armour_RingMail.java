@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_RingMail extends Armour{
-    private final static long itemID = 20034;
+    private final static int itemID = 20034;
     private final static String name = "Ring Mail Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;

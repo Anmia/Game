@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Melee_Dagger extends Melee {
-    private final static long itemID = 11002;
+    private final static int itemID = 11002;
     private final static String name = "Dagger";
     
     private final static boolean twoHanded = false;

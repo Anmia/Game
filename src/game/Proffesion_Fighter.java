@@ -15,9 +15,14 @@ public class Proffesion_Fighter extends Proffesion {
     private static final boolean[] savingThrow = {true, 
         false, true, false, false, false};
     private static final int[] classAbilities = {1};
+    private static final int[] proficiencies = {0};
     
     public Proffesion_Fighter() {
-        super(classID, hitDice, savingThrow, classAbilities);
+        super(classID, hitDice, savingThrow, classAbilities, proficiencies);
     }
     
+    @Override
+    public boolean checkProficiency(int what) {
+        return true;
+    }
 }

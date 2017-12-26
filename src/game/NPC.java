@@ -24,4 +24,8 @@ public class NPC extends Character {
         return expWorth;
     }
     
+    public boolean getProficiency() {
+        return true;
+    }
+    
 }

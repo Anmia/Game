@@ -11,7 +11,7 @@ package game;
  */
 public class Ring extends Accesory {    
 
-    public Ring(long itemID, String name, int amount, int reqAtribute, int reqLevel) {
+    public Ring(int itemID, String name, int amount, int reqAtribute, int reqLevel) {
         super(itemID, name, amount, reqAtribute, reqLevel);
     }
 

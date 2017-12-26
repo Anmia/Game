@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_Breastplate extends Armour{
-    private final static long itemID = 20022;
+    private final static int itemID = 20022;
     private final static String name = "Breastplate Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;

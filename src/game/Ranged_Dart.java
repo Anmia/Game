@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Ranged_Dart extends Ranged{
-    private static final long itemID = 12002;
+    private static final int itemID = 12002;
     private static final String name = "Dart";
     
     private static final boolean towHanded = false;

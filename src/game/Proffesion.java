@@ -15,14 +15,16 @@ public abstract class Proffesion {
     private int hitDice;
     private boolean[] savingThrow = new boolean[6];
     private int[] classAbilities;
+    private int[] proficiencies;
     
     
     public Proffesion(int classID, int hitDice, boolean[] savingThrow, 
-            int[] classAbilities) {
+            int[] classAbilities, int[] proficiencies) {
         this.classID = classID;
         this.hitDice = hitDice;
         this.savingThrow = savingThrow;
         this.classAbilities = classAbilities;
+        this.proficiencies = proficiencies;
     }
     
     public int getClassID() {
@@ -39,5 +41,19 @@ public abstract class Proffesion {
     
     public int[] getClassAbilities() {
         return classAbilities;
+    }
+    
+    public int[] getProficiencies() {
+        return proficiencies;
+    }
+    
+    public boolean checkProficiency(int what) {
+        boolean proficient = false;
+        for (int i = 0; i < proficiencies.length; i++) {
+            if (what == proficiencies[i]) {
+                proficient = true;
+            }
+        }
+        return proficient;
     }
 }

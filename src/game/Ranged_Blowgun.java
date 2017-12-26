@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Ranged_Blowgun extends Ranged{
-    private static final long itemID = 12005;
+    private static final int itemID = 12005;
     private static final String name = "Blowgun";
     
     private static final boolean towHanded = false;

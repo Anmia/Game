@@ -11,7 +11,7 @@ package game;
  */
 public class Necklace extends Accesory {
  
-    public Necklace(long itemID, String name, int amount, int reqAtribute, int reqLevel) {
+    public Necklace(int itemID, String name, int amount, int reqAtribute, int reqLevel) {
         super(itemID, name, amount, reqAtribute, reqLevel);
     }
  

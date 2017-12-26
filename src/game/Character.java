@@ -135,10 +135,19 @@ public abstract class Character {
         }
         
         Dice dice = new Dice();
-                
-        int attackRoll = dice.rollDice(20, 1) + 
+        int attackRoll;
+        
+        if (proffesion.checkProficiency(inventory.equipment.weapon.getItemID())) {
+            attackRoll = dice.rollDice(20, 1) + 
                 atributes.getModifier(inventory.equipment.
                         weapon.getModifierAtribute() + 2);
+        } else {
+            attackRoll = dice.rollDice(20, 1) + 
+                atributes.getModifier(inventory.equipment.
+                        weapon.getModifierAtribute());
+        }
+        
+        
         
         if (enemyAC <= attackRoll) {
             int wD = inventory.equipment.weapon.getDamageDice();

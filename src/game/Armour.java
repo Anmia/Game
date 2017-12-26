@@ -15,7 +15,7 @@ public abstract class Armour extends Item {
     private boolean dexMod;
     private boolean stealthCheck;
     
-    public Armour(long itemID, String name, int amount, int reqAtribute, 
+    public Armour(int itemID, String name, int amount, int reqAtribute, 
             int reqLevel, int armourClass, int armourType, boolean dexMod, 
             boolean stealthCheck) {
         

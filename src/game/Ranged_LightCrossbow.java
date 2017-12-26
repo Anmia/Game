@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Ranged_LightCrossbow extends Ranged{
-    private static final long itemID = 12001;
+    private static final int itemID = 12001;
     private static final String name = "Light Crossbow";
     
     private static final boolean towHanded = true;

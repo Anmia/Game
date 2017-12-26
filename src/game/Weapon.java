@@ -16,7 +16,7 @@ public abstract class Weapon extends Item {
     
     private final static int amount = 1;
     
-    public Weapon(long itemID, String name, int reqAtribute, 
+    public Weapon(int itemID, String name, int reqAtribute, 
             int reqLevel, boolean twoHanded, 
             int damageDice, int modifierAtribute) {
         super(itemID, name, amount, reqAtribute, reqLevel);

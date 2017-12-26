@@ -10,7 +10,7 @@ package game;
  * @author Magnus
  */
 public class Melee_Club extends Melee {
-    private final static long itemID = 11001;
+    private final static int itemID = 11001;
     private final static String name = "Club";
     
     private final static boolean twoHanded = false;

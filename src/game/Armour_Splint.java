@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_Splint extends Armour{
-    private final static long itemID = 20032;
+    private final static int itemID = 20032;
     private final static String name = "Splint Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;

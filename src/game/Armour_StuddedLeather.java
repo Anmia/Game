@@ -10,7 +10,7 @@ package game;
  * @author nerdi
  */
 public class Armour_StuddedLeather extends Armour{
-    private final static long itemID = 20011;
+    private final static int itemID = 20011;
     private final static String name = "Studded Leather Armour";
     private final static int amount = 1;
     private final static int reqAtribute = 0;
