@@ -7,19 +7,19 @@ package game;
 
 /**
  *
- * @author nerdi
+ * @author Magnus
  */
-public class Melee_Sickle extends Melee {
-    private final static int itemID = 11008;
-    private final static String name = "Sickle";
+public class Melee_Battleaxe extends Melee {
+    private final static int itemID = 11030;
+    private final static String name = "Battleaxe";
     
     private final static boolean twoHanded = false;
-    private final static int damageDice = 4;
+    private final static int damageDice = 8;
     
     private final static boolean reach = false;
     private static final char damageType = 's';
 
-    public Melee_Sickle() {
+    public Melee_Battleaxe() {
         super(itemID, name, twoHanded, damageDice, reach, damageType);
     }
 }

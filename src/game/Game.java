@@ -46,6 +46,12 @@ public class Game {
         System.out.println(me.rollInitiative());
         
         Race dwarf = new Race_Dwarf();
+        
+       Weapon jav = new Ranged_Javelin();
+       
+       
+       
+       System.out.println(jav.getModifierAtribute());
     }
     
 }

@@ -13,11 +13,12 @@ public class Ranged_LightCrossbow extends Ranged{
     private static final int itemID = 12001;
     private static final String name = "Light Crossbow";
     
-    private static final boolean towHanded = true;
+    private static final boolean twoHanded = true;
     private static final int damageDice = 8;
     private static final int[] range = {80, 320};
+    private static final char damageType = 'p';
     
     public Ranged_LightCrossbow() {
-        super(itemID, name, towHanded, damageDice, range);
+        super(itemID, name, twoHanded, damageDice, range, damageType);
     }
 }

@@ -17,8 +17,9 @@ public class Melee_Club extends Melee {
     private final static int damageDice = 4;
     
     private final static boolean reach = false;
+    private static final char damageType = 'b';
 
     public Melee_Club() {
-        super(itemID, name, twoHanded, damageDice, reach);
+        super(itemID, name, twoHanded, damageDice, reach, damageType);
     }
 }

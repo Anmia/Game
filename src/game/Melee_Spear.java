@@ -17,8 +17,9 @@ public class Melee_Spear extends Melee {
     private final static int damageDice = 6;
     
     private final static boolean reach = false;
+    private static final char damageType = 'p';
 
     public Melee_Spear() {
-        super(itemID, name, twoHanded, damageDice, reach);
+        super(itemID, name, twoHanded, damageDice, reach, damageType);
     }
 }

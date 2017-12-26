@@ -15,9 +15,10 @@ public abstract class Melee extends Weapon {
     private final static int reqAtribute = 0; 
     private final static int reqLevel = 0;
 
-    public Melee(int itemID, String name, boolean twoHanded, int damageDice, boolean reach) {
+    public Melee(int itemID, String name, boolean twoHanded, int damageDice, 
+            boolean reach, char damageType) {
         super(itemID, name, reqAtribute, reqLevel, twoHanded, 
-                damageDice, modifierAtribute);
+                damageDice, modifierAtribute, damageType);
         this.reach = reach;
     }
     

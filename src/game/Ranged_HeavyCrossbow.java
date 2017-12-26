@@ -16,8 +16,9 @@ public class Ranged_HeavyCrossbow extends Ranged{
     private static final boolean towHanded = true;
     private static final int damageDice = 10;
     private static final int[] range = {100, 400};
+    private static final char damageType = 'p';
     
     public Ranged_HeavyCrossbow() {
-        super(itemID, name, towHanded, damageDice, range);
+        super(itemID, name, towHanded, damageDice, range, damageType);
     }
 }
