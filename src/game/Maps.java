@@ -13,16 +13,18 @@ package game;
 public class Maps {
     private int[][][] map;
     
-    private char[][][] mapTwo = {{{'@'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'¤'}, {'¤'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'¤'}, {'¤'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
-        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}};
+    private char[][][] mapTwo = {{{'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}}, 
+        {{'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}, {'¤'}}};
     
     private boolean endMovement = false;
     
@@ -37,7 +39,7 @@ public class Maps {
 //        this.map = map;
 //    }
     
-    private int[] characterLocations;
+    private int[][] characterLocations;
     
     private int xMap;
     private int yMap;
@@ -63,8 +65,9 @@ public class Maps {
         if (direction == 'w') {
             if (!(yMap > 0)) {
                 System.out.println("Cannot go north from " + xMap + "-" + yMap);
-            } else if (mapTwo[yMap - 1][xMap][0] == '¤'){
-                System.out.println("Cannot go north from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            } else if (mapTwo[yMap - 1][xMap][0] == '¤' || mapTwo[yMap - 1][xMap][0] == '*'){
+                System.out.println("Cannot go north from " + xMap + "-" + yMap + 
+                        " beacuse an obastacle is in the way.");
             } else {
                 mapTwo[yMap][xMap][0] = '+';
                 mapTwo[yMap - 1][xMap][0] = '@';
@@ -73,8 +76,9 @@ public class Maps {
             locateChar();
             if (xMap == mapTwo[xMap].length - 1) {
                 System.out.println("Cannot go east from " + xMap + "-" + yMap);
-            } else if (mapTwo[yMap][xMap + 1][0] == '¤'){
-                System.out.println("Cannot go east from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            } else if (mapTwo[yMap][xMap + 1][0] == '¤' || mapTwo[yMap][xMap + 1][0] == '*'){
+                System.out.println("Cannot go east from " + xMap + "-" + yMap + 
+                        " beacuse an obastacle is in the way.");
             }  else {
                 mapTwo[yMap][xMap][0] = '+';
                 mapTwo[yMap][xMap + 1][0] = '@';
@@ -83,8 +87,9 @@ public class Maps {
             locateChar();
             if (yMap == mapTwo.length - 1) {
                 System.out.println("Cannot go south from " + xMap + "-" + yMap);
-            } else if (mapTwo[yMap + 1][xMap][0] == '¤'){
-                System.out.println("Cannot go south from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            } else if (mapTwo[yMap + 1][xMap][0] == '¤' || mapTwo[yMap + 1][xMap][0] == '*'){
+                System.out.println("Cannot go south from " + xMap + "-" + yMap + 
+                        " beacuse an obastacle is in the way.");
             }  else {
                 mapTwo[yMap][xMap][0] = '+';
                 mapTwo[yMap + 1][xMap][0] = '@';
@@ -93,8 +98,9 @@ public class Maps {
             locateChar();
             if (!(xMap > 0)) {
                 System.out.println("Cannot fo west from " + xMap + "-" + yMap);
-            } else if (mapTwo[yMap][xMap - 1][0] == '¤'){
-                System.out.println("Cannot go west from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            } else if (mapTwo[yMap][xMap - 1][0] == '¤' || mapTwo[yMap][xMap - 1][0] == '*'){
+                System.out.println("Cannot go west from " + xMap + "-" + yMap + 
+                        " beacuse an obastacle is in the way.");
             }  else {
                 mapTwo[yMap][xMap][0] = '+';
                 mapTwo[yMap][xMap - 1][0] = '@';
