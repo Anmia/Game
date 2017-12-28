@@ -39,7 +39,8 @@ public class Game {
         Character me = new Player("Anmia", dwarf, fighter, 
                 inv, atri, 22, 1, 22, 0);
         
-        
+        Character enemy = new Player("Anmia", dwarf, fighter, 
+                inv, atri, 22, 1, 22, 0);
         
         Weapon jav = new Ranged_Javelin();
         
@@ -49,15 +50,15 @@ public class Game {
         
         System.out.println(com.performAttack(me, me));
         
-//        while (!map.getEndMovement()) {
-//            map.printMap();
-//            System.out.print("Insert direction  using WASD: ");
-//            java.util.Scanner sc = new java.util.Scanner(System.in);
-//            char direction = sc.next().charAt(0);
-//            map.movePlayer(direction);
-//            
-//            int test = 0;
-//        }
+        while (!map.getEndMovement()) {
+            map.printMap();
+            System.out.print("Insert direction  using WASD: ");
+            java.util.Scanner sc = new java.util.Scanner(System.in);
+            char direction = sc.next().charAt(0);
+            map.movePlayer(direction, 1);
+            
+            int test = 0;
+        }
         
         
     }
