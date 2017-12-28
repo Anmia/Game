@@ -18,8 +18,9 @@ public class Melee_Glaive extends Melee {
     
     private final static boolean reach = true;
     private static final char damageType = 's';
+    private static final boolean heavy = true;
 
     public Melee_Glaive() {
-        super(itemID, name, twoHanded, damageDice, reach, damageType);
+        super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
     }
 }

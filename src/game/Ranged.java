@@ -17,9 +17,9 @@ public abstract class Ranged extends Weapon {
     private final static int modifierAtribute = 1;
 
     public Ranged(int itemID, String name, boolean towHanded, 
-            int damageDice, int[] range, char damageType) {
+            int damageDice, int[] range, char damageType, boolean heavy) {
         super(itemID, name, reqAtribute, reqLevel, towHanded, 
-                damageDice, modifierAtribute, damageType);
+                damageDice, modifierAtribute, damageType, heavy);
         this.range = range;
     }
     

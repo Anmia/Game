@@ -18,8 +18,9 @@ public class Melee_Pike extends Melee {
     
     private final static boolean reach = true;
     private static final char damageType = 'p';
+    private static final boolean heavy = true;
 
     public Melee_Pike() {
-        super(itemID, name, twoHanded, damageDice, reach, damageType);
+        super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
     }
 }

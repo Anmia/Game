@@ -18,8 +18,9 @@ public class Melee_Quarterstaff extends Melee {
     
     private final static boolean reach = false;
     private static final char damageType = 'b';
+    private static final boolean heavy = false;
 
     public Melee_Quarterstaff() {
-        super(itemID, name, twoHanded, damageDice, reach, damageType);
+        super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
     }
 }

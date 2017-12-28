@@ -13,10 +13,10 @@ package game;
 
 public abstract class Character {
     private String name;
-    private Race race;
+    protected Race race;
     private Proffesion proffesion;
-    private Inventory inventory;
-    private Atributes atributes;
+    protected Inventory inventory;
+    protected Atributes atributes;
     private int healthPoints;
     private int level;
     private int alignment;
@@ -45,6 +45,8 @@ public abstract class Character {
         this.healthPoints = healthPoints;
         this.level = level;
         this.alignment = alignment;
+        
+        setArmourClass();
     }
     
     private void setArmourClass() {
@@ -100,6 +102,10 @@ public abstract class Character {
         return name;
     }
     
+    public int getCharArmourClass() {
+        return charArmourClass;
+    }
+    
     /**
      * For checking if something can be used (item)
      */
@@ -116,81 +122,10 @@ public abstract class Character {
         return dice.rollDice(20, 1) + atributes.getModifier(1);
     }
     
-    public int rollAdvantage(int atribute) {
-        Dice dice = new Dice();
-        
-        int one = dice.rollDice(20, 1);
-        int two = dice.rollDice(20, 1);
-        
-        if (one < two) {
-            return two;
-        } else if (one > two) {
-            return one;
-        } else {
-            return one;
-        }
-    }
-    
-    public int rollDisAdvantage(int atribute) {
-        Dice dice = new Dice();
-        
-        int one = dice.rollDice(20, 1);
-        int two = dice.rollDice(20, 1);
-
-        if (one > two) {
-            return two;
-        } else if (one < two) {
-            return one;
-        } else {
-            return one;
-        }
-    }
-    
-    public int rollAttack(Character enemy) {
-        int enemyAC;
-        
-        if (enemy.inventory.equipment.getShield()) {
-            enemyAC = enemy.inventory.equipment.armour.getAC() + 2;
-        } else {
-            enemyAC = enemy.inventory.equipment.armour.getAC();
-        }
-        
-        Dice dice = new Dice();
-        int attackRoll;
-        
-        if (proffesion.checkProficiency(inventory.equipment.weapon.getItemID())) {
-            attackRoll = dice.rollDice(20, 1) + 
-                atributes.getModifier(inventory.equipment.
-                        weapon.getModifierAtribute() + 2);
-        } else {
-            attackRoll = dice.rollDice(20, 1) + 
-                atributes.getModifier(inventory.equipment.
-                        weapon.getModifierAtribute());
-        }
-        
-        
-        
-        if (enemyAC <= attackRoll) {
-            int wD = inventory.equipment.weapon.getDamageDice();
-
-            int damage = dice.rollDice(wD, 1) + 
-                    atributes.getModifier(inventory.equipment.weapon.getModifierAtribute());
-
-            if (damage < 0) {
-                return 0;
-            } else {
-                return damage;
-            }
-        } else {
-            return 0;
-        }  
-    }
-    
     public void createCharacter() {
         for (int i = 0; i < atributes.atributesBase.length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
         }
-        
         healthPoints = proffesion.getHitDice() + atributes.getModifier(2);
     }
     

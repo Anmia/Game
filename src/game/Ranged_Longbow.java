@@ -17,8 +17,9 @@ public class Ranged_Longbow extends Ranged{
     private static final int damageDice = 8;
     private static final int[] range = {150, 600};
     private static final char damageType = 'p';
+    private static final boolean heavy = true;
     
     public Ranged_Longbow() {
-        super(itemID, name, twoHanded, damageDice, range, damageType);
+        super(itemID, name, twoHanded, damageDice, range, damageType, heavy);
     }
 }

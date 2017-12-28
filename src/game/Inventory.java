@@ -21,4 +21,8 @@ public class Inventory {
     public Equipment getEquipment() {
         return equipment;
     }
+    
+    public Backpack getBackpack() {
+        return backpack;
+    }
 }

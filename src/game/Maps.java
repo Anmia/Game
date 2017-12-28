@@ -13,16 +13,16 @@ package game;
 public class Maps {
     private int[][][] map;
     
-    private int[][][] mapTwo = {{{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {1}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}, 
-        {{0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}, {0}}};
+    private char[][][] mapTwo = {{{'@'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'¤'}, {'¤'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'¤'}, {'¤'}, {'¤'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}, 
+        {{'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}, {'+'}}};
     
     private boolean endMovement = false;
     
@@ -37,6 +37,7 @@ public class Maps {
 //        this.map = map;
 //    }
     
+    private int[] characterLocations;
     
     private int xMap;
     private int yMap;
@@ -59,36 +60,44 @@ public class Maps {
     public void movePlayer(char direction) {
         locateChar();
         
-        if (direction == 'n') {
-            if (yMap > 0) {
-                mapTwo[yMap][xMap][0] = 0;
-                mapTwo[yMap - 1][xMap][0] = 1;
-            } else {
+        if (direction == 'w') {
+            if (!(yMap > 0)) {
                 System.out.println("Cannot go north from " + xMap + "-" + yMap);
-            }
-        } else if (direction == 'e') {
-            locateChar();
-            if (!(xMap == mapTwo[xMap].length - 1)) {
-                mapTwo[yMap][xMap][0] = 0;
-                mapTwo[yMap][xMap + 1][0] = 1;
+            } else if (mapTwo[yMap - 1][xMap][0] == '¤'){
+                System.out.println("Cannot go north from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
             } else {
+                mapTwo[yMap][xMap][0] = '+';
+                mapTwo[yMap - 1][xMap][0] = '@';
+            }
+        } else if (direction == 'd') {
+            locateChar();
+            if (xMap == mapTwo[xMap].length - 1) {
                 System.out.println("Cannot go east from " + xMap + "-" + yMap);
+            } else if (mapTwo[yMap][xMap + 1][0] == '¤'){
+                System.out.println("Cannot go east from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            }  else {
+                mapTwo[yMap][xMap][0] = '+';
+                mapTwo[yMap][xMap + 1][0] = '@';
             }
         } else if (direction == 's') {
             locateChar();
-            if (!(yMap == mapTwo.length - 1)) {
-                mapTwo[yMap][xMap][0] = 0;
-                mapTwo[yMap + 1][xMap][0] = 1;
-            } else {
-                System.out.println("Cannot go north from " + xMap + "-" + yMap);
+            if (yMap == mapTwo.length - 1) {
+                System.out.println("Cannot go south from " + xMap + "-" + yMap);
+            } else if (mapTwo[yMap + 1][xMap][0] == '¤'){
+                System.out.println("Cannot go south from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            }  else {
+                mapTwo[yMap][xMap][0] = '+';
+                mapTwo[yMap + 1][xMap][0] = '@';
             }
-        } else if (direction == 'w') {
+        } else if (direction == 'a') {
             locateChar();
-            if (xMap > 0) {
-                mapTwo[yMap][xMap][0] = 0;
-                mapTwo[yMap][xMap - 1][0] = 1;
-            } else {
+            if (!(xMap > 0)) {
                 System.out.println("Cannot fo west from " + xMap + "-" + yMap);
+            } else if (mapTwo[yMap][xMap - 1][0] == '¤'){
+                System.out.println("Cannot go west from " + xMap + "-" + yMap + " beacuse an obastacle is in the way.");
+            }  else {
+                mapTwo[yMap][xMap][0] = '+';
+                mapTwo[yMap][xMap - 1][0] = '@';
             }
         } else if (direction == 'c') {
             endMovement = true;
@@ -99,11 +108,9 @@ public class Maps {
     private void locateChar() {
         for (int i = 0; i < mapTwo.length; i++) {
             for (int j = 0; j < mapTwo[i].length; j++) {
-                if (mapTwo[i][j][0] == 1)  {
+                if (mapTwo[i][j][0] == '@')  {
                     xMap = j;
                     yMap = i;
-                    
-                    System.out.println(i + " | " + j);
                 }
             }
         }

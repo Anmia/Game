@@ -18,9 +18,10 @@ public class Ranged_Javelin extends Ranged {
     private static final int[] range = {30, 120};
     private final static int modifierAtribute = 0;
     private static final char damageType = 'p';
+    private static final boolean heavy = false;
     
     public Ranged_Javelin() {
-       super(itemID, name, twoHanded, damageDice, range, damageType);
+       super(itemID, name, twoHanded, damageDice, range, damageType, heavy);
     }
     
     @Override

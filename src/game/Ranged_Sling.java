@@ -17,8 +17,9 @@ public class Ranged_Sling extends Ranged{
     private static final int damageDice = 4;
     private static final int[] range = {30, 120};
     private static final char damageType = 'p';
+    private static final boolean heavy = false;
     
     public Ranged_Sling() {
-        super(itemID, name, twoHanded, damageDice, range, damageType);
+        super(itemID, name, twoHanded, damageDice, range, damageType, heavy);
     }
 }

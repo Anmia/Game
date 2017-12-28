@@ -30,4 +30,34 @@ public class Dice {
         
         return result;
     }
+    
+    public int rollAdvantage(int atribute) {
+        Dice dice = new Dice();
+        
+        int one = dice.rollDice(20, 1);
+        int two = dice.rollDice(20, 1);
+        
+        if (one < two) {
+            return two;
+        } else if (one > two) {
+            return one;
+        } else {
+            return one;
+        }
+    }
+    
+    public int rollDisAdvantage(int atribute) {
+        Dice dice = new Dice();
+        
+        int one = dice.rollDice(20, 1);
+        int two = dice.rollDice(20, 1);
+
+        if (one > two) {
+            return two;
+        } else if (one < two) {
+            return one;
+        } else {
+            return one;
+        }
+    }
 }

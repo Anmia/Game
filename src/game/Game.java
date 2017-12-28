@@ -29,51 +29,35 @@ public class Game {
         Weapon sword = new Melee_Club();
         Atributes atri = new Atributes(atr);
         Armour armour = new Armour_Plate();
-        
+        Race dwarf = new Race_Dwarf();
         Equipment equip = new Equipment(armour, null, null, null, sword, false);
         
         Inventory inv = new Inventory(equip, null);
         
         Proffesion fighter = new Proffesion_Fighter();
        
-        Character me = new Player("Anmia", null, fighter, 
+        Character me = new Player("Anmia", dwarf, fighter, 
                 inv, atri, 22, 1, 22, 0);
         
-        System.out.println(me.rollAttack(me));
         
-        System.out.println(me.checkUse(armour));
-        
-        System.out.println(me.rollInitiative());
-        
-        Race dwarf = new Race_Dwarf();
         
         Weapon jav = new Ranged_Javelin();
         
-        me.changeWeapon(jav);
-       
-        System.out.println(jav.getModifierAtribute());
-       
-        System.out.println(me.rollAttack(me));
-        
-        System.out.println(me.checkUse(armour));
-        
-        System.out.println(me.rollInitiative());
-        
-        
-       
-        System.out.println(jav.getModifierAtribute());
-        
         Maps map = new Maps();
         
+        Combat com = new Combat();
         
+        System.out.println(com.performAttack(me, me));
         
-        while (!map.getEndMovement()) {
-            map.printMap();
-            System.out.print("Insert direction ");
-            java.util.Scanner sc = new java.util.Scanner(System.in);
-            char direction = sc.next().charAt(0);
-            map.movePlayer(direction);
-        }
+//        while (!map.getEndMovement()) {
+//            map.printMap();
+//            System.out.print("Insert direction  using WASD: ");
+//            java.util.Scanner sc = new java.util.Scanner(System.in);
+//            char direction = sc.next().charAt(0);
+//            map.movePlayer(direction);
+//            
+//            int test = 0;
+//        }
         
         
     }

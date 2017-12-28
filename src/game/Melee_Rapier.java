@@ -18,8 +18,9 @@ public class Melee_Rapier extends Melee {
     
     private final static boolean reach = false;
     private static final char damageType = 'p';
+    private static final boolean heavy = false;
 
     public Melee_Rapier() {
-        super(itemID, name, twoHanded, damageDice, reach, damageType);
+        super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
     }
 }

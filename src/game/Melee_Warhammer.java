@@ -18,8 +18,9 @@ public class Melee_Warhammer extends Melee {
     
     private final static boolean reach = false;
     private static final char damageType = 'b';
+    private static final boolean heavy = false;
 
     public Melee_Warhammer() {
-        super(itemID, name, twoHanded, damageDice, reach, damageType);
+        super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
     }
 }

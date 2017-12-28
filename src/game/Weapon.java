@@ -14,17 +14,19 @@ public abstract class Weapon extends Item {
     private int damageDice;
     private int modifierAtribute;
     private char damageType;
+    private boolean heavy;
     
     private final static int amount = 1;
     
     public Weapon(int itemID, String name, int reqAtribute, 
-            int reqLevel, boolean twoHanded, 
-            int damageDice, int modifierAtribute, char damageType) {
+            int reqLevel, boolean twoHanded, int damageDice, 
+            int modifierAtribute, char damageType, boolean heavy) {
         super(itemID, name, amount, reqAtribute, reqLevel);
         this.twoHanded = twoHanded;
         this.damageDice = damageDice;
         this.modifierAtribute = modifierAtribute;
         this.damageType = damageType;
+        this.heavy = heavy;
     }
     
     public boolean getTwoHanded() {
@@ -41,5 +43,9 @@ public abstract class Weapon extends Item {
     
     public char getDamageType() {
         return damageType;
+    }
+    
+    public boolean getHeavy() {
+        return heavy;
     }
 }
