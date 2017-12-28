@@ -11,7 +11,7 @@ package game;
  */
 public class Ranged_Javelin extends Ranged {
     private static final int itemID = 11010;
-    private static final String name = "Blowgun";
+    private static final String name = "Javelin";
     
     private static final boolean twoHanded = false;
     private static final int damageDice = 1;

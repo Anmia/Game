@@ -14,7 +14,7 @@ public class Race_Elf extends Race{
     private final static String raceName = "Elf";
     private final static int speed = 30;
     private final static char size = 'm';
-    private final static boolean darkvision = false;
+    private final static boolean darkvision = true;
     private final static int[] raceModifiers = {0, 2, 0, 1, 0, 0};
     private static final int[] raceAbilities = {1};
 

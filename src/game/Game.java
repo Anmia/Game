@@ -41,17 +41,41 @@ public class Game {
         
         System.out.println(me.rollAttack(me));
         
-        System.out.println(me.checkUse(sword));
+        System.out.println(me.checkUse(armour));
         
         System.out.println(me.rollInitiative());
         
         Race dwarf = new Race_Dwarf();
         
-       Weapon jav = new Ranged_Javelin();
+        Weapon jav = new Ranged_Javelin();
+        
+        me.changeWeapon(jav);
        
+        System.out.println(jav.getModifierAtribute());
        
+        System.out.println(me.rollAttack(me));
+        
+        System.out.println(me.checkUse(armour));
+        
+        System.out.println(me.rollInitiative());
+        
+        
        
-       System.out.println(jav.getModifierAtribute());
+        System.out.println(jav.getModifierAtribute());
+        
+        Maps map = new Maps();
+        
+        
+        
+        while (!map.getEndMovement()) {
+            map.printMap();
+            System.out.print("Insert direction ");
+            java.util.Scanner sc = new java.util.Scanner(System.in);
+            char direction = sc.next().charAt(0);
+            map.movePlayer(direction);
+        }
+        
+        
     }
     
 }

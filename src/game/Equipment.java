@@ -31,4 +31,8 @@ public class Equipment{
     public boolean getShield() {
         return shield;
     }
+    
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
 }

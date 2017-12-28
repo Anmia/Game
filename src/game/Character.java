@@ -47,6 +47,27 @@ public abstract class Character {
         this.alignment = alignment;
     }
     
+    private void setArmourClass() {
+        charArmourClass = 0;
+        Armour tempArmour = inventory.equipment.armour;
+        
+        if (tempArmour.getArmourType() == 3) {
+            if (atributes.getAtribute(tempArmour.getReqAtribute()) < tempArmour.getReqLevel()) {
+                System.out.println("Can not don selected armour");
+            } else {
+                charArmourClass = tempArmour.getAC();
+            }
+        } else if (tempArmour.getArmourType() == 2) {
+            if (atributes.getModifier(1) > 2) {
+                charArmourClass = tempArmour.getAC() + 2;
+            } else {
+                charArmourClass = tempArmour.getAC() + atributes.getModifier(1);
+            }
+        } else if (tempArmour.getArmourType() == 1) {
+            charArmourClass = tempArmour.getAC() + atributes.getModifier(1);
+        }
+    }
+    
     public String getName() {
         return name;
     }
@@ -83,10 +104,10 @@ public abstract class Character {
      * For checking if something can be used (item)
      */
     
-    public boolean checkUse(Weapon weapon) {
-        int atribute = atributes.getAtribute(weapon.getReqAtribute());
+    public boolean checkUse(Armour armour) {
+        int atribute = atributes.getAtribute(armour.getReqAtribute());
         
-        return (atribute < weapon.getReqLevel());
+        return (atribute >= armour.getReqLevel());
     }
     
     public int rollInitiative() {
@@ -199,6 +220,11 @@ public abstract class Character {
         } else {
             charArmourClass = inventory.equipment.armour.getAC();
         }
+    }
+    
+    public void changeWeapon(Weapon weapon) {
+        this.inventory.equipment.setWeapon(weapon);
+        System.out.println("Success!");
     }
     
 }

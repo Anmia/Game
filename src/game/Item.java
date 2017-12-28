@@ -49,4 +49,8 @@ public abstract class Item {
     public int getReqLevel() {
         return reqLevel;
     }
+    
+    public String getName() {
+        return name;
+    }
 }
