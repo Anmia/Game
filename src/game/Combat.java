@@ -10,13 +10,23 @@ package game;
  * @author Magnus
  */
 public class Combat {
-    private Character[] combatants;
+    private Character[] combatants = new Character[10];
+    private int[][] combatOrder = new int[10][2];
+    private Dice dice = new Dice();
     
     public Combat(Character[] combatants) {
         this.combatants = combatants;
     }
     
-    public void moveCombatant() {
+    
+    
+    public void setCombatOrder() {
+        
+        
+        for (int i = 0; i < combatants.length; i++) {
+            combatOrder[i][0] = rollInitiative(i);
+        }
+        
         
     }
     
@@ -32,7 +42,11 @@ public class Combat {
     
     
     
-    
+    public int rollInitiative(int combNum) {
+        int mod = combatants[combNum].atributes.getModifier(1);
+        
+        return dice.rollDice(20, 1) + mod;
+    }
     
     public int performAttack(Character attacker, Character defender) {
         int damage = 0;

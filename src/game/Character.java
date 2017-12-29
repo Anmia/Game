@@ -116,12 +116,6 @@ public abstract class Character {
         return (atribute >= armour.getReqLevel());
     }
     
-    public int rollInitiative() {
-        Dice dice = new Dice();
-        
-        return dice.rollDice(20, 1) + atributes.getModifier(1);
-    }
-    
     public void createCharacter() {
         for (int i = 0; i < atributes.atributesBase.length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
@@ -135,25 +129,22 @@ public abstract class Character {
     }
     
     public void setCharArmourClass() {
+        int ac = inventory.equipment.armour.getAC();
+        int mod = atributes.getModifier(1);
         
-        if (inventory.equipment.armour.getDexMod()) {
-            
-            if (inventory.equipment.armour.getArmourType() == 2) {
-                
-                if (atributes.getModifier(1) > 2) {
-                    charArmourClass = inventory.equipment.armour.getAC() + 2;
+        switch(inventory.equipment.armour.getArmourType()) {
+            case 1: 
+                charArmourClass = ac + mod; break;
+                            
+            case 2:
+                 if (mod > 2) {
+                    charArmourClass = ac + 2;
                 } else {
-                    charArmourClass = inventory.equipment.armour.getAC() + 
-                            atributes.getModifier(1);
-                }
+                    charArmourClass = ac + mod;
+                } break;
                 
-            } else {
-                charArmourClass = inventory.equipment.armour.getAC() + 
-                        atributes.getModifier(1);
-            }
-            
-        } else {
-            charArmourClass = inventory.equipment.armour.getAC();
+            case 3:
+                charArmourClass = ac; break;
         }
     }
     

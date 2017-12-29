@@ -46,10 +46,11 @@ public class Maps {
     
     private char[] obstacles = {'¤'};
     
-    private int[][] characterLocations = {{15, 5}};
+    private char[] charSymbol;
     
-    private int x;
-    private int y;
+    private int[][] characterLocations = new int[10][2];
+    
+    
 
     public void printMap() {
         for (int i = 0; i < mapTwo.length; i++) {
@@ -66,16 +67,11 @@ public class Maps {
         System.out.println();
     }
     
-    public void movePlayer(char direction, int who) {
+    public void movePlayer(char direction) {
+        char name = '@';
+        int x = characterLocations[0][0];
+        int y = characterLocations[0][1];
         
-        locateChar(who);
-        
-        char name = '9';
-        
-        switch(who) {
-            case 0: name = '@'; break;
-            case 1: name = '~'; break;
-        }
         
         switch (direction) {
             case 'w':
@@ -128,31 +124,19 @@ public class Maps {
     }
     
     
-    private void locateChar(int who) {
-        switch(who) {
-            case 0: 
-                for (int i = 0; i < mapTwo.length; i++) {
-                    for (int j = 0; j < mapTwo[i].length; j++) {
-                        if (mapTwo[i][j][0] == '@')  {
-                            characterLocations[who][0] = j;
-                            characterLocations[who][1] = i;
-                            x = characterLocations[who][0];
-                            y = characterLocations[who][1];
-                        }
-                    }
-                } break;
-            case 1: 
-                for (int i = 0; i < mapTwo.length; i++) {
-                    for (int j = 0; j < mapTwo[i].length; j++) {
-                        if (mapTwo[i][j][0] == '~')  {
-                            characterLocations[who][0] = j;
-                            characterLocations[who][1] = i;
-                            x = characterLocations[who][0];
-                            y = characterLocations[who][1];
-                        }
-                    }
-                } break;
-        }
+    public void locateChar() {
+        
+             
+        for (int i = 0; i < mapTwo.length; i++) {
+            for (int j = 0; j < mapTwo[i].length; j++) {
+                if (mapTwo[i][j][0] == '@')  {
+                    characterLocations[0][0] = j;
+                    characterLocations[0][1] = i;
+                }
+            }
+        } 
+            
+        
     }
     
     public boolean getEndMovement() {
@@ -169,5 +153,9 @@ public class Maps {
         }
         
         return ocupied;
+    }
+    
+    public void getXY() {
+        System.out.println("[ " + characterLocations[0][0] + " | " + characterLocations[0][1] + " ]");
     }
 }
