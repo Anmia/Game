@@ -10,6 +10,30 @@ package game;
  * @author Magnus
  */
 public class Combat {
+    private Character[] combatants;
+    
+    public Combat(Character[] combatants) {
+        this.combatants = combatants;
+    }
+    
+    public void moveCombatant() {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public int performAttack(Character attacker, Character defender) {
         int damage = 0;
         

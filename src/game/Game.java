@@ -46,17 +46,7 @@ public class Game {
         
         Maps map = new Maps();
         
-        Combat com = new Combat();
-        
-        System.out.println(com.performAttack(me, me));
-        System.out.println(1 == '1');
-        while (!map.getEndMovement()) {
-            map.printMap();
-            System.out.print("Insert direction for Nr.1 using WASD: ");
-            java.util.Scanner sc = new java.util.Scanner(System.in);
-            char direction = sc.next().charAt(0);
-            map.movePlayer(direction, 0);
-        }
+
         
         
     }
