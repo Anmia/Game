@@ -69,6 +69,7 @@ public class Maps {
     
     public void movePlayer(char direction) {
         char name = '@';
+        
         int x = characterLocations[0][0];
         int y = characterLocations[0][1];
         
@@ -83,6 +84,7 @@ public class Maps {
                 } else {
                     mapTwo[y][x][0] = '+';
                     mapTwo[y - 1][x][0] = name;
+                    characterLocations[0][1] = y - 1;
                 }   break;
             case 'd':
                 
@@ -94,6 +96,7 @@ public class Maps {
                 }  else {
                     mapTwo[y][x][0] = '+';
                     mapTwo[y][x + 1][0] = name;
+                    characterLocations[0][0] = x + 1;
                 }   break;
             case 's':
                 if (y == mapTwo.length - 1) {
@@ -104,6 +107,7 @@ public class Maps {
                 }  else {
                     mapTwo[y][x][0] = '+';
                     mapTwo[y + 1][x][0] = name;
+                    characterLocations[0][1] = y + 1;
                 }   break;
             case 'a':
                 if (!(x > 0)) {
@@ -114,6 +118,7 @@ public class Maps {
                 }  else {
                     mapTwo[y][x][0] = '+';
                     mapTwo[y][x - 1][0] = name;
+                    characterLocations[0][0] = x - 1;
                 }   break;
             case 'c':
                 endMovement = true;
@@ -124,14 +129,13 @@ public class Maps {
     }
     
     
-    public void locateChar() {
+    public void locateChar(char ident) {
         
              
         for (int i = 0; i < mapTwo.length; i++) {
             for (int j = 0; j < mapTwo[i].length; j++) {
-                if (mapTwo[i][j][0] == '@')  {
-                    characterLocations[0][0] = j;
-                    characterLocations[0][1] = i;
+                if (mapTwo[i][j][0] == ident)  {
+                    System.out.println("X: " + j + " | Y: " + i);
                 }
             }
         } 

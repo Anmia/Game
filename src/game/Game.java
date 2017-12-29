@@ -50,20 +50,18 @@ public class Game {
         
 //        System.out.println(com.performAttack(me, me));
         
-        map.printMap();
-        map.locateChar();
-        map.getXY();
+        map.locateChar('@');
         
         while (!map.getEndMovement()) {
             map.printMap();
-            map.locateChar();
+            
             System.out.print("Insert direction for Nr.1 using WASD: ");
             java.util.Scanner sc = new java.util.Scanner(System.in);
             char direction = sc.next().charAt(0);
             map.movePlayer(direction);
         }
         
-        
+        map.locateChar('@');
     }
     
 }

@@ -11,7 +11,7 @@ package game;
  */
 public class Combat {
     private Character[] combatants = new Character[10];
-    private int[][] combatOrder = new int[10][2];
+    private int[][] combatOrder;
     private Dice dice = new Dice();
     
     public Combat(Character[] combatants) {
@@ -27,7 +27,15 @@ public class Combat {
             combatOrder[i][0] = rollInitiative(i);
         }
         
-        
+        for (int i = 0; i < combatOrder.length; i++) {
+            for (int j = 0; j < combatOrder.length - 1; j++) {
+                if (combatOrder[j][0] > combatOrder[j +1][0]) {
+                    int temp = combatOrder[j][0];
+                    combatOrder[j][0] = combatOrder[j + 1][0];
+                    combatOrder[j + 1][0] = temp;
+                }
+            }
+        }
     }
     
     
