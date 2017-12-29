@@ -56,13 +56,6 @@ public class Game {
             java.util.Scanner sc = new java.util.Scanner(System.in);
             char direction = sc.next().charAt(0);
             map.movePlayer(direction, 0);
-            
-            map.printMap();
-            System.out.print("Insert direction for Nr.2 using WASD: ");
-            java.util.Scanner dc = new java.util.Scanner(System.in);
-            char directionTwo = dc.next().charAt(0);
-            map.movePlayer(directionTwo, 1);
-            int test = 0;
         }
         
         
