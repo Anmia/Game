@@ -17,3 +17,13 @@ A save function might also one day be a thing, but who knows.
 This game borrows inspiration from D&D and a game I sadly cannot remember the name of. 
 
 There is UML for this, if you were wondering, and it is only slightly less messy at the moment of writing
+
+Some commits contain comments which are done semi properly. 
+If there is a to do list there are several categories, which at present are:
+
+"This will need a lot of time" = I'm working on it by working on other things.
+
+Bonus = Will be worked out while working on other things
+
+Streamline = Might do it, as it will make the game better, but unable to do it 
+due to lack of skill and/or knowledge of how to do it 
