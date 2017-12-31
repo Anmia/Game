@@ -10,7 +10,7 @@ package game;
  * @author Magnus
  */
 public class Melee_Warhammer extends Melee {
-    private final static int itemID = 11041;
+    private final static int itemID = 11042;
     private final static String name = "Warhammer";
     
     private final static boolean twoHanded = true;

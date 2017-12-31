@@ -32,6 +32,8 @@ public class Combat {
     }
     
     public void moveCombatantsByTurn() {
+        System.out.println(map.getDistance(0, 1));
+        
         while (!map.getEndCombat()) {
             for (int i = 0; i < combatants.length; i++) {
                 for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
@@ -122,4 +124,6 @@ public class Combat {
         
         return damage;
     }
+    
+    
 }

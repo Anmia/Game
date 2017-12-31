@@ -19,8 +19,11 @@ public class Melee_Scimitar extends Melee {
     private final static boolean reach = false;
     private static final char damageType = 's';
     private static final boolean heavy = false;
+    
+    
 
     public Melee_Scimitar() {
         super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
+        super.setModifierAtribute(1);
     }
 }

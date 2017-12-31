@@ -10,7 +10,7 @@ package game;
  * @author Magnus
  */
 public class Melee_Whip extends Melee {
-    private final static int itemID = 11042;
+    private final static int itemID = 11043;
     private final static String name = "Whip";
     
     private final static boolean twoHanded = false;
@@ -22,5 +22,6 @@ public class Melee_Whip extends Melee {
 
     public Melee_Whip() {
         super(itemID, name, twoHanded, damageDice, reach, damageType, heavy);
+        super.setModifierAtribute(1);
     }
 }

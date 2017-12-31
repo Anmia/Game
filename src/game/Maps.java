@@ -188,4 +188,21 @@ public class Maps {
     public boolean getEndCombat() {
         return endCombat;
     }
+    
+    public int getDistance(int from, int to) {
+        int distance = 0;
+        
+        for (int i = 0; i < 2; i++) {
+            int m = characterLocations[from][i];
+            int n = characterLocations[to][i];
+            
+            if (n < m) {
+                distance = distance + (m - n);
+            } else {
+                distance = distance + (n - m);
+            }
+        }
+        
+        return distance * 5;
+    }
 }

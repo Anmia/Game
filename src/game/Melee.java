@@ -11,7 +11,7 @@ package game;
  */
 public abstract class Melee extends Weapon {
     private boolean reach;
-    private final static int modifierAtribute = 0;
+    private static int modifierAtribute = 0;
     private final static int reqAtribute = 0; 
     private final static int reqLevel = 0;
     
@@ -25,6 +25,10 @@ public abstract class Melee extends Weapon {
     
     public boolean getReach() {
         return reach;
+    }
+    
+    public void setModifierAtribute(int mod) {
+        modifierAtribute = mod;
     }
 
 }
