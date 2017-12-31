@@ -21,6 +21,7 @@ public abstract class Character {
     private int level;
     private int alignment;
     private int charArmourClass;
+    private char identifyingChar;
     
     
     /**
@@ -36,7 +37,7 @@ public abstract class Character {
     
     public Character (String name, Race race, Proffesion proffesion, 
             Inventory inventory, Atributes atributes, int healthPoints, 
-            int level, int alignment) {
+            int level, int alignment, char identifyingChar) {
         this.name = name;
         this.race = race;
         this.proffesion = proffesion;
@@ -45,30 +46,12 @@ public abstract class Character {
         this.healthPoints = healthPoints;
         this.level = level;
         this.alignment = alignment;
+        this.identifyingChar = identifyingChar;
         
-        setArmourClass();
+        charArmourClass = setArmourClass();
     }
     
-    private void setArmourClass() {
-        charArmourClass = 0;
-        Armour tempArmour = inventory.equipment.armour;
-        
-        if (tempArmour.getArmourType() == 3) {
-            if (atributes.getAtribute(tempArmour.getReqAtribute()) < tempArmour.getReqLevel()) {
-                System.out.println("Can not don selected armour");
-            } else {
-                charArmourClass = tempArmour.getAC();
-            }
-        } else if (tempArmour.getArmourType() == 2) {
-            if (atributes.getModifier(1) > 2) {
-                charArmourClass = tempArmour.getAC() + 2;
-            } else {
-                charArmourClass = tempArmour.getAC() + atributes.getModifier(1);
-            }
-        } else if (tempArmour.getArmourType() == 1) {
-            charArmourClass = tempArmour.getAC() + atributes.getModifier(1);
-        }
-    }
+   
     
     public String getName() {
         return name;
@@ -128,29 +111,54 @@ public abstract class Character {
         healthPoints = healthPoints + dice.rollDice(proffesion.getHitDice(), 1);
     }
     
-    public void setCharArmourClass() {
+    private int setArmourClass() {
         int ac = inventory.equipment.armour.getAC();
         int mod = atributes.getModifier(1);
+        int newAc = 0;
         
         switch(inventory.equipment.armour.getArmourType()) {
             case 1: 
-                charArmourClass = ac + mod; break;
-                            
+                newAc = ac + mod; break;         
             case 2:
                  if (mod > 2) {
-                    charArmourClass = ac + 2;
+                    newAc = ac + 2;
                 } else {
-                    charArmourClass = ac + mod;
+                    newAc = ac + mod;
                 } break;
                 
             case 3:
-                charArmourClass = ac; break;
+                newAc = ac; break;
         }
+        
+        return newAc;
     }
     
-    public void changeWeapon(Weapon weapon) {
-        this.inventory.equipment.setWeapon(weapon);
-        System.out.println("Success!");
+    
+    public char getIdentifyingChar() {
+        return identifyingChar;
     }
     
+    public boolean getProficiency() {
+        return true;
+    }
+    
+//    private String name;
+//    protected Race race;
+//    private Proffesion proffesion;
+//    protected Inventory inventory;
+//    protected Atributes atributes;
+//    private int healthPoints;
+//    private int level;
+//    private int alignment;
+//    private int charArmourClass;
+//    private char identifyingChar;
+    
+    @Override
+    public String toString(){
+        return "Name: " + name + " | Level: " + level + 
+                " | Proffesion: " + proffesion.getProffesionName() + "\n" + 
+                "Armour : " + inventory.equipment.armour.getName() + 
+                " | Melee Weapon: " + inventory.equipment.meleeWeapon.getName() + 
+                " | Ranged Weapon: " + inventory.equipment.rangedWeapon.getName() + "\n";
+    }
 }

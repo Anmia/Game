@@ -11,7 +11,7 @@ package game;
  */
 public class Melee_Scimitar extends Melee {
     private final static int itemID = 11039;
-    private final static String name = "Handaxe";
+    private final static String name = "Scimitar";
     
     private final static boolean twoHanded = false;
     private final static int damageDice = 6;

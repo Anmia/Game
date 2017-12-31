@@ -14,10 +14,14 @@ public class Player extends Character {
     
     public Player(String name, Race race, Proffesion proffesion, 
             Inventory inventory, Atributes atributes, int healthPoints, 
-            int level, int alignment, int exp) {
+            int level, int alignment, char identChar) {
         super(name, race, proffesion, inventory, atributes, 
-                healthPoints, level, alignment);
-        this.exp = exp;
+                healthPoints, level, alignment, identChar);
+        this.exp = 0;
     }
     
+    
+    public int getExp() {
+        return exp;
+    }
 }

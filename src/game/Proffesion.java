@@ -11,16 +11,18 @@ package game;
  * @author Magnus
  */
 public abstract class Proffesion {
-    private int classID;
+    private int proffesionID;
+    private String proffesionName;
     private int hitDice;
     private boolean[] savingThrow = new boolean[6];
     private int[] classAbilities;
     private int[] proficiencies;
     
     
-    public Proffesion(int classID, int hitDice, boolean[] savingThrow, 
+    public Proffesion(int proffesionID, String proffesionName, int hitDice, boolean[] savingThrow, 
             int[] classAbilities, int[] proficiencies) {
-        this.classID = classID;
+        this.proffesionID = proffesionID;
+        this.proffesionName = proffesionName;
         this.hitDice = hitDice;
         this.savingThrow = savingThrow;
         this.classAbilities = classAbilities;
@@ -28,7 +30,11 @@ public abstract class Proffesion {
     }
     
     public int getClassID() {
-        return classID;
+        return proffesionID;
+    }
+    
+    public String getProffesionName() {
+        return proffesionName;
     }
     
     public int getHitDice() {

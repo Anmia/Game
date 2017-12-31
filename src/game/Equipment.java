@@ -14,17 +14,19 @@ public class Equipment{
     protected Necklace necklace;
     protected Ring ringRight;
     protected Ring ringLeft;
-    protected Weapon weapon;
+    protected Melee meleeWeapon;
+    protected Ranged rangedWeapon;
     private boolean shield;
     
     
     public Equipment(Armour armour, Necklace necklace, Ring ringRight, 
-            Ring ringLeft, Weapon weapon, boolean shield) {
+            Ring ringLeft, Melee meleeWeapon, Ranged rangedWeapon, boolean shield) {
         this.armour = armour;
         this.necklace = necklace;
         this.ringRight = ringRight;
         this.ringLeft = ringLeft;
-        this.weapon = weapon;
+        this.meleeWeapon = meleeWeapon;
+        this.rangedWeapon = rangedWeapon;
         this.shield = shield;
     }
     
@@ -32,7 +34,11 @@ public class Equipment{
         return shield;
     }
     
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
+    public void setMeleeWeapon(Melee meleeWeapon) {
+        this.meleeWeapon = meleeWeapon;
+    }
+    
+    public void setRangedWeapon(Ranged rangedWeapon) {
+        this.rangedWeapon = rangedWeapon;
     }
 }

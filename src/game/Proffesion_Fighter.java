@@ -11,6 +11,7 @@ package game;
  */
 public class Proffesion_Fighter extends Proffesion {
     private static final int classID = 101;
+    public static final String proffesionName = "Fighter";
     private static final int hitDice = 10;
     private static final boolean[] savingThrow = {true, 
         false, true, false, false, false};
@@ -18,7 +19,7 @@ public class Proffesion_Fighter extends Proffesion {
     private static final int[] proficiencies = {0};
     
     public Proffesion_Fighter() {
-        super(classID, hitDice, savingThrow, classAbilities, proficiencies);
+        super(classID, proffesionName, hitDice, savingThrow, classAbilities, proficiencies);
     }
     
     @Override

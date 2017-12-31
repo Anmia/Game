@@ -26,42 +26,31 @@ public class Game {
         
         int[] atr = {18, 14, 16, 12, 9, 8};
         
-        Weapon sword = new Melee_Club();
+        Melee sword = new Melee_Club();
         Atributes atri = new Atributes(atr);
         Armour armour = new Armour_Plate();
         Race dwarf = new Race_Dwarf();
-        Equipment equip = new Equipment(armour, null, null, null, sword, false);
+        Ranged ranged = new Ranged_HandCrossbow();
+        Equipment equip = new Equipment(armour, null, null, null, sword, ranged, false);
         
         Inventory inv = new Inventory(equip, null);
         
         Proffesion fighter = new Proffesion_Fighter();
        
         Character me = new Player("Anmia", dwarf, fighter, 
-                inv, atri, 22, 1, 22, 0);
+                inv, atri, 22, 1, 22, '@');
         
-        Character enemy = new Player("Anmia", dwarf, fighter, 
-                inv, atri, 22, 1, 22, 0);
+        Character enemy = new NPC_Bandit();
         
-        Weapon jav = new Ranged_Javelin();
+        System.out.println(me);
+        System.out.println(enemy);
         
-        Maps map = new Maps();
+        int[][] loc = {{5, 15}, {1, 0}};
         
-//        Combat com = new Combat();
+        Character[] cb  = {me, enemy};
+        Combat com = new Combat(cb, loc);
         
-//        System.out.println(com.performAttack(me, me));
-        
-        map.locateChar('@');
-        
-        while (!map.getEndMovement()) {
-            map.printMap();
-            
-            System.out.print("Insert direction for Nr.1 using WASD: ");
-            java.util.Scanner sc = new java.util.Scanner(System.in);
-            char direction = sc.next().charAt(0);
-            map.movePlayer(direction);
-        }
-        
-        map.locateChar('@');
+        com.moveCombatantsByTurn();
     }
     
 }

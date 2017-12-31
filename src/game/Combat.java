@@ -10,19 +10,57 @@ package game;
  * @author Magnus
  */
 public class Combat {
-    private Character[] combatants = new Character[10];
+    private Character[] combatants;
+    private int[][] locations;
+    
     private int[][] combatOrder;
     private Dice dice = new Dice();
+    Maps map = new Maps();
     
-    public Combat(Character[] combatants) {
+    
+    public Combat(Character[] combatants, int[][] locations) {
         this.combatants = combatants;
+        this.locations = locations;
+        
+        setUpCombatMap();
     }
     
+    private void setUpCombatMap() {
+        for (int i = 0; i < combatants.length; i++) {
+            map.setInitialLocation(i, locations[i][0], locations[i][1], combatants[i].getIdentifyingChar());
+        }
+    }
     
+    public void moveCombatantsByTurn() {
+        while (!map.getEndCombat()) {
+            for (int i = 0; i < combatants.length; i++) {
+                for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
+                    map.printMap();
+                    System.out.println("you have " + j + " Moves left.");
+                    System.out.print("Insert direction for " + combatants[i].getName() + 
+                            "\n using WASD to chose direction or E to end turn.");
+                    java.util.Scanner sc = new java.util.Scanner(System.in);
+                    char direction = sc.next().charAt(0);
+
+                    map.movePlayer(i, direction);
+                    if (map.getEndMovement()) {
+                        j = 0;
+                    } else if (map.getObstacle()) {
+                        j = j + 1; 
+                    } else if (map.getEndCombat()) {
+                        j = 0;
+                        i = combatants.length;
+                    }
+                }
+                
+                if (map.getEndCombat()) {
+                    i = combatants.length;
+                }
+            }
+        }
+    }
     
     public void setCombatOrder() {
-        
-        
         for (int i = 0; i < combatants.length; i++) {
             combatOrder[i][0] = rollInitiative(i);
         }
@@ -56,14 +94,14 @@ public class Combat {
         return dice.rollDice(20, 1) + mod;
     }
     
-    public int performAttack(Character attacker, Character defender) {
+    public int performMeleeAttack(Character attacker, Character defender) {
         int damage = 0;
         
         Dice dice = new Dice();
         
-        int atkAtri = attacker.inventory.equipment.weapon.getModifierAtribute();
+        int atkAtri = attacker.inventory.equipment.meleeWeapon.getModifierAtribute();
         int atkMod = attacker.atributes.getModifier(atkAtri);
-        boolean wpnH = attacker.inventory.equipment.weapon.getHeavy();
+        boolean wpnH = attacker.inventory.equipment.meleeWeapon.getHeavy();
         char atkSz = attacker.race.getSize();
         
         int atkRoll = 0;
@@ -79,7 +117,7 @@ public class Combat {
         if (atkRoll == 1 || defAC > atkRoll + atkMod) {
             damage = 0;
         } else {
-            damage = dice.rollDice(attacker.inventory.equipment.weapon.getDamageDice(), 1);
+            damage = dice.rollDice(attacker.inventory.equipment.meleeWeapon.getDamageDice(), 1);
         }
         
         return damage;
