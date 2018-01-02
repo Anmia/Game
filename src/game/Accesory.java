@@ -11,8 +11,9 @@ package game;
  */
 public abstract class Accesory extends Item {
 
-    public Accesory(int itemID, String name, int amount, int reqAtribute, int reqLevel) {
-        super(itemID, name, amount, reqAtribute, reqLevel);
+    public Accesory(int itemID, String name, int amount, int reqAtribute, 
+            int reqLevel, int itemTypeID) {
+        super(itemID, name, amount, reqAtribute, reqLevel, itemTypeID);
     }
 
 }

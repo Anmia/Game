@@ -14,12 +14,13 @@ public abstract class Armour extends Item {
     private int armourType;
     private boolean dexMod;
     private boolean stealthCheck;
+    private final static int itemTypeID = 20;
     
     public Armour(int itemID, String name, int amount, int reqAtribute, 
             int reqLevel, int armourClass, int armourType, boolean dexMod, 
             boolean stealthCheck) {
         
-        super(itemID, name, amount, reqAtribute, reqLevel);
+        super(itemID, name, amount, reqAtribute, reqLevel, itemTypeID);
         this.armourClass = armourClass;
         this.armourType = armourType;
         this.dexMod = dexMod;
@@ -40,5 +41,12 @@ public abstract class Armour extends Item {
     
     public boolean getStealthCheck() {
         return stealthCheck;
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "| AC:  " + armourClass + " | Armour Type: " + 
+                armourType + " | DexMod: " + dexMod + " | StealthCheck: " + 
+                stealthCheck;
     }
 }

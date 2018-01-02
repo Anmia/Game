@@ -26,14 +26,22 @@ public class Game {
         
         int[] atr = {18, 14, 16, 12, 9, 8};
         
-        Melee sword = new Melee_Club();
+        Melee club = new Melee_Club();
         Atributes atri = new Atributes(atr);
         Armour armour = new Armour_Plate();
         Race dwarf = new Race_Dwarf();
         Ranged ranged = new Ranged_HandCrossbow();
-        Equipment equip = new Equipment(armour, null, null, null, sword, ranged, false);
+        Equipment equip = new Equipment(armour, null, null, null, club, ranged, false);
         
-        Inventory inv = new Inventory(equip, null);
+        Melee lance = new Melee_Lance();
+        Melee handaxe = new Melee_Handaxe();
+        Ranged dart = new Ranged_Dart();
+        Armour bp = new Armour_Breastplate();
+        
+        Item[] stuff = {lance, bp, club, handaxe, dart, null, null};
+        Backpack pack = new Backpack(0, stuff, 100);
+        
+        Inventory inv = new Inventory(equip, pack);
         
         Proffesion fighter = new Proffesion_Fighter();
        
@@ -50,9 +58,20 @@ public class Game {
         Character[] cb  = {me, enemy};
         Combat com = new Combat(cb, loc);
         
-        // com.moveCombatantsByTurn();
-        me.levelUp();
-        System.out.println(me);
+        System.out.println(me.inventory.equipment.getMeleeWeapon().getName());
+        
+        // me.inventory.changeEquiptment();
+        
+        System.out.println(me.inventory.equipment.getMeleeWeapon().getName());
+        
+        
+        
+        //com.moveCombatantsByTurn();
+        //me.levelUp();
+        //System.out.println(me);
+        
+        //System.out.println(club);
+        //System.out.println(armour);
         
         
     }

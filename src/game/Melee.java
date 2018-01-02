@@ -14,11 +14,11 @@ public abstract class Melee extends Weapon {
     private static int modifierAtribute = 0;
     private final static int reqAtribute = 0; 
     private final static int reqLevel = 0;
-    
+    private final static int itemTypeID = 11;
 
     public Melee(int itemID, String name, boolean twoHanded, int damageDice, 
             boolean reach, char damageType, boolean heavy) {
-        super(itemID, name, reqAtribute, reqLevel, twoHanded, 
+        super(itemID, name, reqAtribute, reqLevel, itemTypeID, twoHanded, 
                 damageDice, modifierAtribute, damageType, heavy);
         this.reach = reach;
     }
@@ -31,4 +31,8 @@ public abstract class Melee extends Weapon {
         modifierAtribute = mod;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "| Reach: " + reach;
+    }
 }

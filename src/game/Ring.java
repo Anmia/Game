@@ -9,10 +9,11 @@ package game;
  *
  * @author Magnus
  */
-public class Ring extends Accesory {    
+public class Ring extends Accesory {
+    private final static int itemTypeID = 32;
 
     public Ring(int itemID, String name, int amount, int reqAtribute, int reqLevel) {
-        super(itemID, name, amount, reqAtribute, reqLevel);
+        super(itemID, name, amount, reqAtribute, reqLevel, itemTypeID);
     }
 
 }

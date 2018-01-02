@@ -30,8 +30,36 @@ public class Equipment{
         this.shield = shield;
     }
     
+    public Armour getArmour() {
+        return armour;
+    }
+    
+    public Necklace getNecklace() {
+        return necklace;
+    }
+    
+    public Ring getRingRight() {
+        return ringRight;
+    }
+    
+    public Ring getRingLeft() {
+        return ringLeft;
+    }
+    
+    public Melee getMeleeWeapon() {
+        return meleeWeapon;
+    }
+    
+    public Ranged getRangedWeapon() {
+        return rangedWeapon;
+    }
+    
     public boolean getShield() {
         return shield;
+    }
+    
+    public void setArmour(Armour armour) {
+        this.armour = armour;
     }
     
     public void setMeleeWeapon(Melee meleeWeapon) {

@@ -16,14 +16,16 @@ public abstract class Item {
     private int amount;
     private int reqAtribute;
     private int reqLevel;
+    private int itemTypeID;
     
     public Item(int itemID, String name, int amount, 
-            int reqAtribute, int reqLevel) {
+            int reqAtribute, int reqLevel, int itemTypeID) {
         this.itemID = itemID;
         this.name = name;
         this.amount = amount;
         this.reqAtribute = reqAtribute;
         this.reqLevel = reqLevel;
+        this.itemTypeID = itemTypeID;
     }
     
     public int getItemID() {
@@ -52,5 +54,17 @@ public abstract class Item {
     
     public String getName() {
         return name;
+    }
+    
+    public int getItemTypeID() {
+        return itemTypeID;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return "Item ID: " + itemID + " | TypeID: " + itemTypeID + 
+                " | Name: " + name + " | Amount: " + amount + 
+                " | Atr / Req: " + reqAtribute + " / " + reqLevel + " ";
     }
 }
