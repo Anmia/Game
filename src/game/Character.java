@@ -20,11 +20,13 @@ public abstract class Character {
     
     private int baseHealthPoints;
     private int curentHealthPoints;
+    private int proficiency;
     
     private int level;
     private int alignment;
     private int charArmourClass;
     private char identifyingChar;
+    
     
     
     /**
@@ -51,9 +53,9 @@ public abstract class Character {
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
         
-        charArmourClass = setArmourClass();
+        setArmourClass();
         createCharacter();
-        curentHealthPoints = baseHealthPoints;
+        
     }
     
     private void createCharacter() {
@@ -61,9 +63,10 @@ public abstract class Character {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
         }
         baseHealthPoints = proffesion.getHitDice() + atributes.getModifier(2);
+        curentHealthPoints = baseHealthPoints;
     }
     
-    private int setArmourClass() {
+    private void setArmourClass() {
         int ac = inventory.equipment.armour.getAC();
         int mod = atributes.getModifier(1);
         int newAc = 0;
@@ -77,13 +80,16 @@ public abstract class Character {
                 } else {
                     newAc = ac + mod;
                 } break;
-                
             case 3:
                 newAc = ac; break;
         }
-        
-        return newAc;
+        charArmourClass = newAc;
     }
+    
+    /**
+     * Abvove is stuff for creation
+     * below is other stuff
+     */
     
     public String getName() {
         return name;
@@ -182,7 +188,8 @@ public abstract class Character {
     @Override
     public String toString(){
         return "Name: " + name + " | Level: " + level + 
-                " | Proffesion: " + proffesion.getProffesionName() + "\n" + 
+                " | 🎊🎊 Proffesion: " + proffesion.getProffesionName() + 
+                " | HP: " + curentHealthPoints + " / " + baseHealthPoints + "\n" + 
                 "Armour : " + inventory.equipment.armour.getName() + 
                 " | Melee Weapon: " + inventory.equipment.meleeWeapon.getName() + 
                 " | Ranged Weapon: " + inventory.equipment.rangedWeapon.getName() + "\n";
