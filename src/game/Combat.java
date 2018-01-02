@@ -101,29 +101,67 @@ public class Combat {
         
         Dice dice = new Dice();
         
-        int atkAtri = attacker.inventory.equipment.meleeWeapon.getModifierAtribute();
-        int atkMod = attacker.atributes.getModifier(atkAtri);
-        boolean wpnH = attacker.inventory.equipment.meleeWeapon.getHeavy();
-        char atkSz = attacker.race.getSize();
-        
-        int atkRoll = 0;
-        
-        if ((wpnH) && (atkSz == 's')) {
-            atkRoll = dice.rollDisAdvantage(atkAtri);
+        if (attacker.inventory.equipment.meleeWeapon != null) {
+            int atkAtri = attacker.inventory.equipment.meleeWeapon.getModifierAtribute();
+            int atkMod = attacker.atributes.getModifier(atkAtri);
+            boolean wpnH = attacker.inventory.equipment.meleeWeapon.getHeavy();
+            char atkSz = attacker.race.getSize();
+
+            int atkRoll = 0;
+
+            if ((wpnH) && (atkSz == 's')) {
+                atkRoll = dice.rollDisAdvantage(atkAtri);
+            } else {
+                atkRoll = dice.rollDice(20, 1);
+            }
+
+            int defAC = defender.getCharArmourClass();
+
+            if (atkRoll == 1 || defAC > atkRoll + atkMod) {
+                damage = 0;
+            } else {
+                damage = dice.rollDice(attacker.inventory.equipment.meleeWeapon.getDamageDice(), 1);
+            }
         } else {
-            atkRoll = dice.rollDice(20, 1);
-        }
-        
-        int defAC = defender.getCharArmourClass();
-        
-        if (atkRoll == 1 || defAC > atkRoll + atkMod) {
-            damage = 0;
-        } else {
-            damage = dice.rollDice(attacker.inventory.equipment.meleeWeapon.getDamageDice(), 1);
+            /**
+             * for now unarmed damage is 1
+             * some classes does more, but for now it is 1
+             */
+            damage = 1;
         }
         
         return damage;
     }
     
-    
+    public int performRangedAttack(Character attacker, Character defender) {
+        int damage = 0;
+        
+        int range = map.getDistance(0, 1);
+        int wepRange[] = attacker.inventory.equipment.rangedWeapon.getRange();
+        
+        if (wepRange[0] < range && range < wepRange[1]) {
+            int atkAtri = attacker.inventory.equipment.rangedWeapon.getModifierAtribute();
+            int atkMod = attacker.atributes.getModifier(atkAtri);
+            boolean wpnH = attacker.inventory.equipment.rangedWeapon.getHeavy();
+            char atkSz = attacker.race.getSize();
+
+            int atkRoll = 0;
+
+            if ((wpnH) && (atkSz == 's')) {
+                atkRoll = dice.rollDisAdvantage(atkAtri);
+            } else {
+                atkRoll = dice.rollDice(20, 1);
+            }
+
+            int defAC = defender.getCharArmourClass();
+
+            if (atkRoll == 1 || defAC > atkRoll + atkMod) {
+                damage = 0;
+            } else {
+                damage = dice.rollDice(attacker.inventory.equipment.rangedWeapon.getDamageDice(), 1);
+            }
+        }
+        
+        return damage;
+    }
 }
