@@ -73,7 +73,26 @@ public class Game {
         //System.out.println(club);
         //System.out.println(armour);
         
+        boolean cont = true;
+//        java.util.Scanner sc = new java.util.Scanner(System.in);
+//        while (cont) {
+//            System.out.print("Insert direction for Nr.1 using WASD: ");
+//            
+//            char yn = sc.next().charAt(0);
+//            
+//            if (yn == 'n') {
+//                cont = false;
+//            } else {
+//                System.out.print("Choose function you wish to run");
+//                System.out.println
+//                int func = sc.nextInt();
+//            }
+//            
+//            
+//        }
         
     }
+    
+    
     
 }
