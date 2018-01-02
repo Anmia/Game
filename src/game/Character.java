@@ -107,8 +107,23 @@ public abstract class Character {
     }
     
     public void levelUp() {
+        System.out.println("Your hit dice is: " + proffesion.getHitDice() + 
+                ". Your basic HP increase is: " + proffesion.getChoiceHitDice());
+        System.out.print("Type Y to throw dice, type N for default increase.");
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        char choice = sc.next().charAt(0);
+        
+        level = level + 1;
         Dice dice = new Dice();
-        healthPoints = healthPoints + dice.rollDice(proffesion.getHitDice(), 1);
+        
+        switch (choice) {
+            case 'y': 
+                healthPoints = healthPoints + dice.rollDice(proffesion.getHitDice(), 1) + atributes.getModifier(3); break;
+            case 'n': 
+                healthPoints = healthPoints + proffesion.getChoiceHitDice() + atributes.getModifier(3); break;
+        }
+        
+        System.out.println("Your new HP is: " + healthPoints);
     }
     
     private int setArmourClass() {
@@ -161,4 +176,6 @@ public abstract class Character {
                 " | Melee Weapon: " + inventory.equipment.meleeWeapon.getName() + 
                 " | Ranged Weapon: " + inventory.equipment.rangedWeapon.getName() + "\n";
     }
+    
+    
 }

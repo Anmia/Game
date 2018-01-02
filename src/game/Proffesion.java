@@ -14,16 +14,19 @@ public abstract class Proffesion {
     private int proffesionID;
     private String proffesionName;
     private int hitDice;
+    private int choiceHitDice;
     private boolean[] savingThrow = new boolean[6];
     private int[] classAbilities;
     private int[] proficiencies;
     
     
-    public Proffesion(int proffesionID, String proffesionName, int hitDice, boolean[] savingThrow, 
-            int[] classAbilities, int[] proficiencies) {
+    public Proffesion(int proffesionID, String proffesionName, int hitDice, 
+            int choiceHitDice, boolean[] savingThrow, int[] classAbilities, 
+            int[] proficiencies) {
         this.proffesionID = proffesionID;
         this.proffesionName = proffesionName;
         this.hitDice = hitDice;
+        this.choiceHitDice = choiceHitDice;
         this.savingThrow = savingThrow;
         this.classAbilities = classAbilities;
         this.proficiencies = proficiencies;
@@ -61,5 +64,9 @@ public abstract class Proffesion {
             }
         }
         return proficient;
+    }
+    
+    public int getChoiceHitDice() {
+        return choiceHitDice;
     }
 }

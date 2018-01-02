@@ -50,7 +50,11 @@ public class Game {
         Character[] cb  = {me, enemy};
         Combat com = new Combat(cb, loc);
         
-        com.moveCombatantsByTurn();
+        // com.moveCombatantsByTurn();
+        me.levelUp();
+        System.out.println(me);
+        
+        
     }
     
 }

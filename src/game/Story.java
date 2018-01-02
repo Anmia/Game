@@ -24,6 +24,6 @@ public class Story {
         return warning;
     }
     
-    protected String storyone = " The story starts \n"
-            + "You are traveling with a caravan towards the city of Krohnhagen";
+    private String story = "You are bored and your arse is sore. "
+            + "A little over two weeks ago you signed up as ";
 }
