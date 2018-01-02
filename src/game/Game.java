@@ -38,12 +38,12 @@ public class Game {
         Proffesion fighter = new Proffesion_Fighter();
        
         Character me = new Player("Anmia", dwarf, fighter, 
-                inv, atri, 22, 1, 22, '@');
+                inv, atri, 0, 1, 22, '@');
         
         Character enemy = new NPC_Bandit();
         
         System.out.println(me);
-        System.out.println(enemy);
+        System.out.println(enemy.getCurentHealthPoints());
         
         int[][] loc = {{5, 15}, {1, 0}};
         

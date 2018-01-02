@@ -17,7 +17,10 @@ public abstract class Character {
     private Proffesion proffesion;
     protected Inventory inventory;
     protected Atributes atributes;
-    private int healthPoints;
+    
+    private int baseHealthPoints;
+    private int curentHealthPoints;
+    
     private int level;
     private int alignment;
     private int charArmourClass;
@@ -36,29 +39,62 @@ public abstract class Character {
      */
     
     public Character (String name, Race race, Proffesion proffesion, 
-            Inventory inventory, Atributes atributes, int healthPoints, 
+            Inventory inventory, Atributes atributes, int baseHealthPoints, 
             int level, int alignment, char identifyingChar) {
         this.name = name;
         this.race = race;
         this.proffesion = proffesion;
         this.inventory = inventory;
         this.atributes = atributes;
-        this.healthPoints = healthPoints;
+        this.baseHealthPoints = baseHealthPoints;
         this.level = level;
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
         
         charArmourClass = setArmourClass();
+        createCharacter();
+        curentHealthPoints = baseHealthPoints;
     }
     
-   
+    private void createCharacter() {
+        for (int i = 0; i < atributes.atributesBase.length; i++) {
+            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
+        }
+        baseHealthPoints = proffesion.getHitDice() + atributes.getModifier(2);
+    }
+    
+    private int setArmourClass() {
+        int ac = inventory.equipment.armour.getAC();
+        int mod = atributes.getModifier(1);
+        int newAc = 0;
+        
+        switch(inventory.equipment.armour.getArmourType()) {
+            case 1: 
+                newAc = ac + mod; break;         
+            case 2:
+                 if (mod > 2) {
+                    newAc = ac + 2;
+                } else {
+                    newAc = ac + mod;
+                } break;
+                
+            case 3:
+                newAc = ac; break;
+        }
+        
+        return newAc;
+    }
     
     public String getName() {
         return name;
     }
     
-    public int getHealthPoints() {
-        return healthPoints;
+    public int getBaseHealthPoints() {
+        return baseHealthPoints;
+    }
+    
+    public int getCurentHealthPoints() {
+        return curentHealthPoints;
     }
     
     public int getLevel() {
@@ -99,12 +135,7 @@ public abstract class Character {
         return (atribute >= armour.getReqLevel());
     }
     
-    public void createCharacter() {
-        for (int i = 0; i < atributes.atributesBase.length; i++) {
-            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
-        }
-        healthPoints = proffesion.getHitDice() + atributes.getModifier(2);
-    }
+    
     
     public void levelUp() {
         System.out.println("Your hit dice is: " + proffesion.getHitDice() + 
@@ -118,35 +149,15 @@ public abstract class Character {
         
         switch (choice) {
             case 'y': 
-                healthPoints = healthPoints + dice.rollDice(proffesion.getHitDice(), 1) + atributes.getModifier(3); break;
+                baseHealthPoints = baseHealthPoints + dice.rollDice(proffesion.getHitDice(), 1) + atributes.getModifier(3); break;
             case 'n': 
-                healthPoints = healthPoints + proffesion.getChoiceHitDice() + atributes.getModifier(3); break;
+                baseHealthPoints = baseHealthPoints + proffesion.getChoiceHitDice() + atributes.getModifier(3); break;
         }
         
-        System.out.println("Your new HP is: " + healthPoints);
+        System.out.println("Your new HP is: " + baseHealthPoints);
     }
     
-    private int setArmourClass() {
-        int ac = inventory.equipment.armour.getAC();
-        int mod = atributes.getModifier(1);
-        int newAc = 0;
-        
-        switch(inventory.equipment.armour.getArmourType()) {
-            case 1: 
-                newAc = ac + mod; break;         
-            case 2:
-                 if (mod > 2) {
-                    newAc = ac + 2;
-                } else {
-                    newAc = ac + mod;
-                } break;
-                
-            case 3:
-                newAc = ac; break;
-        }
-        
-        return newAc;
-    }
+    
     
     
     public char getIdentifyingChar() {

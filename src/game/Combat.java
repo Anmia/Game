@@ -96,41 +96,43 @@ public class Combat {
         return dice.rollDice(20, 1) + mod;
     }
     
-    public int performMeleeAttack(Character attacker, Character defender) {
+    public void performMeleeAttack(Character attacker, Character defender) {
         int damage = 0;
-        
         Dice dice = new Dice();
+        int range = map.getDistance(0, 1);
         
-        if (attacker.inventory.equipment.meleeWeapon != null) {
-            int atkAtri = attacker.inventory.equipment.meleeWeapon.getModifierAtribute();
-            int atkMod = attacker.atributes.getModifier(atkAtri);
-            boolean wpnH = attacker.inventory.equipment.meleeWeapon.getHeavy();
-            char atkSz = attacker.race.getSize();
+        if (range == 5) {
+            if (attacker.inventory.equipment.meleeWeapon != null) {
+                int atkAtri = attacker.inventory.equipment.meleeWeapon.getModifierAtribute();
+                int atkMod = attacker.atributes.getModifier(atkAtri);
+                boolean wpnH = attacker.inventory.equipment.meleeWeapon.getHeavy();
+                char atkSz = attacker.race.getSize();
 
-            int atkRoll = 0;
+                int atkRoll = 0;
 
-            if ((wpnH) && (atkSz == 's')) {
-                atkRoll = dice.rollDisAdvantage(atkAtri);
+                if ((wpnH) && (atkSz == 's')) {
+                    atkRoll = dice.rollDisAdvantage(atkAtri);
+                } else {
+                    atkRoll = dice.rollDice(20, 1);
+                }
+
+                int defAC = defender.getCharArmourClass();
+
+                if (atkRoll == 1 || defAC > atkRoll + atkMod) {
+                    damage = 0;
+                } else {
+                    damage = dice.rollDice(attacker.inventory.equipment.meleeWeapon.getDamageDice(), 1);
+                }
             } else {
-                atkRoll = dice.rollDice(20, 1);
+                /**
+                 * for now unarmed damage is 1
+                 * some classes does more, but for now it is 1
+                 */
+                damage = 1;
             }
-
-            int defAC = defender.getCharArmourClass();
-
-            if (atkRoll == 1 || defAC > atkRoll + atkMod) {
-                damage = 0;
-            } else {
-                damage = dice.rollDice(attacker.inventory.equipment.meleeWeapon.getDamageDice(), 1);
-            }
-        } else {
-            /**
-             * for now unarmed damage is 1
-             * some classes does more, but for now it is 1
-             */
-            damage = 1;
         }
         
-        return damage;
+        
     }
     
     public int performRangedAttack(Character attacker, Character defender) {

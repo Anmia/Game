@@ -24,7 +24,7 @@ public class NPC_Bandit extends NPC {
     static int[] atr = {11, 12, 12, 10, 10, 10};
     private final static Atributes atributes = new Atributes(atr);
     
-    private static final int healthPoints = 12;
+    private static final int baseHealthPoints = 12;
     private static final int level = 1;
     private static final int alignment = 23;
     private static final char identifyingChar = '#';
@@ -32,7 +32,7 @@ public class NPC_Bandit extends NPC {
     
     
     public NPC_Bandit() {
-        super(name, race, proffesion, inventory, atributes, healthPoints, level, alignment, identifyingChar, expWorth);
+        super(name, race, proffesion, inventory, atributes, baseHealthPoints, level, alignment, identifyingChar, expWorth);
     }
     
 }
