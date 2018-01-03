@@ -69,4 +69,12 @@ public class Equipment{
     public void setRangedWeapon(Ranged rangedWeapon) {
         this.rangedWeapon = rangedWeapon;
     }
+    
+    public boolean hasMeleeWeapon() {
+        return meleeWeapon == null;
+    }
+    
+    public boolean hasRangedWeapon() {
+        return rangedWeapon == null;
+    }
 }

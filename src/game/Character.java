@@ -103,6 +103,14 @@ public abstract class Character {
         return curentHealthPoints;
     }
     
+    public String printHelthStatus() {
+        return "HP: " + curentHealthPoints + "/" + baseHealthPoints;
+    }
+    
+    public void takeDamage(int damage) {
+        curentHealthPoints = curentHealthPoints - damage;
+    }
+    
     public int getLevel() {
         return level;
     }
@@ -188,7 +196,7 @@ public abstract class Character {
     @Override
     public String toString(){
         return "Name: " + name + " | Level: " + level + 
-                " | 🎊🎊 Proffesion: " + proffesion.getProffesionName() + 
+                " | Proffesion: " + proffesion.getProffesionName() + 
                 " | HP: " + curentHealthPoints + " / " + baseHealthPoints + "\n" + 
                 "Armour : " + inventory.equipment.armour.getName() + 
                 " | Melee Weapon: " + inventory.equipment.meleeWeapon.getName() + 

@@ -31,11 +31,12 @@ public class Game {
         Armour armour = new Armour_Plate();
         Race dwarf = new Race_Dwarf();
         Ranged ranged = new Ranged_HandCrossbow();
+        Ranged dart = new Ranged_Dart();
         Equipment equip = new Equipment(armour, null, null, null, club, ranged, false);
         
         Melee lance = new Melee_Lance();
         Melee handaxe = new Melee_Handaxe();
-        Ranged dart = new Ranged_Dart();
+        
         Armour bp = new Armour_Breastplate();
         
         Item[] stuff = {lance, bp, club, handaxe, dart, null, null};
@@ -53,7 +54,7 @@ public class Game {
         System.out.println(me);
         System.out.println(enemy.getCurentHealthPoints());
         
-        int[][] loc = {{5, 15}, {1, 0}};
+        int[][] loc = {{5, 15}, {6, 12}};
         
         Character[] cb  = {me, enemy};
         Combat com = new Combat(cb, loc);
@@ -64,7 +65,7 @@ public class Game {
         
         System.out.println(me.inventory.equipment.getMeleeWeapon().getName());
         
-        
+        com.combatFunction();
         
         //com.moveCombatantsByTurn();
         //me.levelUp();

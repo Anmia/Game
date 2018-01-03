@@ -17,6 +17,7 @@ public class Combat {
     private Dice dice = new Dice();
     Maps map = new Maps();
     
+    java.util.Scanner sc = new java.util.Scanner(System.in);
     
     public Combat(Character[] combatants, int[][] locations) {
         this.combatants = combatants;
@@ -31,33 +32,20 @@ public class Combat {
         }
     }
     
-    public void moveCombatantsByTurn() {
-        System.out.println(map.getDistance(0, 1));
-        
-        while (!map.getEndCombat()) {
-            for (int i = 0; i < combatants.length; i++) {
-                for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
-                    map.printMap();
-                    System.out.println("you have " + j + " Moves left.");
-                    System.out.print("Insert direction for " + combatants[i].getName() + 
-                            "\n using WASD to chose direction or E to end turn.");
-                    java.util.Scanner sc = new java.util.Scanner(System.in);
-                    char direction = sc.next().charAt(0);
+    public void combatMove(int i) {
+        for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
+            map.printMap();
+            System.out.println("you have " + j + " Moves left.");
+            System.out.print("Insert direction for " + combatants[i].getName() + 
+                    " using WASD to chose direction or E to end turn: ");
 
-                    map.movePlayer(i, direction);
-                    if (map.getEndMovement()) {
-                        j = 0;
-                    } else if (map.getObstacle()) {
-                        j = j + 1; 
-                    } else if (map.getEndCombat()) {
-                        j = 0;
-                        i = combatants.length;
-                    }
-                }
-                
-                if (map.getEndCombat()) {
-                    i = combatants.length;
-                }
+            char direction = sc.next().charAt(0);
+
+            map.movePlayer(i, direction);
+            if (map.getEndMovement()) {
+                j = 0;
+            } else if (map.getObstacle()) {
+                j = j + 1; 
             }
         }
     }
@@ -78,17 +66,143 @@ public class Combat {
         }
     }
     
+    boolean notEnd = true;
+    
+    public void combatFunction() {
+        int two = 0;
+        while (notEnd) {
+            for (int one = 0; one < combatants.length; one++) {
+                
+                if (one == 0) {
+                    two = 1;
+                } else if (one == 1) {
+                    two = 0;
+                }
+                for (int a = 0; a < combatants.length; a++) {
+                    System.out.println(combatants[a].getName() + " " + combatants[a].printHelthStatus());
+                    
+                }
+                
+                map.printMap();
+                
+                boolean actionBool = true;
+                while (actionBool) {
+                    
+                    System.out.print("Choose an action for " + combatants[one].getName() + ". m for move, a for "
+                            + "attack, c to end: ");
+                    char actionChar = sc.next().charAt(0);
+
+                    if (actionChar == 'm') {
+                        combatMove(one);
+                        
+                        boolean secChoiceBool = true;
+                        while (secChoiceBool) {
+                            System.out.print("Do you wish to attack?  y/n: ");
+                        
+                            char secChoice = sc.next().charAt(0);
+
+                            if (secChoice == 'y') {
+                                attack(one, two);
+                                
+                                if (combatants[two].getCurentHealthPoints() <= 0) {
+                                    notEnd = false;
+                                    actionBool = false;
+                                    secChoiceBool = false;
+                                    one = combatants.length;
+                            
+                                    System.out.println(combatants[two].getName() + " is dead. Combat is over!");
+                                }
+                                
+                                secChoiceBool = false;
+                            } else if (secChoice == 'n') {
+                                secChoiceBool = false;
+                            } else {
+                                System.out.println("Please choose a valid option.");
+                            }
+                        }
+                        actionBool = false;
+                    } else if (actionChar == 'a') {
+                        attack(one, two);
+                        boolean secChoiceBool = true;
+                        
+                        if (combatants[two].getCurentHealthPoints() <= 0) {
+                            notEnd = false;
+                            actionBool = false;
+                            secChoiceBool = false;
+                            one = combatants.length;
+                            
+                            System.out.println(combatants[two].getName() + " is dead. Combat is over!");
+                        }
+                        
+                        while (secChoiceBool) {
+                            System.out.print("Do you wish to move?  y/n: ");
+                        
+                            char secChoice = sc.next().charAt(0);
+
+                            if (secChoice == 'y') {
+                                combatMove(one);
+                                secChoiceBool = false;
+                            } else if (secChoice == 'n') {
+                                secChoiceBool = false;
+                            } else {
+                                System.out.println("Please choose a valid option: ");
+                            }
+                        }
+                        actionBool = false;
+                    } else if (actionChar == 'c') {
+                        notEnd = false;
+                        actionBool = false;
+                        one = combatants.length;
+                    } else {
+                        System.out.println("Please choose a valid option: ");
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+    private void attack(int one, int two) {
+        boolean attackBool = true;
+                                
+        while (attackBool) {
+            System.out.print("M for Melee, r for ranged, c to cancel.");
+            char attack = sc.next().charAt(0);
+
+            if (attack == 'm') {
+                if (map.getDistance(one, two) == 5) {
+                    meleeAttack(combatants[one], combatants[two]);
+                    attackBool = false;
+                } else {
+                    System.out.println("Target is not within melee weapon range.");
+                }
+            } else if (attack == 'r') {
+                if (withinRange(one, two)) {
+                    rangedAttack(combatants[one], combatants[two]);
+                    attackBool = false;
+                } else {
+                    System.out.println("Target is not within ranged weapon range.");
+                }
+            } else if ( attack == 'c') {
+                attackBool = false;
+            } else {
+                System.out.println("Please choose a valid option.");
+            }
+        }
+    }
     
     
     
     
     
-    
-    
-    
-    
-    
-    
+    private boolean withinRange(int from, int to) {
+        int[] range = combatants[from].inventory.equipment.getRangedWeapon().getRange();
+        int distance = map.getDistance(from, to);
+        
+        return (range[0] <= distance && distance <= range[1]);
+            
+    }
     
     public int rollInitiative(int combNum) {
         int mod = combatants[combNum].atributes.getModifier(1);
@@ -96,17 +210,16 @@ public class Combat {
         return dice.rollDice(20, 1) + mod;
     }
     
-    public void performMeleeAttack(Character attacker, Character defender) {
+    public void meleeAttack(Character atk, Character def) {
         int damage = 0;
-        Dice dice = new Dice();
         int range = map.getDistance(0, 1);
         
         if (range == 5) {
-            if (attacker.inventory.equipment.meleeWeapon != null) {
-                int atkAtri = attacker.inventory.equipment.meleeWeapon.getModifierAtribute();
-                int atkMod = attacker.atributes.getModifier(atkAtri);
-                boolean wpnH = attacker.inventory.equipment.meleeWeapon.getHeavy();
-                char atkSz = attacker.race.getSize();
+            if (atk.inventory.equipment.meleeWeapon != null) {
+                int atkAtri = atk.inventory.equipment.meleeWeapon.getModifierAtribute();
+                int atkMod = atk.atributes.getModifier(atkAtri);
+                boolean wpnH = atk.inventory.equipment.meleeWeapon.getHeavy();
+                char atkSz = atk.race.getSize();
 
                 int atkRoll = 0;
 
@@ -116,12 +229,12 @@ public class Combat {
                     atkRoll = dice.rollDice(20, 1);
                 }
 
-                int defAC = defender.getCharArmourClass();
+                int defAC = def.getCharArmourClass();
 
                 if (atkRoll == 1 || defAC > atkRoll + atkMod) {
                     damage = 0;
                 } else {
-                    damage = dice.rollDice(attacker.inventory.equipment.meleeWeapon.getDamageDice(), 1);
+                    damage = dice.rollDice(atk.inventory.equipment.meleeWeapon.getDamageDice(), 1);
                 }
             } else {
                 /**
@@ -131,21 +244,20 @@ public class Combat {
                 damage = 1;
             }
         }
-        
-        
+        printDamage(atk, def, damage);
+        def.takeDamage(damage);
     }
     
-    public int performRangedAttack(Character attacker, Character defender) {
+    public void rangedAttack(Character atk, Character def) {
         int damage = 0;
-        
         int range = map.getDistance(0, 1);
-        int wepRange[] = attacker.inventory.equipment.rangedWeapon.getRange();
+        int wepRange[] = atk.inventory.equipment.rangedWeapon.getRange();
         
         if (wepRange[0] < range && range < wepRange[1]) {
-            int atkAtri = attacker.inventory.equipment.rangedWeapon.getModifierAtribute();
-            int atkMod = attacker.atributes.getModifier(atkAtri);
-            boolean wpnH = attacker.inventory.equipment.rangedWeapon.getHeavy();
-            char atkSz = attacker.race.getSize();
+            int atkAtri = atk.inventory.equipment.rangedWeapon.getModifierAtribute();
+            int atkMod = atk.atributes.getModifier(atkAtri);
+            boolean wpnH = atk.inventory.equipment.rangedWeapon.getHeavy();
+            char atkSz = atk.race.getSize();
 
             int atkRoll = 0;
 
@@ -155,15 +267,20 @@ public class Combat {
                 atkRoll = dice.rollDice(20, 1);
             }
 
-            int defAC = defender.getCharArmourClass();
+            int defAC = def.getCharArmourClass();
 
             if (atkRoll == 1 || defAC > atkRoll + atkMod) {
                 damage = 0;
             } else {
-                damage = dice.rollDice(attacker.inventory.equipment.rangedWeapon.getDamageDice(), 1);
+                damage = dice.rollDice(atk.inventory.equipment.rangedWeapon.getDamageDice(), 1);
             }
         }
-        
-        return damage;
+        printDamage(atk, def, damage);
+        def.takeDamage(damage);
+    }
+    
+    public void printDamage(Character atk, Character def, int damage) {
+        System.out.println(atk.getName() + " does " + damage + 
+                " damage to " + def.getName());
     }
 }
