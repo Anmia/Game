@@ -49,21 +49,22 @@ public class Game {
         Character me = new Player("Anmia", dwarf, fighter, 
                 inv, atri, 0, 1, 22, '@');
         
-        Character enemy = new NPC_Bandit();
+        Character bandit = new NPC_Bandit();
+        Character guard = new NPC_Guard();
         
         System.out.println(me);
-        System.out.println(enemy.getCurentHealthPoints());
+        System.out.println(bandit.getCurentHealthPoints());
         
-        int[][] loc = {{5, 15}, {6, 12}};
+        int[][] loc = {{5, 15}, {5, 14}, {6, 15}};
         
-        Character[] cb  = {me, enemy};
+        Character[] cb  = {me, bandit, guard};
         Combat com = new Combat(cb, loc);
         
-        System.out.println(me.inventory.equipment.getMeleeWeapon().getName());
+        System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
         
         // me.inventory.changeEquiptment();
         
-        System.out.println(me.inventory.equipment.getMeleeWeapon().getName());
+        System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
         
         com.combatFunction();
         

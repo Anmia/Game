@@ -85,6 +85,8 @@ public class Combat {
                 
                 map.printMap();
                 
+                
+                
                 boolean actionBool = true;
                 while (actionBool) {
                     
@@ -102,16 +104,16 @@ public class Combat {
                             char secChoice = sc.next().charAt(0);
 
                             if (secChoice == 'y') {
-                                attack(one, two);
+                                attack(one);
                                 
-                                if (combatants[two].getCurentHealthPoints() <= 0) {
-                                    notEnd = false;
-                                    actionBool = false;
-                                    secChoiceBool = false;
-                                    one = combatants.length;
-                            
-                                    System.out.println(combatants[two].getName() + " is dead. Combat is over!");
-                                }
+//                                if (combatants[two].getCurentHealthPoints() <= 0) {
+//                                    notEnd = false;
+//                                    actionBool = false;
+//                                    secChoiceBool = false;
+//                                    one = combatants.length;
+//                            
+//                                    System.out.println(combatants[two].getName() + " is dead. Combat is over!");
+//                                }
                                 
                                 secChoiceBool = false;
                             } else if (secChoice == 'n') {
@@ -122,17 +124,8 @@ public class Combat {
                         }
                         actionBool = false;
                     } else if (actionChar == 'a') {
-                        attack(one, two);
+                        attack(one);
                         boolean secChoiceBool = true;
-                        
-                        if (combatants[two].getCurentHealthPoints() <= 0) {
-                            notEnd = false;
-                            actionBool = false;
-                            secChoiceBool = false;
-                            one = combatants.length;
-                            
-                            System.out.println(combatants[two].getName() + " is dead. Combat is over!");
-                        }
                         
                         while (secChoiceBool) {
                             System.out.print("Do you wish to move?  y/n: ");
@@ -163,27 +156,50 @@ public class Combat {
         }
     }
     
-    private void attack(int one, int two) {
+    private void attack(int one) {
         boolean attackBool = true;
                                 
         while (attackBool) {
             System.out.print("M for Melee, r for ranged, c to cancel.");
             char attack = sc.next().charAt(0);
-
+            
             if (attack == 'm') {
-                if (map.getDistance(one, two) == 5) {
-                    meleeAttack(combatants[one], combatants[two]);
-                    attackBool = false;
-                } else {
-                    System.out.println("Target is not within melee weapon range.");
+                char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
+                int alphaCount = 0;
+                boolean[] inRange = map.withinRange(one, 5, 5);
+                for (int i = 0; i < inRange.length; i++) {
+                    if (inRange[i]) {
+                        System.out.println("<" + alphabet[alphaCount] + "> | Name: " + 
+                                combatants[i].getName() + " | " + 
+                                map.getLocation(i));
+                        alphaCount++;
+                    }
                 }
+                
+                System.out.print("Choose target: ");
+                char target = sc.next().charAt(0);
+                
+                
+                
+                attackBool = false;
             } else if (attack == 'r') {
-                if (withinRange(one, two)) {
-                    rangedAttack(combatants[one], combatants[two]);
-                    attackBool = false;
-                } else {
-                    System.out.println("Target is not within ranged weapon range.");
+                char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
+                int alphaCount = 0;
+                int[] range = combatants[one].getInventory().equipment.getRangedWeapon().getRange();
+                boolean[] inRange = map.withinRange(one, range[0], range[1]);
+                for (int i = 0; i < inRange.length; i++) {
+                    if (inRange[i]) {
+                        System.out.println("<" + alphabet[alphaCount] + "> | Name: " + 
+                                combatants[i].getName() + " | " + 
+                                map.getLocation(i));
+                        alphaCount++;
+                    }
                 }
+                
+                for (int i = 0; i < inRange.length; i++) {
+                    System.out.println(inRange[i] + " | " + one);
+                }
+                attackBool = false;
             } else if ( attack == 'c') {
                 attackBool = false;
             } else {
@@ -197,7 +213,7 @@ public class Combat {
     
     
     private boolean withinRange(int from, int to) {
-        int[] range = combatants[from].inventory.equipment.getRangedWeapon().getRange();
+        int[] range = combatants[from].getInventory().equipment.getRangedWeapon().getRange();
         int distance = map.getDistance(from, to);
         
         return (range[0] <= distance && distance <= range[1]);
@@ -215,13 +231,13 @@ public class Combat {
         int range = map.getDistance(0, 1);
         
         if (range == 5) {
-            if (atk.inventory.equipment.meleeWeapon != null) {
-                int atkAtri = atk.inventory.equipment.meleeWeapon.getModifierAtribute();
+            if (atk.getInventory().equipment.meleeWeapon != null) {
+                int atkAtri = atk.getInventory().equipment.meleeWeapon.getModifierAtribute();
                 int atkMod = atk.atributes.getModifier(atkAtri);
-                boolean wpnH = atk.inventory.equipment.meleeWeapon.getHeavy();
+                boolean wpnH = atk.getInventory().equipment.meleeWeapon.getHeavy();
                 char atkSz = atk.race.getSize();
 
-                int atkRoll = 0;
+                int atkRoll;
 
                 if ((wpnH) && (atkSz == 's')) {
                     atkRoll = dice.rollDisAdvantage(atkAtri);
@@ -234,7 +250,7 @@ public class Combat {
                 if (atkRoll == 1 || defAC > atkRoll + atkMod) {
                     damage = 0;
                 } else {
-                    damage = dice.rollDice(atk.inventory.equipment.meleeWeapon.getDamageDice(), 1);
+                    damage = dice.rollDice(atk.getInventory().equipment.meleeWeapon.getDamageDice(), 1);
                 }
             } else {
                 /**
@@ -249,17 +265,19 @@ public class Combat {
     }
     
     public void rangedAttack(Character atk, Character def) {
+        
+        
         int damage = 0;
         int range = map.getDistance(0, 1);
-        int wepRange[] = atk.inventory.equipment.rangedWeapon.getRange();
+        int wepRange[] = atk.getInventory().equipment.rangedWeapon.getRange();
         
         if (wepRange[0] < range && range < wepRange[1]) {
-            int atkAtri = atk.inventory.equipment.rangedWeapon.getModifierAtribute();
+            int atkAtri = atk.getInventory().equipment.rangedWeapon.getModifierAtribute();
             int atkMod = atk.atributes.getModifier(atkAtri);
-            boolean wpnH = atk.inventory.equipment.rangedWeapon.getHeavy();
+            boolean wpnH = atk.getInventory().equipment.rangedWeapon.getHeavy();
             char atkSz = atk.race.getSize();
 
-            int atkRoll = 0;
+            int atkRoll;
 
             if ((wpnH) && (atkSz == 's')) {
                 atkRoll = dice.rollDisAdvantage(atkAtri);
@@ -272,7 +290,7 @@ public class Combat {
             if (atkRoll == 1 || defAC > atkRoll + atkMod) {
                 damage = 0;
             } else {
-                damage = dice.rollDice(atk.inventory.equipment.rangedWeapon.getDamageDice(), 1);
+                damage = dice.rollDice(atk.getInventory().equipment.rangedWeapon.getDamageDice(), 1);
             }
         }
         printDamage(atk, def, damage);

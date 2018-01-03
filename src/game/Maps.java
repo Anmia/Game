@@ -8,6 +8,7 @@ package game;
 /**
  * Here the combat maps will be stored as arrays
  * maps are squares for now, maybe hexes in the future
+ * doubt it though
  * @author Magnus
  */
 public class Maps {
@@ -47,9 +48,9 @@ public class Maps {
     
     private char[] obstacles = {'¤'};
     
-    private char[] charSymbol = new char[10];
+    private char[] charSymbol = new char[3];
     
-    private int[][] characterLocations = new int[10][2];
+    private int[][] characterLocations = new int[3][2];
     
     private boolean obstacle = true;
 
@@ -133,19 +134,7 @@ public class Maps {
     }
     
     
-    public void locateChar(char ident) {
-        
-             
-        for (int i = 0; i < mapTwo.length; i++) {
-            for (int j = 0; j < mapTwo[i].length; j++) {
-                if (mapTwo[i][j][0] == ident)  {
-                    System.out.println("X: " + j + " | Y: " + i);
-                }
-            }
-        } 
-            
-        
-    }
+    
     
     public boolean getObstacle() {
         return obstacle;
@@ -167,7 +156,7 @@ public class Maps {
         return ocupied;
     }
     
-    public void getXY() {
+    public void printCoordinates() {
         System.out.println("[ " + characterLocations[0][0] + " | " + characterLocations[0][1] + " ]");
     }
     
@@ -179,7 +168,19 @@ public class Maps {
         charSymbol[who] = symbol;
     }
     
-    
+    public boolean[] withinRange(int who, int min, int max) {
+        boolean[] inRange = new boolean[charSymbol.length];
+        
+        for (int i = 0; i < charSymbol.length; i++) {
+            if (min <= getDistance(who, i) && getDistance(who, i) <= max) {
+                inRange[i] = true;
+            } else {
+                inRange[i] = false;
+            }
+        }
+        
+       return inRange;
+    }
     
     public int getDistance(int from, int to) {
         int distance = 0;
@@ -199,6 +200,10 @@ public class Maps {
     }
     
     public void removeCharacter(int who) {
-        
+        mapTwo[characterLocations[who][1]][characterLocations[who][0]][0] = '.';
+    }
+    
+    public String getLocation(int who) {
+        return characterLocations[who][0] + "/" + characterLocations[who][1];
     }
 }

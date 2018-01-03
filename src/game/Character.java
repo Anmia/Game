@@ -15,7 +15,7 @@ public abstract class Character {
     private String name;
     protected Race race;
     private Proffesion proffesion;
-    protected Inventory inventory;
+    private Inventory inventory;
     protected Atributes atributes;
     
     private int baseHealthPoints;
@@ -133,6 +133,14 @@ public abstract class Character {
             case 53: name = "Chaotic Evil"; break;
         }
         return name;
+    }
+    
+    public Inventory getInventory() {
+        return inventory;
+    }
+    
+    public Proffesion getProffesion() {
+        return proffesion;
     }
     
     public int getCharArmourClass() {
