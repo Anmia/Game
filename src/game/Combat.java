@@ -124,7 +124,7 @@ public class Combat {
                         }
                         actionBool = false;
                     } else if (actionChar == 'a') {
-                        attack(one);
+                        attack(one); 
                         boolean secChoiceBool = true;
                         
                         while (secChoiceBool) {
