@@ -71,11 +71,11 @@ public class Combat {
     public void combatFunction() {
         int two = 0;
         while (notEnd) {
-            for (int one = 0; one < combatants.length; one++) {
+            for (int hasTurn = 0; hasTurn < combatants.length; hasTurn++) {
                 
-                if (one == 0) {
+                if (hasTurn == 0) {
                     two = 1;
-                } else if (one == 1) {
+                } else if (hasTurn == 1) {
                     two = 0;
                 }
                 for (int a = 0; a < combatants.length; a++) {
@@ -90,12 +90,12 @@ public class Combat {
                 boolean actionBool = true;
                 while (actionBool) {
                     
-                    System.out.print("Choose an action for " + combatants[one].getName() + ". m for move, a for "
+                    System.out.print("Choose an action for " + combatants[hasTurn].getName() + ". m for move, a for "
                             + "attack, c to end: ");
                     char actionChar = sc.next().charAt(0);
 
                     if (actionChar == 'm') {
-                        combatMove(one);
+                        combatMove(hasTurn);
                         
                         boolean secChoiceBool = true;
                         while (secChoiceBool) {
@@ -104,13 +104,13 @@ public class Combat {
                             char secChoice = sc.next().charAt(0);
 
                             if (secChoice == 'y') {
-                                attack(one);
+                                attack(hasTurn);
                                 
 //                                if (combatants[two].getCurentHealthPoints() <= 0) {
 //                                    notEnd = false;
 //                                    actionBool = false;
 //                                    secChoiceBool = false;
-//                                    one = combatants.length;
+//                                    hasTurn = combatants.length;
 //                            
 //                                    System.out.println(combatants[two].getName() + " is dead. Combat is over!");
 //                                }
@@ -124,7 +124,7 @@ public class Combat {
                         }
                         actionBool = false;
                     } else if (actionChar == 'a') {
-                        attack(one); 
+                        attack(hasTurn); 
                         boolean secChoiceBool = true;
                         
                         while (secChoiceBool) {
@@ -133,7 +133,7 @@ public class Combat {
                             char secChoice = sc.next().charAt(0);
 
                             if (secChoice == 'y') {
-                                combatMove(one);
+                                combatMove(hasTurn);
                                 secChoiceBool = false;
                             } else if (secChoice == 'n') {
                                 secChoiceBool = false;
@@ -145,7 +145,7 @@ public class Combat {
                     } else if (actionChar == 'c') {
                         notEnd = false;
                         actionBool = false;
-                        one = combatants.length;
+                        hasTurn = combatants.length;
                     } else {
                         System.out.println("Please choose a valid option: ");
                     }
@@ -156,48 +156,84 @@ public class Combat {
         }
     }
     
-    private void attack(int one) {
+    private void attack(int hasTurn) {
         boolean attackBool = true;
-                                
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
         while (attackBool) {
             System.out.print("M for Melee, r for ranged, c to cancel.");
             char attack = sc.next().charAt(0);
             
             if (attack == 'm') {
-                char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
-                int alphaCount = 0;
-                boolean[] inRange = map.withinRange(one, 5, 5);
+                int[] inRange = map.withinRange(hasTurn, 5, 5);
+                
                 for (int i = 0; i < inRange.length; i++) {
-                    if (inRange[i]) {
-                        System.out.println("<" + alphabet[alphaCount] + "> | Name: " + 
+                    if (inRange[i] != 99) {
+                        System.out.println("<" + alphabet[i] + "> | Name: " + 
                                 combatants[i].getName() + " | " + 
                                 map.getLocation(i));
-                        alphaCount++;
                     }
                 }
                 
-                System.out.print("Choose target: ");
-                char target = sc.next().charAt(0);
-                
-                
-                
+                boolean angryBool = true;
+                while (angryBool) {
+                    System.out.print("Choose target (or + to cancel): ");
+                    char target = sc.next().charAt(0);
+                    
+                    int targetEnemy = 99;
+                    
+                    for (int i = 0; i < inRange.length; i++) {
+                        if (inRange[i] != 99) {
+                            if (target == alphabet[i]) {
+                                targetEnemy = i;
+                            }
+                        }
+                    }
+                    
+                    if (target == '+') {
+                        angryBool = false;
+                    } else if (targetEnemy == 99) {
+                        System.out.println("Non valid target");
+                    } else {
+                        meleeAttack(combatants[hasTurn], combatants[targetEnemy]);
+                        angryBool = false;
+                    }
+                }
                 attackBool = false;
             } else if (attack == 'r') {
-                char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
-                int alphaCount = 0;
-                int[] range = combatants[one].getInventory().equipment.getRangedWeapon().getRange();
-                boolean[] inRange = map.withinRange(one, range[0], range[1]);
+                int[] range = combatants[hasTurn].getInventory().equipment.getRangedWeapon().getRange();
+                int[] inRange = map.withinRange(hasTurn, range[0], range[1]);
+                
                 for (int i = 0; i < inRange.length; i++) {
-                    if (inRange[i]) {
-                        System.out.println("<" + alphabet[alphaCount] + "> | Name: " + 
+                    if (inRange[i] != 99) {
+                        System.out.println("<" + alphabet[i] + "> | Name: " + 
                                 combatants[i].getName() + " | " + 
                                 map.getLocation(i));
-                        alphaCount++;
                     }
                 }
                 
-                for (int i = 0; i < inRange.length; i++) {
-                    System.out.println(inRange[i] + " | " + one);
+                boolean angryBool = true;
+                while (angryBool) {
+                    System.out.print("Choose target (or + to cancel): ");
+                    char target = sc.next().charAt(0);
+                    
+                    int targetEnemy = 99;
+                    
+                    for (int i = 0; i < inRange.length; i++) {
+                        if (inRange[i] != 99) {
+                            if (target == alphabet[i]) {
+                                targetEnemy = i;
+                            }
+                        }
+                    }
+                    
+                    if (target == '+') {
+                        angryBool = false;
+                    } else if (targetEnemy == 99) {
+                        System.out.println("Non valid target");
+                    } else {
+                        meleeAttack(combatants[hasTurn], combatants[targetEnemy]);
+                        angryBool = false;
+                    }
                 }
                 attackBool = false;
             } else if ( attack == 'c') {

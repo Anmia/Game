@@ -168,18 +168,27 @@ public class Maps {
         charSymbol[who] = symbol;
     }
     
-    public boolean[] withinRange(int who, int min, int max) {
-        boolean[] inRange = new boolean[charSymbol.length];
+    public int[] withinRange(int who, int min, int max) {
+        boolean[] checker = new boolean[charSymbol.length];
+        int[] inRange = new int[charSymbol.length];
         
         for (int i = 0; i < charSymbol.length; i++) {
             if (min <= getDistance(who, i) && getDistance(who, i) <= max) {
-                inRange[i] = true;
+                checker[i] = true;
             } else {
-                inRange[i] = false;
+                checker[i] = false;
             }
         }
         
-       return inRange;
+        for (int i = 0; i < checker.length; i++) {
+            if (checker[i]) {
+                inRange[i] = i;
+            } else {
+                inRange[i] = 99;
+            }
+        }
+        
+        return inRange;
     }
     
     public int getDistance(int from, int to) {
@@ -206,4 +215,6 @@ public class Maps {
     public String getLocation(int who) {
         return characterLocations[who][0] + "/" + characterLocations[who][1];
     }
+    
+    
 }

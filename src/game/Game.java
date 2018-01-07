@@ -55,7 +55,7 @@ public class Game {
         System.out.println(me);
         System.out.println(bandit.getCurentHealthPoints());
         
-        int[][] loc = {{5, 15}, {5, 14}, {6, 15}};
+        int[][] loc = {{5, 15}, {5, 8}, {6, 15}};
         
         Character[] cb  = {me, bandit, guard};
         Combat com = new Combat(cb, loc);
