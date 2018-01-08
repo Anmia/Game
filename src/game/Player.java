@@ -28,7 +28,12 @@ public class Player extends Character {
     public void setExp(int newExp) {
         int level = super.getLevel();
         
-        
+        switch (level) {
+            case 1:
+                if (exp < 9) {
+                    
+                }
+        }
     }
     
     

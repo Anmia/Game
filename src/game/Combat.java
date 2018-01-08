@@ -72,20 +72,17 @@ public class Combat {
         int two = 0;
         while (notEnd) {
             for (int hasTurn = 0; hasTurn < combatants.length; hasTurn++) {
-                
                 if (hasTurn == 0) {
                     two = 1;
                 } else if (hasTurn == 1) {
                     two = 0;
                 }
+                
                 for (int a = 0; a < combatants.length; a++) {
                     System.out.println(combatants[a].getName() + " " + combatants[a].printHelthStatus());
-                    
                 }
                 
                 map.printMap();
-                
-                
                 
                 boolean actionBool = true;
                 while (actionBool) {
@@ -105,16 +102,6 @@ public class Combat {
 
                             if (secChoice == 'y') {
                                 attack(hasTurn);
-                                
-//                                if (combatants[two].getCurentHealthPoints() <= 0) {
-//                                    notEnd = false;
-//                                    actionBool = false;
-//                                    secChoiceBool = false;
-//                                    hasTurn = combatants.length;
-//                            
-//                                    System.out.println(combatants[two].getName() + " is dead. Combat is over!");
-//                                }
-                                
                                 secChoiceBool = false;
                             } else if (secChoice == 'n') {
                                 secChoiceBool = false;
@@ -150,11 +137,16 @@ public class Combat {
                         System.out.println("Please choose a valid option: ");
                     }
                 }
-                
             }
-            
         }
     }
+    
+    /**
+     * This needs work and needs to be cleaned up
+     * It works though
+     * Need to learn to comment properly!
+     * @param hasTurn - character who has the turn, see combatFunction above
+     */
     
     private void attack(int hasTurn) {
         boolean attackBool = true;
