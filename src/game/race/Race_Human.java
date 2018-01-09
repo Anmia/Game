@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package game.race;
 
 /**
  *
  * @author nerdi
  */
-public class Race_Dragonborn extends Race{
-    private final static int raceID = 102;
-    private final static String raceName = "Dragonborn";
+public class Race_Human extends Race{
+    private final static int raceID = 107;
+    private final static String raceName = "Human";
     private final static int speed = 30;
     private final static char size = 'm';
     private final static boolean darkvision = false;
-    private final static int[] raceModifiers = {2, 0, 0, 0, 0, 1};
+    private final static int[] raceModifiers = {1, 1, 1, 1, 1, 1};
     private static final int[] raceAbilities = {1};
 
-    public Race_Dragonborn() {
-        super(raceID, raceName, speed, size, darkvision, 
-                raceModifiers, raceAbilities);
-        }
+    public Race_Human() {
+        super(raceID, raceName, speed, size, darkvision, raceModifiers,
+                 raceAbilities);
+    }
 }

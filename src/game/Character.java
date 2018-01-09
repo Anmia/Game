@@ -5,6 +5,8 @@
  */
 package game;
 
+import game.race.Race;
+
 /**
  *
  * @author Magnus

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package game.race;
 
 /**
  * Figure out how to make the races and C_classes final and unchangeable

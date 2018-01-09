@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package game.race;
 
 /**
- * Uses stats for wood elf 
+ *
  * @author nerdi
  */
-public class Race_Elf extends Race{
-    private final static int raceID = 103;
-    private final static String raceName = "Elf";
+public class Race_HalfOrc extends Race{
+    private final static int raceID = 106;
+    private final static String raceName = "Half Orc";
     private final static int speed = 30;
     private final static char size = 'm';
     private final static boolean darkvision = true;
-    private final static int[] raceModifiers = {0, 2, 0, 1, 0, 0};
+    private final static int[] raceModifiers = {2, 0, 1, 0, 0, 0};
     private static final int[] raceAbilities = {1};
 
-    public Race_Elf() {
+    public Race_HalfOrc() {
         super(raceID, raceName, speed, size, darkvision, raceModifiers, 
                 raceAbilities);
     }

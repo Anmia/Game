@@ -5,6 +5,9 @@
  */
 package game;
 
+import game.race.Race;
+import game.race.Race_Human;
+
 /**
  *
  * @author nerdi
