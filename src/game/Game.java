@@ -5,6 +5,17 @@
  */
 package game;
 
+import game.item.Ranged_HandCrossbow;
+import game.item.Ranged_Dart;
+import game.item.Ranged;
+import game.item.Melee_Lance;
+import game.item.Melee;
+import game.item.Melee_Handaxe;
+import game.item.Item;
+import game.item.Armour_Breastplate;
+import game.item.Armour_Plate;
+import game.item.Armour;
+import game.item.Melee_Club;
 import game.race.Race;
 import game.race.Race_Dwarf;
 

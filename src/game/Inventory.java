@@ -5,6 +5,11 @@
  */
 package game;
 
+import game.item.Ranged;
+import game.item.Melee;
+import game.item.Item;
+import game.item.Armour;
+
 /**
  *
  * @author Magnus

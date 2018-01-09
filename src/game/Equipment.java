@@ -5,6 +5,12 @@
  */
 package game;
 
+import game.item.Necklace;
+import game.item.Ring;
+import game.item.Ranged;
+import game.item.Melee;
+import game.item.Armour;
+
 /**
  *
  * @author Magnus

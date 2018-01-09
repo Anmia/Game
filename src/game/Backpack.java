@@ -5,6 +5,8 @@
  */
 package game;
 
+import game.item.Item;
+
 /**
  *
  * @author Magnus
@@ -29,7 +31,7 @@ public class Backpack {
      */
     public void removeFromBag(long itemID, int amount) {
         for (int i = 0; i < bag.length; i++) {
-            if (itemID == bag[i].itemID) {
+            if (itemID == bag[i].getItemID()) {
                 if (bag[i].getAmount() == amount) {
                     bag[i] = null;
                     i = bag.length - 1;

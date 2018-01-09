@@ -5,6 +5,12 @@
  */
 package game;
 
+import game.item.Ranged_Javelin;
+import game.item.Ranged;
+import game.item.Melee;
+import game.item.Melee_Spear;
+import game.item.Armour_ChainShirt;
+import game.item.Armour;
 import game.race.Race;
 import game.race.Race_Human;
 

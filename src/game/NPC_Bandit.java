@@ -5,6 +5,12 @@
  */
 package game;
 
+import game.item.Ranged_LightCrossbow;
+import game.item.Ranged;
+import game.item.Melee_Scimitar;
+import game.item.Melee;
+import game.item.Armour_Leather;
+import game.item.Armour;
 import game.race.Race;
 import game.race.Race_Dwarf;
 

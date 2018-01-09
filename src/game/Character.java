@@ -5,6 +5,7 @@
  */
 package game;
 
+import game.item.Armour;
 import game.race.Race;
 
 /**
