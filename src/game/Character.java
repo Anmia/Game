@@ -178,6 +178,29 @@ public abstract class Character {
             case 'n': 
                 baseHealthPoints = baseHealthPoints + proffesion.getChoiceHitDice() + atributes.getModifier(3); break;
         }
+        switch (level) {
+            case 1: case 2: case 3: case 4:
+                proficiency = 2;
+                break;
+                
+            case 5: case 6: case 7: case 8:
+                proficiency = 3;
+                break;
+                
+            case 9: case 10: case 11: case 12:
+                proficiency = 4;
+                break;
+                
+            case 13: case 14: case 15: case 16:
+                proficiency = 5;
+                break;
+                
+            case 17: case 18: case 19: case 20:
+                proficiency = 6;
+                break;
+                
+            default: break;
+        }
         
         System.out.println("Your new HP is: " + baseHealthPoints);
     }

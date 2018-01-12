@@ -5,8 +5,6 @@
  */
 package game.item;
 
-import game.Weapon;
-
 /**
  *
  * @author Magnus

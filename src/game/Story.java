@@ -26,4 +26,15 @@ public class Story {
     
     private String story = "You are bored and your arse is sore. "
             + "A little over two weeks ago you signed up as ";
+    
+    /**
+     * The story begins as you are on your way to Krohnhagen
+     * Less than a day out you are "ambushed" by Goblins (COMBAT)
+     * Once you defeat these goblins or (if possible 10 - 15 turns) Anna appears
+     * Attempting to attack her will make the bush attack (COMBAT)
+     * It is the shit
+     * Skeggulgt will say he thinks he might know who she is
+     * She follows the caravan to Krohnhagen (maybe find goblin camp?)
+     * Upon ariving in Krohnhagen
+     */
 }
