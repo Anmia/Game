@@ -17,12 +17,11 @@ public class Story {
     public Text_Dump txtDmp = new Text_Dump();
     
     public String getWarning() {
-        String warning = "There is a real chance that any attempt at playing "
-                + "this game might fail. \n"
-                + "This game uses D&D combat, meaning that dice are used and "
-                + "that damage given and taken are, "
-                + "within set paramaters, random. \n "
+        String warning = "There is a real chance that any attempt at playing this game might fail. \n"
+                + "This game uses D&D combat, meaning that dice are used and \n"
+                + "that damage given and taken are, within set paramaters, random. \n "
                 + "Think of it as rougelike, just kind of oposite. \n"
+                + "This game features and will feature some language that may make children ask questions that adults may find akward. \n"
                 + "This game is not completed as of yet!";
         
         return warning;
@@ -45,7 +44,9 @@ public class Story {
                         + "y for yes and q to save it for later";
                 
             case 1:
-                toPrint = "It has been almost three weeks since you signed up as a caravan guard";
+                toPrint = "It has been almost three weeks since you signed up as a caravan guard. \n"
+                        + "The first few days was spent waiting for the caravan to leave. \n"
+                        + "The rest of time you have spent sitting ";
         }
         
         return "Hello";
