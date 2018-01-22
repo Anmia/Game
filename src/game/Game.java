@@ -24,7 +24,9 @@ public class Game {
          * Curently there is test stuff here.
          * NetBeans gives me a warning if stuff don't work when I do changes <3
          */
+        
         Story warning = new Story();
+        System.out.println(warning.txtDmp.getTitle());
         System.out.println(warning.getWarning());
         
         int[] atr = {18, 14, 16, 12, 9, 8};
@@ -75,28 +77,7 @@ public class Game {
         //me.levelUp();
         //System.out.println(me);
         
-        //System.out.println(club);
-        //System.out.println(armour);
-        
-//        boolean cont = true;
-//        java.util.Scanner sc = new java.util.Scanner(System.in);
-//        while (cont) {
-//            System.out.print("Insert direction for Nr.1 using WASD: ");
-//            
-//            char yn = sc.next().charAt(0);
-//            
-//            if (yn == 'n') {
-//                cont = false;
-//            } else {
-//                System.out.println("Choose function you wish to run");
-//                System.out.println("10 for movement.");
-//                System.out.println("11 for equipemt swap");
-//                System.out.println();
-//                int func = sc.nextInt();
-//            }
-//            
-//            
-//        }
+
         
     }
     

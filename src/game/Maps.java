@@ -50,7 +50,7 @@ public class Maps {
     
     private char[] charSymbol = new char[3];
     
-    private int[][] characterLocations = new int[3][2];
+    private int[][] charLocations = new int[3][2];
     
     private boolean obstacle = true;
 
@@ -76,8 +76,8 @@ public class Maps {
         
         char name = charSymbol[who];
         
-        int x = characterLocations[who][0];
-        int y = characterLocations[who][1];
+        int x = charLocations[who][0];
+        int y = charLocations[who][1];
         obstacle = true;
         
         if (direction == 'w') {
@@ -89,7 +89,7 @@ public class Maps {
                 } else {
                     mapTwo[y][x][0] = '.';
                     mapTwo[y - 1][x][0] = name;
-                    characterLocations[who][1] = y - 1;
+                    charLocations[who][1] = y - 1;
                     obstacle = false;
                 }
         } else if (direction == 'd') {
@@ -101,7 +101,7 @@ public class Maps {
                 }  else {
                     mapTwo[y][x][0] = '.';
                     mapTwo[y][x + 1][0] = name;
-                    characterLocations[who][0] = x + 1;
+                    charLocations[who][0] = x + 1;
                     obstacle = false;
                 }
         } else if (direction == 's') {
@@ -113,7 +113,7 @@ public class Maps {
                 }  else {
                     mapTwo[y][x][0] = '.';
                     mapTwo[y + 1][x][0] = name;
-                    characterLocations[who][1] = y + 1;
+                    charLocations[who][1] = y + 1;
                     obstacle = false;
                 }
         } else if (direction == 'a') {
@@ -125,7 +125,7 @@ public class Maps {
                 }  else {
                     mapTwo[y][x][0] = '.';
                     mapTwo[y][x - 1][0] = name;
-                    characterLocations[who][0] = x - 1;
+                    charLocations[who][0] = x - 1;
                     obstacle = false;
                 }
         } else if (direction == 'e') {
@@ -153,16 +153,22 @@ public class Maps {
             }
         }
         
+        for (int i = 0; i < charLocations.length; i++) {
+            if (charLocations[i][0] == checkX && charLocations[i][1] == checkY) {
+                ocupied = true;
+            }
+        }
+        
         return ocupied;
     }
     
     public void printCoordinates() {
-        System.out.println("[ " + characterLocations[0][0] + " | " + characterLocations[0][1] + " ]");
+        System.out.println("[ " + charLocations[0][0] + " | " + charLocations[0][1] + " ]");
     }
     
     public void setInitialLocation(int who, int x, int y, char symbol) {
-        characterLocations[who][0] = x;
-        characterLocations[who][1] = y;
+        charLocations[who][0] = x;
+        charLocations[who][1] = y;
         
         mapTwo[y][x][0] = symbol;
         charSymbol[who] = symbol;
@@ -173,7 +179,7 @@ public class Maps {
         int[] inRange = new int[charSymbol.length];
         
         for (int i = 0; i < charSymbol.length; i++) {
-            if (min <= getDistance(who, i) && getDistance(who, i) <= max) {
+            if (min >= getDistance(who, i) && 0 != getDistance(who, i)) {
                 checker[i] = true;
             } else {
                 checker[i] = false;
@@ -195,8 +201,8 @@ public class Maps {
         int distance = 0;
         
         for (int i = 0; i < 2; i++) {
-            int m = characterLocations[from][i];
-            int n = characterLocations[to][i];
+            int m = charLocations[from][i];
+            int n = charLocations[to][i];
             
             if (n < m) {
                 distance = distance + (m - n);
@@ -209,11 +215,11 @@ public class Maps {
     }
     
     public void removeCharacter(int who) {
-        mapTwo[characterLocations[who][1]][characterLocations[who][0]][0] = '.';
+        mapTwo[charLocations[who][1]][charLocations[who][0]][0] = '.';
     }
     
     public String getLocation(int who) {
-        return characterLocations[who][0] + "/" + characterLocations[who][1];
+        return charLocations[who][0] + "/" + charLocations[who][1];
     }
     
     

@@ -5,12 +5,16 @@
  */
 package game;
 
+
 /**
  *
  * @author Magnus
  */
 public class Story {
-    private long storyStep;
+    private int storyStep;
+    private int location;
+    private String toPrint;
+    public Text_Dump txtDmp = new Text_Dump();
     
     public String getWarning() {
         String warning = "There is a real chance that any attempt at playing "
@@ -26,6 +30,26 @@ public class Story {
     
     private String story = "You are bored and your arse is sore. "
             + "A little over two weeks ago you signed up as ";
+    
+    public String storyPrint() {
+        switch(storyStep) {
+            case 0: 
+                toPrint = "!! INSTRUCTIONS !! +n"
+                        + "Congratulations, you are now playing Krohnhagen Adventures! \n"
+                        + "This game is text heavy and uses text graphics. \n"
+                        + "As such you should change your output font to a monospace font. \n"
+                        + "To do anything in this game you will need a keyboard. A promt will apear \n"
+                        + "to inform you of your options. It is case sensetive!!! \n \n"
+                        + "For the time being you start the game as a CN dwarf fighter. \n \n"
+                        + "Are you ready to start your adventure or do you want to save it for later? \n"
+                        + "y for yes and q to save it for later";
+                
+            case 1:
+                toPrint = "It has been almost three weeks since you signed up as a caravan guard";
+        }
+        
+        return "Hello";
+    }
     
     /**
      * The story begins as you are on your way to Krohnhagen
