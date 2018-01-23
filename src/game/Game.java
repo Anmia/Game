@@ -25,9 +25,12 @@ public class Game {
          * NetBeans gives me a warning if stuff don't work when I do changes <3
          */
         
-        Story warning = new Story();
-        System.out.println(warning.txtDmp.getTitle());
-        System.out.println(warning.getWarning());
+        Story story = new Story();
+        System.out.println(story.txtDmp.getTitle());
+        System.out.println(story.getWarning());
+        story.storyPrint();
+        // story.wrapper();
+        
         
         int[] atr = {18, 14, 16, 12, 9, 8};
         
@@ -71,7 +74,7 @@ public class Game {
         
         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
         
-        com.combatFunction();
+        // com.combatFunction();
         
         //com.moveCombatantsByTurn();
         //me.levelUp();
