@@ -74,7 +74,7 @@ public class Game {
         
         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
         
-        // com.combatFunction();
+        com.combatFunction();
         
         //com.moveCombatantsByTurn();
         //me.levelUp();
