@@ -138,6 +138,17 @@ public class Combat {
                     }
                 }
             }
+            
+            boolean victory = true;
+            for (int i = 1; i < combatants.length; i++) {
+                if (combatants[i].getCurentHealthPoints() > 0) {
+                    victory = false;
+                }
+            }
+            
+            if (victory) {
+                notEnd = false;
+            }
         }
     }
     
@@ -188,9 +199,9 @@ public class Combat {
                     } else {
                         meleeAttack(combatants[hasTurn], combatants[targetEnemy]);
                         angryBool = false;
+                        attackBool = false;
                     }
                 }
-                attackBool = false;
             } else if (attack == 'r') {
                 int[] range = combatants[hasTurn].getInventory().equipment.getRangedWeapon().getRange();
                 int[] inRange = map.withinRange(hasTurn, range[0], range[1]);
@@ -225,9 +236,9 @@ public class Combat {
                     } else {
                         meleeAttack(combatants[hasTurn], combatants[targetEnemy]);
                         angryBool = false;
+                        attackBool = false;
                     }
                 }
-                attackBool = false;
             } else if ( attack == 'c') {
                 attackBool = false;
             } else {

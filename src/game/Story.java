@@ -15,6 +15,14 @@ public class Story {
     private int location;
     private String toPrint;
     public Text_Dump txtDmp = new Text_Dump();
+    private int[] optVal = new int[20];
+    private String[] optName;
+    
+    java.util.Scanner sc = new java.util.Scanner(System.in);
+    
+    public Story() {
+        
+    }
     
     public String getWarning() {
         String warning = "There is a real chance that any attempt at playing this game might fail. \n"
@@ -31,13 +39,14 @@ public class Story {
     public void storyPrint() {
         switch(storyStep) {
             case 0: 
-                toPrint = "!! INSTRUCTIONS !!\n" +
-                        "Congratulations, you are now playing Krohnhagen Adventures! \n" +
-                        "This game is text heavy and uses text graphics. As such you should change your output font to a monospace font. \n" +
-                        "To do anything in this game you will need a keyboard. A promt will apear to inform you of your options. It is case sensetive!!! \n" +
-                        "For the time being you start the game as a CN dwarf fighter. \n" +
-                        "Are you ready to start your adventure or do you want to save it for later? \n" +
-                        "y for yes and q to save it for later";
+                toPrint = "!! INSTRUCTIONS !!\n"
+                        + "Congratulations, you are now playing Krohnhagen Adventures! \n"
+                        + "This game is text heavy and uses text graphics. As such you should change your output font to a monospace font. \n"
+                        + "To do anything in this game you will need a keyboard. A promt will apear to inform you of your options. It is case sensetive!!! \n"
+                        + "For the time being you start the game as a CN dwarf fighter. \n"
+                        + "Are you ready to start your adventure or do you want to save it for later? \n"
+                        + "y for yes and q to save it for later";
+                optVal[0] = 1;
                 break;
             case 1:
                 toPrint = "It has been almost three weeks since you signed up as a caravan guard."
@@ -45,14 +54,14 @@ public class Story {
                         + "";
                 break;
             default: 
-                toPrint = "ERROR!"; break;
+                toPrint = "ERROR!"; 
+                break;
         }
-        
         System.out.println(toPrint);
     }
     
     
-    public void wrapper() {
+    private void wrapper() {
         StringBuilder sb = new StringBuilder(toPrint);
         
         int i = 0;
@@ -77,4 +86,26 @@ public class Story {
      * She follows the caravan to Krohnhagen (maybe find goblin camp?)
      * Upon ariving in Krohnhagen
      */
+    
+    public void storyFunk() {
+        boolean chooseOption = true;
+        while (chooseOption) {
+            for (int i = 0; i < optVal.length; i++) {
+            System.out.println("< " + optVal[i] + " > " + optName);
+            }
+
+
+            System.out.print("Please choose an option:");
+            int choice = sc.nextInt();
+            
+            if (optVal[choice] == -1) {
+                System.out.println("Please choose a valid option");
+            } else {
+                storyStep = optVal[choice];
+            }
+            
+            storyPrint();
+            wrapper();
+        }
+    }
 }
