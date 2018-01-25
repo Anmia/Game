@@ -16,7 +16,7 @@ public class Story {
     private String toPrint;
     public Text_Dump txtDmp = new Text_Dump();
     private int[] optVal = new int[20];
-    private String[] optName;
+    private String[] optName = new String[20];
     
     java.util.Scanner sc = new java.util.Scanner(System.in);
     
@@ -37,6 +37,7 @@ public class Story {
     }
     
     public void storyPrint() {
+        int i = 0;
         switch(storyStep) {
             case 0: 
                 toPrint = "!! INSTRUCTIONS !!\n"
@@ -47,6 +48,11 @@ public class Story {
                         + "Are you ready to start your adventure or do you want to save it for later? \n"
                         + "y for yes and q to save it for later";
                 optVal[0] = 1;
+                optName[0] = "Continue";
+                for (i = 1; i < optVal.length; i++) {
+                    optVal[i] = -1;
+                    optName[i] = null;
+                }
                 break;
             case 1:
                 toPrint = "It has been almost three weeks since you signed up as a caravan guard."
@@ -57,7 +63,7 @@ public class Story {
                 toPrint = "ERROR!"; 
                 break;
         }
-        System.out.println(toPrint);
+        
     }
     
     
@@ -90,22 +96,26 @@ public class Story {
     public void storyFunk() {
         boolean chooseOption = true;
         while (chooseOption) {
+            storyPrint();
             for (int i = 0; i < optVal.length; i++) {
-            System.out.println("< " + optVal[i] + " > " + optName);
+                if (optName[i] != null) {
+                    System.out.println("< " + i + " > " + optName);
+                }
             }
 
 
-            System.out.print("Please choose an option:");
+            System.out.print("Please choose an option: ");
             int choice = sc.nextInt();
             
             if (optVal[choice] == -1) {
                 System.out.println("Please choose a valid option");
             } else {
+                wrapper();
                 storyStep = optVal[choice];
             }
             
-            storyPrint();
-            wrapper();
+            
+            
         }
     }
 }
