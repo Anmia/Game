@@ -12,26 +12,11 @@ package game;
  * @author Magnus
  */
 public class Maps {
-    private int[][][] map;
+    private char[][][] map;
     
-    private char[][][] mapTwo = 
-        {{{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}, 
-        {{'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}, {'.'}}};
+    public void setMap(char[][][] map) {
+        this.map = map;
+    }
     
     private boolean endMovement = false;
     
@@ -56,13 +41,13 @@ public class Maps {
     private boolean obstacle = true;
 
     public void printMap() {
-        for (int i = 0; i < mapTwo.length; i++) {
-            for (int j = 0; j < mapTwo[i].length; j++) {
-                if (j == (mapTwo[i].length - 1)) {
-                    System.out.print(" " + mapTwo[i][j][0]);
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (j == (map[i].length - 1)) {
+                    System.out.print(" " + map[i][j][0]);
                     System.out.println();
                 } else {
-                    System.out.print(" " + mapTwo[i][j][0]);
+                    System.out.print(" " + map[i][j][0]);
                 }
             }
         }
@@ -88,32 +73,32 @@ public class Maps {
                     System.out.println("Cannot go north from " + x + "-" + y +
                             " beacuse something is in the way.");
                 } else {
-                    mapTwo[y][x][0] = '.';
-                    mapTwo[y - 1][x][0] = name;
+                    map[y][x][0] = '.';
+                    map[y - 1][x][0] = name;
                     charLocations[who][1] = y - 1;
                     obstacle = false;
                 }
         } else if (direction == 'd') {
-            if (x == mapTwo[x].length - 1) {
+            if (x == map[x].length - 1) {
                     System.out.println("Cannot go east from " + x + "-" + y);
                 } else if (checkSquare(x + 1, y)){
                     System.out.println("Cannot go east from " + x + "-" + y +
                             " beacuse something is in the way.");
                 }  else {
-                    mapTwo[y][x][0] = '.';
-                    mapTwo[y][x + 1][0] = name;
+                    map[y][x][0] = '.';
+                    map[y][x + 1][0] = name;
                     charLocations[who][0] = x + 1;
                     obstacle = false;
                 }
         } else if (direction == 's') {
-            if (y == mapTwo.length - 1) {
+            if (y == map.length - 1) {
                     System.out.println("Cannot go south from " + x + "-" + y);
                 } else if (checkSquare(x, y + 1)){
                     System.out.println("Cannot go south from " + x + "-" + y +
                             " beacuse something is in the way.");
                 }  else {
-                    mapTwo[y][x][0] = '.';
-                    mapTwo[y + 1][x][0] = name;
+                    map[y][x][0] = '.';
+                    map[y + 1][x][0] = name;
                     charLocations[who][1] = y + 1;
                     obstacle = false;
                 }
@@ -124,8 +109,8 @@ public class Maps {
                     System.out.println("Cannot go west from " + x + "-" + y +
                             " beacuse something is in the way.");
                 }  else {
-                    mapTwo[y][x][0] = '.';
-                    mapTwo[y][x - 1][0] = name;
+                    map[y][x][0] = '.';
+                    map[y][x - 1][0] = name;
                     charLocations[who][0] = x - 1;
                     obstacle = false;
                 }
@@ -149,7 +134,7 @@ public class Maps {
         boolean ocupied = false;
         
         for (int i = 0; i < obstacles.length; i++) {
-            if (mapTwo[checkY][checkX][0] == obstacles[i]) {
+            if (map[checkY][checkX][0] == obstacles[i]) {
                 ocupied = true;
             }
         }
@@ -171,7 +156,7 @@ public class Maps {
         charLocations[who][0] = x;
         charLocations[who][1] = y;
         
-        mapTwo[y][x][0] = symbol;
+        map[y][x][0] = symbol;
         charSymbol[who] = symbol;
     }
     
@@ -216,7 +201,7 @@ public class Maps {
     }
     
     public void removeCharacter(int who) {
-        mapTwo[charLocations[who][1]][charLocations[who][0]][0] = '.';
+        map[charLocations[who][1]][charLocations[who][0]][0] = '.';
     }
     
     public String getLocation(int who) {

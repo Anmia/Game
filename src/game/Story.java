@@ -13,15 +13,19 @@ package game;
 public class Story {
     private int storyStep = 0;
     private int location;
+    
+    private Character player;
+    
     private String toPrint;
     public Text_Dump txtDmp = new Text_Dump();
+    
     private int[] optVal = new int[20];
     private String[] optName = new String[20];
     
     java.util.Scanner sc = new java.util.Scanner(System.in);
     
-    public Story() {
-        
+    public Story(Character player) {
+        this.player = player;
     }
     
     public String getWarning() {
@@ -41,11 +45,11 @@ public class Story {
         switch(storyStep) {
             case 0: 
                 toPrint = "!! INSTRUCTIONS !!\n"
-                        + "Congratulations, you are now playing Krohnhagen Adventures! \n"
-                        + "This game is text heavy and uses text graphics. As such you should change your output font to a monospace font. \n"
-                        + "To do anything in this game you will need a keyboard. A promt will apear to inform you of your options. It is case sensetive!!! \n"
-                        + "For the time being you start the game as a CN dwarf fighter. \n"
-                        + "Are you ready to start your adventure or do you want to save it for later? \n"
+                        + "Congratulations, you are now playing Krohnhagen Adventures! "
+                        + "This game is text heavy and uses text graphics. As such you should change your output font to a monospace font. "
+                        + "To do anything in this game you will need a keyboard. A promt will apear to inform you of your options. It is case sensetive!!! "
+                        + "For the time being you start the game as a CN dwarf fighter. "
+                        + "Are you ready to start your adventure or do you want to save it for later? "
                         + "y for yes and q to save it for later";
                 optVal[0] = 1;
                 optName[0] = "Continue";
@@ -58,6 +62,12 @@ public class Story {
                 toPrint = "It has been almost three weeks since you signed up as a caravan guard."
                         + "You have spent most of your time sitting on a hard wooden seat and it is starting to smart."
                         + "";
+                optVal[0] = 2;
+                optName[0] = "Continue";
+                for (i = 1; i < optVal.length; i++) {
+                    optVal[i] = -1;
+                    optName[i] = null;
+                }
                 break;
             default: 
                 toPrint = "ERROR!"; 
@@ -97,9 +107,10 @@ public class Story {
         boolean chooseOption = true;
         while (chooseOption) {
             storyPrint();
+            wrapper();
             for (int i = 0; i < optVal.length; i++) {
                 if (optName[i] != null) {
-                    System.out.println("< " + i + " > " + optName);
+                    System.out.println("< " + i + " > " + optName[i]);
                 }
             }
 
@@ -110,7 +121,6 @@ public class Story {
             if (optVal[choice] == -1) {
                 System.out.println("Please choose a valid option");
             } else {
-                wrapper();
                 storyStep = optVal[choice];
             }
             

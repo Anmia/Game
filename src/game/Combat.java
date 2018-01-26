@@ -12,21 +12,25 @@ package game;
 public class Combat {
     private Character[] combatants;
     private int[][] locations;
+    private Maps map;
+    
     
     private int[][] combatOrder;
     private Dice dice = new Dice();
-    Maps map = new Maps();
+    
     
     java.util.Scanner sc = new java.util.Scanner(System.in);
     
-    public Combat(Character[] combatants, int[][] locations) {
+    public Combat(Character[] combatants, int[][] locations, Maps map) {
         this.combatants = combatants;
         this.locations = locations;
+        this.map = map;
         
-        setUpCombatMap();
     }
     
-    private void setUpCombatMap() {
+    
+    
+    public void setUpCombatMap() {
         for (int i = 0; i < combatants.length; i++) {
             map.setInitialLocation(i, locations[i][0], locations[i][1], combatants[i].getIdentifyingChar());
         }
@@ -69,14 +73,8 @@ public class Combat {
     boolean notEnd = true;
     
     public void combatFunction() {
-        int two = 0;
         while (notEnd) {
             for (int hasTurn = 0; hasTurn < combatants.length; hasTurn++) {
-                if (hasTurn == 0) {
-                    two = 1;
-                } else if (hasTurn == 1) {
-                    two = 0;
-                }
                 
                 for (int a = 0; a < combatants.length; a++) {
                     System.out.println(combatants[a].getName() + " " + combatants[a].printHelthStatus());
