@@ -75,66 +75,72 @@ public class Combat {
     public void combatFunction() {
         while (notEnd) {
             for (int hasTurn = 0; hasTurn < combatants.length; hasTurn++) {
-                
-                for (int a = 0; a < combatants.length; a++) {
-                    System.out.println(combatants[a].getName() + " " + combatants[a].printHelthStatus());
-                }
-                
-                map.printMap();
-                
-                boolean actionBool = true;
-                while (actionBool) {
-                    
-                    System.out.print("Choose an action for " + combatants[hasTurn].getName() + ". m for move, a for "
-                            + "attack, c to end: ");
-                    char actionChar = sc.next().charAt(0);
+                if (combatants[hasTurn].getCurentHealthPoints() > 0) {
+                    for (int a = 0; a < combatants.length; a++) {
+                        System.out.println(combatants[a].getName() + " " + combatants[a].printHelthStatus());
+                    }
 
-                    if (actionChar == 'm') {
-                        combatMove(hasTurn);
-                        
-                        boolean secChoiceBool = true;
-                        while (secChoiceBool) {
-                            System.out.print("Do you wish to attack?  y/n: ");
-                        
-                            char secChoice = sc.next().charAt(0);
+                    map.printMap();
 
-                            if (secChoice == 'y') {
-                                attack(hasTurn);
-                                secChoiceBool = false;
-                            } else if (secChoice == 'n') {
-                                secChoiceBool = false;
-                            } else {
-                                System.out.println("Please choose a valid option.");
+                    boolean actionBool = true;
+                    while (actionBool) {
+
+                        System.out.print("Choose an action for " + combatants[hasTurn].getName() + ". m for move, a for "
+                                + "attack, e to end turn, c to end game: ");
+                        char actionChar = sc.next().charAt(0);
+
+                        if (actionChar == 'm') {
+                            combatMove(hasTurn);
+
+                            boolean secChoiceBool = true;
+                            while (secChoiceBool) {
+                                System.out.print("Do you wish to attack?  y/n: ");
+
+                                char secChoice = sc.next().charAt(0);
+
+                                if (secChoice == 'y') {
+                                    attack(hasTurn);
+                                    secChoiceBool = false;
+                                } else if (secChoice == 'n') {
+                                    secChoiceBool = false;
+                                } else {
+                                    System.out.println("Please choose a valid option.");
+                                }
                             }
-                        }
-                        actionBool = false;
-                    } else if (actionChar == 'a') {
-                        attack(hasTurn); 
-                        boolean secChoiceBool = true;
-                        
-                        while (secChoiceBool) {
-                            System.out.print("Do you wish to move?  y/n: ");
-                        
-                            char secChoice = sc.next().charAt(0);
+                            actionBool = false;
+                        } else if (actionChar == 'a') {
+                            attack(hasTurn); 
+                            boolean secChoiceBool = true;
 
-                            if (secChoice == 'y') {
-                                combatMove(hasTurn);
-                                secChoiceBool = false;
-                            } else if (secChoice == 'n') {
-                                secChoiceBool = false;
-                            } else {
-                                System.out.println("Please choose a valid option: ");
+                            while (secChoiceBool) {
+                                System.out.print("Do you wish to move?  y/n: ");
+
+                                char secChoice = sc.next().charAt(0);
+
+                                if (secChoice == 'y') {
+                                    combatMove(hasTurn);
+                                    secChoiceBool = false;
+                                } else if (secChoice == 'n') {
+                                    secChoiceBool = false;
+                                } else {
+                                    System.out.println("Please choose a valid option: ");
+                                }
                             }
+                            actionBool = false;
+                        } else if (actionChar == 'c') {
+                            notEnd = false;
+                            actionBool = false;
+                            hasTurn = combatants.length;
+                        } else if (actionChar == 'e') {
+                            actionBool = false;
+                        } else {
+                            System.out.println("Please choose a valid option: ");
                         }
-                        actionBool = false;
-                    } else if (actionChar == 'c') {
-                        notEnd = false;
-                        actionBool = false;
-                        hasTurn = combatants.length;
-                    } else {
-                        System.out.println("Please choose a valid option: ");
                     }
                 }
+                
+                
+                
             }
             
             boolean victory = true;
@@ -177,6 +183,8 @@ public class Combat {
                 
                 boolean angryBool = true;
                 while (angryBool) {
+                    
+                    
                     System.out.print("Choose target (or + to cancel): ");
                     char target = sc.next().charAt(0);
                     
@@ -195,7 +203,7 @@ public class Combat {
                     } else if (targetEnemy == 99) {
                         System.out.println("Non valid target");
                     } else {
-                        meleeAttack(combatants[hasTurn], combatants[targetEnemy]);
+                        meleeAttack(combatants[hasTurn], combatants[targetEnemy], hasTurn, targetEnemy);
                         angryBool = false;
                         attackBool = false;
                     }
@@ -232,7 +240,7 @@ public class Combat {
                     } else if (targetEnemy == 99) {
                         System.out.println("Non valid target");
                     } else {
-                        meleeAttack(combatants[hasTurn], combatants[targetEnemy]);
+                        rangedAttack(combatants[hasTurn], combatants[targetEnemy], hasTurn, targetEnemy);
                         angryBool = false;
                         attackBool = false;
                     }
@@ -263,9 +271,9 @@ public class Combat {
         return dice.rollDice(20, 1) + mod;
     }
     
-    public void meleeAttack(Character atk, Character def) {
+    public void meleeAttack(Character atk, Character def, int hasTurn, int target) {
         int damage = 0;
-        int range = map.getDistance(0, 1);
+        int range = map.getDistance(hasTurn, target);
         
         if (range == 5) {
             if (atk.getInventory().equipment.meleeWeapon != null) {
@@ -282,9 +290,9 @@ public class Combat {
                     atkRoll = dice.rollDice(20, 1);
                 }
 
-                int defAC = def.getCharArmourClass();
+                int defenderArmourClass = def.getCharArmourClass();
 
-                if (atkRoll == 1 || defAC > atkRoll + atkMod) {
+                if (atkRoll == 1 || defenderArmourClass > atkRoll + atkMod) {
                     damage = 0;
                 } else {
                     damage = dice.rollDice(atk.getInventory().equipment.meleeWeapon.getDamageDice(), 1);
@@ -294,6 +302,7 @@ public class Combat {
                  * for now unarmed damage is 1
                  * some classes does more, but for now it is 1
                  */
+                System.out.println("NO");
                 damage = 1;
             }
         }
@@ -301,14 +310,12 @@ public class Combat {
         def.takeDamage(damage);
     }
     
-    public void rangedAttack(Character atk, Character def) {
-        
-        
+    public void rangedAttack(Character atk, Character def, int hasTurn, int target) {
         int damage = 0;
-        int range = map.getDistance(0, 1);
+        int range = map.getDistance(hasTurn, target);
         int wepRange[] = atk.getInventory().equipment.rangedWeapon.getRange();
         
-        if (wepRange[0] < range && range < wepRange[1]) {
+        if (range < wepRange[0]) {
             int atkAtri = atk.getInventory().equipment.rangedWeapon.getModifierAtribute();
             int atkMod = atk.atributes.getModifier(atkAtri);
             boolean wpnH = atk.getInventory().equipment.rangedWeapon.getHeavy();
@@ -322,9 +329,9 @@ public class Combat {
                 atkRoll = dice.rollDice(20, 1);
             }
 
-            int defAC = def.getCharArmourClass();
+            int defenderArmourClass = def.getCharArmourClass();
 
-            if (atkRoll == 1 || defAC > atkRoll + atkMod) {
+            if (atkRoll == 1 || defenderArmourClass > atkRoll + atkMod) {
                 damage = 0;
             } else {
                 damage = dice.rollDice(atk.getInventory().equipment.rangedWeapon.getDamageDice(), 1);

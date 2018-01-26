@@ -24,14 +24,22 @@ public class Game {
          * Curently there is test stuff here.
          * NetBeans gives me a warning if stuff don't work when I do changes <3
          */ 
+        Dice d = new Dice();
+        
+        for (int i = 0; i < 20; i++) {
+            System.out.println(d.rollDice(20, 1));
+        }
+        
+        
         int[] atr = {18, 14, 16, 12, 9, 8};
+        Melee battleaxe = new Melee_Battleaxe();
         Melee club = new Melee_Club();
         Atributes atri = new Atributes(atr);
         Armour armour = new Armour_Plate();
         Race dwarf = new Race_Dwarf();
         Ranged ranged = new Ranged_HandCrossbow();
         Ranged dart = new Ranged_Dart();
-        Equipment equip = new Equipment(armour, null, null, null, club, ranged, false);
+        Equipment equip = new Equipment(armour, null, null, null, battleaxe, ranged, false);
         
         Melee lance = new Melee_Lance();
         Melee handaxe = new Melee_Handaxe();
@@ -52,27 +60,27 @@ public class Game {
         System.out.println(story.getWarning());
 //        story.storyFunk();
         
-        
-       
-        
-       
-        
-        Character bandit = new NPC_Bandit();
-        
-        System.out.println(me);
-        System.out.println(bandit.getCurentHealthPoints());
-        
         Combat com = new Combat_FirstBattle(me);
-        
-         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
-        
-//         me.getInventory().changeEquiptment();
-        
-         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
-        
-        
         com.combatFunction();
         
+       
+        
+//        Character bandit = new NPC_Bandit();
+//        
+//        System.out.println(me);
+//        System.out.println(bandit.getCurentHealthPoints());
+//        
+//        
+//        
+//         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
+//        
+//         me.getInventory().changeEquiptment();
+//        
+//         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
+//        
+//        
+//        
+//        
 //        me.levelUp();
 //        System.out.println(me);
     }
