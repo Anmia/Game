@@ -77,7 +77,8 @@ public class Combat {
             for (int hasTurn = 0; hasTurn < combatants.length; hasTurn++) {
                 if (combatants[hasTurn].getCurentHealthPoints() > 0) {
                     for (int a = 0; a < combatants.length; a++) {
-                        System.out.println(combatants[a].getName() + " " + combatants[a].printHelthStatus());
+                        System.out.println(combatants[a].getName() + " " + combatants[a].printHealthStatus());
+                        System.out.println(combatants[a].getName() + " " + combatants[a].getCurentHealthPoints());
                     }
 
                     map.printMap();

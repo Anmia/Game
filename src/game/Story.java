@@ -27,8 +27,9 @@ public class Story {
     public Story(Character player) {
         this.player = player;
         
-        optName[18] = "View Equiptment";
-        optName[19] = "View Inventory";
+        optName[17] = "View Equiptment";
+        optName[18] = "View Inventory";
+        optName[19] = "End Game";
     }
     
     public String getWarning() {
@@ -56,7 +57,7 @@ public class Story {
                         + "y for yes and q to save it for later";
                 optVal[0] = 1;
                 optName[0] = "Continue";
-                for (i = 1; i < optVal.length - 2; i++) {
+                for (i = 1; i < optVal.length - 3; i++) {
                     optVal[i] = -1;
                     optName[i] = null;
                 }
@@ -67,11 +68,24 @@ public class Story {
                         + "";
                 optVal[0] = 2;
                 optName[0] = "Continue";
-                for (i = 1; i < optVal.length; i++) {
+                for (i = 1; i < optVal.length - 3; i++) {
                     optVal[i] = -1;
                     optName[i] = null;
                 }
                 break;
+                
+            case 2:
+                toPrint = "";
+                break;
+                
+            case 3:
+                break;
+                
+            case 4:
+                Combat com = new Combat_FirstBattle(player);
+                com.combatFunction();
+                break;
+                
             default: 
                 toPrint = "ERROR!"; 
                 break;
@@ -122,12 +136,14 @@ public class Story {
             int choice = sc.nextInt();
             
             switch (choice) {
-                case 18:
+                case 17:
                     player.getInventory().getEquipment().printeEuipment();
                     break;
-                case 19:
+                case 18:
                     player.getInventory().backpack.printBackpack();
                     break;
+                case 19:
+                    chooseOption = false;
             }            
             
             if (optVal[choice] == -1) {

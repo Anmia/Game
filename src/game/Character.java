@@ -64,8 +64,10 @@ public abstract class Character {
     private void createCharacter() {
         for (int i = 0; i < atributes.atributesBase.length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
+            
         }
         baseHealthPoints = proffesion.getHitDice() + atributes.getModifier(2);
+        System.out.println(name + " " + baseHealthPoints + " - " + proffesion.getHitDice() + " " + atributes.getModifier(2));
         curentHealthPoints = baseHealthPoints;
     }
     
@@ -106,7 +108,7 @@ public abstract class Character {
         return curentHealthPoints;
     }
     
-    public String printHelthStatus() {
+    public String printHealthStatus() {
         return "HP: " + curentHealthPoints + "/" + baseHealthPoints;
     }
     
