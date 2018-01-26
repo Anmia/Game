@@ -34,9 +34,9 @@ public class Maps {
     
     private char[] obstacles = {'¤'};
     
-    private char[] charSymbol = new char[3];
+    private char[] charSymbol = new char[4];
     
-    private int[][] charLocations = new int[3][2];
+    private int[][] charLocations = new int[4][2];
     
     private boolean obstacle = true;
 

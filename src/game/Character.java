@@ -21,8 +21,8 @@ public abstract class Character {
     private Inventory inventory;
     protected Atributes atributes;
     
-    private int baseHealthPoints;
-    private int curentHealthPoints;
+    private int baseHealthPoints = 12;
+    private int curentHealthPoints = 12;
     private int proficiency;
     
     private int level;
@@ -57,7 +57,7 @@ public abstract class Character {
         this.identifyingChar = identifyingChar;
         
         setArmourClass();
-        createCharacter();
+//        createCharacter();
         
     }
     
