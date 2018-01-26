@@ -83,4 +83,9 @@ public class Equipment{
     public boolean hasRangedWeapon() {
         return rangedWeapon == null;
     }
+    
+    
+    public void printeEuipment() {
+        System.out.println("\n Armour: " + armour.getName() + " (add more later) \n");
+    }
 }

@@ -315,13 +315,14 @@ public class Combat {
         int range = map.getDistance(hasTurn, target);
         int wepRange[] = atk.getInventory().equipment.rangedWeapon.getRange();
         
-        if (range < wepRange[0]) {
-            int atkAtri = atk.getInventory().equipment.rangedWeapon.getModifierAtribute();
-            int atkMod = atk.atributes.getModifier(atkAtri);
-            boolean wpnH = atk.getInventory().equipment.rangedWeapon.getHeavy();
-            char atkSz = atk.race.getSize();
-
-            int atkRoll;
+        int atkAtri = atk.getInventory().equipment.rangedWeapon.getModifierAtribute();
+        int atkMod = atk.atributes.getModifier(atkAtri);
+        boolean wpnH = atk.getInventory().equipment.rangedWeapon.getHeavy();
+        char atkSz = atk.race.getSize();
+        int atkRoll;
+        int defenderArmourClass = def.getCharArmourClass();
+        if (range <= wepRange[0]) {
+            
 
             if ((wpnH) && (atkSz == 's')) {
                 atkRoll = dice.rollDisAdvantage(atkAtri);
@@ -329,8 +330,14 @@ public class Combat {
                 atkRoll = dice.rollDice(20, 1);
             }
 
-            int defenderArmourClass = def.getCharArmourClass();
-
+            if (atkRoll == 1 || defenderArmourClass > atkRoll + atkMod) {
+                damage = 0;
+            } else {
+                damage = dice.rollDice(atk.getInventory().equipment.rangedWeapon.getDamageDice(), 1);
+            }
+        } else if (wepRange[0] < range) {
+            atkRoll = dice.rollDisAdvantage(atkAtri);
+            
             if (atkRoll == 1 || defenderArmourClass > atkRoll + atkMod) {
                 damage = 0;
             } else {

@@ -26,6 +26,9 @@ public class Story {
     
     public Story(Character player) {
         this.player = player;
+        
+        optName[18] = "View Equiptment";
+        optName[19] = "View Inventory";
     }
     
     public String getWarning() {
@@ -53,7 +56,7 @@ public class Story {
                         + "y for yes and q to save it for later";
                 optVal[0] = 1;
                 optName[0] = "Continue";
-                for (i = 1; i < optVal.length; i++) {
+                for (i = 1; i < optVal.length - 2; i++) {
                     optVal[i] = -1;
                     optName[i] = null;
                 }
@@ -117,6 +120,15 @@ public class Story {
 
             System.out.print("Please choose an option: ");
             int choice = sc.nextInt();
+            
+            switch (choice) {
+                case 18:
+                    player.getInventory().getEquipment().printeEuipment();
+                    break;
+                case 19:
+                    player.getInventory().backpack.printBackpack();
+                    break;
+            }            
             
             if (optVal[choice] == -1) {
                 System.out.println("Please choose a valid option");

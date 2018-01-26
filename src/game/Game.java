@@ -24,11 +24,6 @@ public class Game {
          * Curently there is test stuff here.
          * NetBeans gives me a warning if stuff don't work when I do changes <3
          */ 
-        Dice d = new Dice();
-        
-        for (int i = 0; i < 20; i++) {
-            System.out.println(d.rollDice(20, 1));
-        }
         
         
         int[] atr = {18, 14, 16, 12, 9, 8};
@@ -58,10 +53,10 @@ public class Game {
         Story story = new Story(me);
         System.out.println(story.txtDmp.getTitle());
         System.out.println(story.getWarning());
-//        story.storyFunk();
+        story.storyFunk();
         
         Combat com = new Combat_FirstBattle(me);
-        com.combatFunction();
+        //com.combatFunction();
         
        
         

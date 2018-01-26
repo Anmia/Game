@@ -22,8 +22,6 @@ public class Combat_FirstBattle extends Combat {
         super(combatants, locations, map);
         Combat_FirstBattle.combatants[0] = player;
         
-        
-        
         super.setUpCombatMap();
     }
     
