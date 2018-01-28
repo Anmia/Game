@@ -69,6 +69,7 @@ public class Atributes {
     }
     
     public void setCharacterCreationBase(int atribute, int modifier) {
+        System.out.println(atributesBase[atribute] + " ... " + modifier);
         atributesBase[atribute] = atributesBase[atribute] + modifier;
         atributesActual[atribute] = atributesBase[atribute];
     }

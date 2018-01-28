@@ -30,10 +30,10 @@ public class NPC_Bandit extends NPC {
     static Equipment stuff = new Equipment(arm, null, null, null, mwep, rwep, false);
     private final static Inventory inventory = new Inventory(stuff, null);
     
-    static int[] atr = {11, 12, 12, 10, 10, 10};
-    private final static Atributes atributes = new Atributes(atr);
+    private static final int[] atr = {11, 12, 12, 10, 10, 10};
+    private static final Atributes atributes = new Atributes(atr);
     
-    private static final int baseHealthPoints = 11;
+    private static final int baseHealthPoints = 0;
     private static final int level = 1;
     private static final int alignment = 23;
     private static final char identifyingChar = '#';

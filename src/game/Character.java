@@ -21,8 +21,8 @@ public abstract class Character {
     private Inventory inventory;
     protected Atributes atributes;
     
-    private int baseHealthPoints = 12;
-    private int curentHealthPoints = 12;
+    private int baseHealthPoints;
+    private int curentHealthPoints;
     private int proficiency;
     
     private int level;
@@ -57,17 +57,21 @@ public abstract class Character {
         this.identifyingChar = identifyingChar;
         
         setArmourClass();
-//        createCharacter();
-        
-    }
-    
-    private void createCharacter() {
+        createCharacter();
         for (int i = 0; i < atributes.atributesBase.length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
             
         }
+    }
+    
+    public void createCharacter() {
+        
+        System.out.println(name + " " + proffesion.getHitDice() + " " + atributes.getModifier(2));
+        
+        
+        
         baseHealthPoints = proffesion.getHitDice() + atributes.getModifier(2);
-        System.out.println(name + " " + baseHealthPoints + " - " + proffesion.getHitDice() + " " + atributes.getModifier(2));
+        System.out.println(name + " " + proffesion.getHitDice() + " " + atributes.getModifier(2));
         curentHealthPoints = baseHealthPoints;
     }
     
