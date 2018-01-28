@@ -10,14 +10,17 @@ package game;
  * @author Magnus
  */
 public class Combat_FirstBattle extends Combat {
+    
     private static final Character banditOne = new NPC_Bandit();
-    private static final  Character banditTwo = new NPC_Bandit();
+    private static final Character banditTwo = new NPC_Bandit();
     private static final Character banditThree = new NPC_Bandit();
     
    
     
-    private static final Character[] combatants = {null, banditOne, banditTwo, banditThree};
+    private static Character[] combatants = {null, banditOne, banditTwo, banditThree};
     private static final int[][] locations = {{5, 15}, {5, 8}, {6, 15}, {5, 5}};
+    
+    
     
     private static final Maps map = new Maps_FirstBattle();
 

@@ -57,17 +57,17 @@ public abstract class Character {
         this.identifyingChar = identifyingChar;
         
         setArmourClass();
-        createCharacter();
-//        for (int i = 0; i < atributes.atributesBase.length; i++) {
-//            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
-//            
-//        }
+        
+        
     }
     
     public void createCharacter() {
         
         System.out.println(name + " " + proffesion.getHitDice() + " " + atributes.getModifier(2));
-        
+        for (int i = 0; i < atributes.atributesBase.length; i++) {
+            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
+            
+        }
         
         
         baseHealthPoints = proffesion.getHitDice() + atributes.getModifier(2);

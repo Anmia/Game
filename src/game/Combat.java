@@ -25,10 +25,15 @@ public abstract class Combat {
         this.combatants = combatants;
         this.locations = locations;
         this.map = map;
-        
+        createCombatants();
     }
     
     
+    public void createCombatants() {
+        for (int i = 1; i < combatants.length; i++) {
+            combatants[i].createCharacter();
+        }
+    }
     
     public void setUpCombatMap() {
         for (int i = 0; i < combatants.length; i++) {

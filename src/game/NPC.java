@@ -11,7 +11,7 @@ import game.race.Race;
  *
  * @author Magnus
  */
-public class NPC extends Character {
+public abstract class NPC extends Character {
     private int expWorth;
     
     public NPC(String name, Race race, Proffesion proffesion, 
