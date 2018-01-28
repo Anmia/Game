@@ -41,7 +41,7 @@ public class NPC_Guard extends NPC {
     
     
     public NPC_Guard() {
-        super(name, race, proffesion, inventory, atributes, baseHealthPoints, 
+        super(name, race, proffesion, inventory, atributes,  
                 level, alignment, identifyingChar, expWorth);
     }
     

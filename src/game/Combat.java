@@ -9,7 +9,7 @@ package game;
  *
  * @author Magnus
  */
-public class Combat {
+public abstract class Combat {
     private Character[] combatants;
     private int[][] locations;
     private Maps map;
@@ -36,6 +36,10 @@ public class Combat {
         }
     }
     
+    /**
+     * Moves a Character on the combat map
+     * @param i is which element in combatants array is going to move
+     */
     public void combatMove(int i) {
         for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
             map.printMap();

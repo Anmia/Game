@@ -44,24 +44,24 @@ public abstract class Character {
      */
     
     public Character (String name, Race race, Proffesion proffesion, 
-            Inventory inventory, Atributes atributes, int baseHealthPoints, 
+            Inventory inventory, Atributes atributes, 
             int level, int alignment, char identifyingChar) {
         this.name = name;
         this.race = race;
         this.proffesion = proffesion;
         this.inventory = inventory;
         this.atributes = atributes;
-        this.baseHealthPoints = baseHealthPoints;
+//        this.baseHealthPoints = baseHealthPoints;
         this.level = level;
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
         
         setArmourClass();
         createCharacter();
-        for (int i = 0; i < atributes.atributesBase.length; i++) {
-            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
-            
-        }
+//        for (int i = 0; i < atributes.atributesBase.length; i++) {
+//            atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
+//            
+//        }
     }
     
     public void createCharacter() {

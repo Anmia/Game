@@ -15,10 +15,10 @@ public class NPC extends Character {
     private int expWorth;
     
     public NPC(String name, Race race, Proffesion proffesion, 
-            Inventory inventory, Atributes atributes, int healthPoints, 
+            Inventory inventory, Atributes atributes, 
             int level, int alignment, char identChar, int expWorth) {
         super(name, race, proffesion, inventory, atributes, 
-                healthPoints, level, alignment, identChar);
+                level, alignment, identChar);
         this.expWorth = expWorth;
     }
     

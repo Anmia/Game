@@ -82,8 +82,8 @@ public class Story {
                 break;
                 
             case 4:
-                Combat com = new Combat_FirstBattle(player);
-                com.combatFunction();
+//                Combat com = new Combat_FirstBattle(player);
+//                com.combatFunction();
                 break;
                 
             default: 
