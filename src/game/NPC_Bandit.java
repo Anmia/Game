@@ -30,8 +30,8 @@ public class NPC_Bandit extends NPC {
     static Equipment stuff = new Equipment(arm, null, null, null, mwep, rwep, false);
     private final static Inventory inventory = new Inventory(stuff, null);
     
-    static int[] atr = {11, 12, 12, 10, 10, 10};
-    private final static Atributes atributes = new Atributes(atr);
+     int[] atr = {11, 12, 12, 10, 10, 10};
+    private final  Atributes atributes = new Atributes(atr);
     
     private static final int baseHealthPoints = 11;
     private static final int level = 1;
@@ -41,7 +41,9 @@ public class NPC_Bandit extends NPC {
     
     
     public NPC_Bandit() {
-        super(name, race, proffesion, inventory, atributes, baseHealthPoints, level, alignment, identifyingChar, expWorth);
+        super(name, race, proffesion, inventory, level, alignment, identifyingChar, expWorth);
+        super.setAtributes(atributes);
+        super.setArmourClass();
     }
     
 }

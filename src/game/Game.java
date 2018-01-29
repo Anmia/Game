@@ -49,7 +49,10 @@ public class Game {
         Proffesion fighter = new Proffesion_Fighter();
        
         Character me = new Player("Anmia", dwarf, fighter, 
-                inv, atri, 0, 1, 22, '@');
+                inv, 0, 1, 22, '@');
+        me.setAtributes(atri);
+        me.setArmourClass();
+        me.createCharacter();
         Story story = new Story(me);
         System.out.println(story.txtDmp.getTitle());
         System.out.println(story.getWarning());
