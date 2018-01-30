@@ -19,7 +19,7 @@ public abstract class Character {
     protected Race race;
     private Proffesion proffesion;
     private Inventory inventory;
-    protected Atributes atributes;
+    private Atributes atributes;
     
     private int baseHealthPoints;
     private int curentHealthPoints;
@@ -44,7 +44,11 @@ public abstract class Character {
      */
     
     public Character (String name, Race race, Proffesion proffesion, 
+<<<<<<< HEAD
             Inventory inventory, Atributes atributes, 
+=======
+            Inventory inventory, 
+>>>>>>> origin/master
             int level, int alignment, char identifyingChar) {
         this.name = name;
         this.race = race;
@@ -56,14 +60,27 @@ public abstract class Character {
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
         
+<<<<<<< HEAD
         setArmourClass();
+        
+=======
+//        setArmourClass();
+//        createCharacter();
+>>>>>>> origin/master
         
         
     }
     
+    public void setAtributes(Atributes atributes) {
+        this.atributes = atributes;
+    }
+    
     public void createCharacter() {
+<<<<<<< HEAD
         
         System.out.println(name + " " + proffesion.getHitDice() + " " + atributes.getModifier(2));
+=======
+>>>>>>> origin/master
         for (int i = 0; i < atributes.atributesBase.length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
             
@@ -75,7 +92,7 @@ public abstract class Character {
         curentHealthPoints = baseHealthPoints;
     }
     
-    private void setArmourClass() {
+    public void setArmourClass() {
         int ac = inventory.equipment.armour.getAC();
         int mod = atributes.getModifier(1);
         int newAc = 0;
@@ -102,6 +119,10 @@ public abstract class Character {
     
     public String getName() {
         return name;
+    }
+    
+    public Atributes getAtributes() {
+        return atributes;
     }
     
     public int getBaseHealthPoints() {

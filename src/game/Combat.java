@@ -101,7 +101,7 @@ public abstract class Combat {
 
                         if (actionChar == 'm') {
                             combatMove(hasTurn);
-
+                            map.printMap();
                             boolean secChoiceBool = true;
                             while (secChoiceBool) {
                                 System.out.print("Do you wish to attack?  y/n: ");
@@ -276,7 +276,7 @@ public abstract class Combat {
     }
     
     public int rollInitiative(int combNum) {
-        int mod = combatants[combNum].atributes.getModifier(1);
+        int mod = combatants[combNum].getAtributes().getModifier(1);
         
         return dice.rollDice(20, 1) + mod;
     }
@@ -288,7 +288,7 @@ public abstract class Combat {
         if (range == 5) {
             if (atk.getInventory().equipment.meleeWeapon != null) {
                 int atkAtri = atk.getInventory().equipment.meleeWeapon.getModifierAtribute();
-                int atkMod = atk.atributes.getModifier(atkAtri);
+                int atkMod = atk.getAtributes().getModifier(atkAtri);
                 boolean wpnH = atk.getInventory().equipment.meleeWeapon.getHeavy();
                 char atkSz = atk.race.getSize();
 
@@ -326,7 +326,7 @@ public abstract class Combat {
         int wepRange[] = atk.getInventory().equipment.rangedWeapon.getRange();
         
         int atkAtri = atk.getInventory().equipment.rangedWeapon.getModifierAtribute();
-        int atkMod = atk.atributes.getModifier(atkAtri);
+        int atkMod = atk.getAtributes().getModifier(atkAtri);
         boolean wpnH = atk.getInventory().equipment.rangedWeapon.getHeavy();
         char atkSz = atk.race.getSize();
         int atkRoll;

@@ -15,9 +15,15 @@ public class Player extends Character {
     private int exp;
     
     public Player(String name, Race race, Proffesion proffesion, 
+<<<<<<< HEAD
             Inventory inventory, Atributes atributes, 
             int level, int alignment, char identChar) {
         super(name, race, proffesion, inventory, atributes, 
+=======
+            Inventory inventory, int baseHealthPoints, 
+            int level, int alignment, char identChar) {
+        super(name, race, proffesion, inventory, 
+>>>>>>> origin/master
                 level, alignment, identChar);
         this.exp = 0;
     }
