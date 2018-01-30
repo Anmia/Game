@@ -14,16 +14,9 @@ import game.race.Race;
 public abstract class NPC extends Character {
     private int expWorth;
     
-    public NPC(String name, Race race, Proffesion proffesion, 
-<<<<<<< HEAD
-            Inventory inventory, Atributes atributes, 
-            int level, int alignment, char identChar, int expWorth) {
-        super(name, race, proffesion, inventory, atributes, 
-=======
-            Inventory inventory, 
+    public NPC(String name, Race race, Proffesion proffesion, Inventory inventory, 
             int level, int alignment, char identChar, int expWorth) {
         super(name, race, proffesion, inventory, 
->>>>>>> origin/master
                 level, alignment, identChar);
         this.expWorth = expWorth;
     }

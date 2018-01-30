@@ -41,11 +41,7 @@ public class NPC_Guard extends NPC {
     
     
     public NPC_Guard() {
-<<<<<<< HEAD
-        super(name, race, proffesion, inventory, atributes,  
-=======
         super(name, race, proffesion, inventory, 
->>>>>>> origin/master
                 level, alignment, identifyingChar, expWorth);
         super.setAtributes(atributes);
     }

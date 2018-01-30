@@ -44,12 +44,7 @@ public abstract class Character {
      */
     
     public Character (String name, Race race, Proffesion proffesion, 
-<<<<<<< HEAD
-            Inventory inventory, Atributes atributes, 
-=======
-            Inventory inventory, 
->>>>>>> origin/master
-            int level, int alignment, char identifyingChar) {
+            Inventory inventory, int level, int alignment, char identifyingChar) {
         this.name = name;
         this.race = race;
         this.proffesion = proffesion;
@@ -60,13 +55,10 @@ public abstract class Character {
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
         
-<<<<<<< HEAD
-        setArmourClass();
-        
-=======
+
 //        setArmourClass();
 //        createCharacter();
->>>>>>> origin/master
+
         
         
     }
@@ -76,11 +68,7 @@ public abstract class Character {
     }
     
     public void createCharacter() {
-<<<<<<< HEAD
-        
-        System.out.println(name + " " + proffesion.getHitDice() + " " + atributes.getModifier(2));
-=======
->>>>>>> origin/master
+
         for (int i = 0; i < atributes.atributesBase.length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
             
