@@ -95,7 +95,7 @@ public abstract class Combat {
                     boolean actionBool = true;
                     while (actionBool) {
 
-                        System.out.print("Choose an action for " + combatants[hasTurn].getName() + ". m for move, a for "
+                        System.out.print("Choose an action for " + combatants[hasTurn].getName() + " (" + hasTurn + ") . m for move, a for "
                                 + "attack, e to end turn, c to end game: ");
                         char actionChar = sc.next().charAt(0);
 
