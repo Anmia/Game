@@ -76,14 +76,15 @@ public class Story {
                 
             case 2:
                 toPrint = "";
+		Combat com = new Combat_FirstBattle(player);
+                com.combatFunction();
                 break;
                 
             case 3:
                 break;
                 
             case 4:
-//                Combat com = new Combat_FirstBattle(player);
-//                com.combatFunction();
+                
                 break;
                 
             default: 

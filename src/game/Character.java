@@ -74,9 +74,7 @@ public abstract class Character {
             
         }
         
-        
         baseHealthPoints = proffesion.getHitDice() + atributes.getModifier(2);
-        System.out.println(name + " " + proffesion.getHitDice() + " " + atributes.getModifier(2));
         curentHealthPoints = baseHealthPoints;
     }
     

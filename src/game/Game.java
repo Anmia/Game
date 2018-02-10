@@ -54,13 +54,13 @@ public class Game {
         me.createCharacter();
 
         Story story = new Story(me);
-        System.out.println(story.txtDmp.getTitle());
-        System.out.println(story.getWarning());
-//        story.storyFunk();
-        me.createCharacter();
+	System.out.println(story.txtDmp.getTitle());
+	System.out.println(story.getWarning());
+	story.storyFunk();
+	
         Combat com = new Combat_FirstBattle(me);
         
-        com.combatFunction();
+//        com.combatFunction();
         
        
         

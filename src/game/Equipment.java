@@ -86,6 +86,50 @@ public class Equipment{
     
     
     public void printeEuipment() {
-        System.out.println("\n Armour: " + armour.getName() + " (add more later) \n");
+        String armourName;
+        String necklaceName;
+        String ringRightName;
+        String ringLeftName;
+        String meleeWeaponName;
+        String rangedWeaponName;
+        
+        if ( armour == null) {
+            armourName = "none";
+        } else {
+            armourName = armour.getName();
+        }
+        
+        if ( necklace == null) {
+            necklaceName = "none";
+        } else {
+            necklaceName = necklace.getName();
+        }
+        
+        if ( ringRight == null) {
+            ringRightName = "none";
+        } else {
+            ringRightName = ringRight.getName();
+        }
+        
+        if ( ringLeft == null) {
+            ringLeftName = "none";
+        } else {
+            ringLeftName = ringLeft.getName();
+        }
+        
+        if ( meleeWeapon == null) {
+            meleeWeaponName = "none";
+        } else {
+            meleeWeaponName = meleeWeapon.getName();
+        }
+        
+        if ( rangedWeapon == null) {
+            rangedWeaponName = "none";
+        } else {
+            rangedWeaponName = rangedWeapon.getName();
+        }
+        
+        System.out.println("\n Melee weapon: " + meleeWeaponName + " Ranged Weapon: " + rangedWeaponName 
+		+ "\n Armour: " + armourName + "\n");
     }
 }
