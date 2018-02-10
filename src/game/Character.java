@@ -38,7 +38,6 @@ public abstract class Character {
      * @param race (see race)
      * @param inventory (see inventory) (needs work)
      * @param atributes (see atributes)
-     * @param healthPoints
      * @param level
      * @param alignment 
      */

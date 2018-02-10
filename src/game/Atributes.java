@@ -12,8 +12,19 @@ package game;
 
 
 public class Atributes {
+    
+    /**
+     * atributesBase describes the base set of atributes for the character
+     */
     protected int[] atributesBase = new int[6];
+    /**
+     * atributesActual describes the modified atributes of the character
+     * this is based on atributesBase in adition to any item that increases or decrease 
+     * the value of an atribute
+     */
     protected int[] atributesActual = new int[6];
+    
+
     
     /**
      * Atributes are in the following order!
@@ -25,6 +36,7 @@ public class Atributes {
      * BE VERY CAREFUL WHEN USING CLASS
      * 
      * NOTE: Find way to increase atributesBase for level ups etc...
+     * @param atributesBase
      */
     
     public Atributes(int[] atributesBase) {
@@ -32,6 +44,11 @@ public class Atributes {
         this.atributesActual = atributesBase;
     }
     
+    /**
+     *
+     * @param atribute
+     * @return the modifier based on the atribute
+     */
     public int getModifier(int atribute) {
         int modifier = 0;
         switch(atributesActual[atribute]) {

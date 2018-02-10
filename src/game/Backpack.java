@@ -16,6 +16,12 @@ public class Backpack {
     private Item[] bag;
     private int bagSize;
     
+    /**
+     *
+     * @param money
+     * @param bag
+     * @param bagSize
+     */
     public Backpack (int money, Item[] bag, int bagSize) {
         this.money = money;
         this.bag = bag;
@@ -51,6 +57,10 @@ public class Backpack {
         }
     }
     
+    /**
+     * returns how much money the character has.
+     * @return
+     */
     public int getMoney() {
         return money;
     }
@@ -68,6 +78,11 @@ public class Backpack {
         System.out.println("There are " + empty + " empty slots in your bag.");
     }
     
+    /**
+     * Shows items of a certain type
+     * the number i is used for selection in other functions
+     * @param type
+     */
     public void showItemsOfType(int type) {
         for (int i = 0; i < bag.length; i++) {
             if (!(bag[i] == null)) {

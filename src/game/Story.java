@@ -7,7 +7,7 @@ package game;
 
 
 /**
- *
+ * This one is going to be massive. 
  * @author Magnus
  */
 public class Story {
@@ -44,83 +44,6 @@ public class Story {
         return warning;
     }
     
-    public void storyPrint() {
-        int i = 0;
-        switch(storyStep) {
-            case 0: 
-                toPrint = "!! INSTRUCTIONS !!\n"
-                        + "Congratulations, you are now playing Krohnhagen Adventures! "
-                        + "This game is text heavy and uses text graphics. As such you should change your output font to a monospace font. "
-                        + "To do anything in this game you will need a keyboard. A promt will apear to inform you of your options. It is case sensetive!!! "
-                        + "For the time being you start the game as a CN dwarf fighter. "
-                        + "Are you ready to start your adventure or do you want to save it for later? "
-                        + "y for yes and q to save it for later";
-                optVal[0] = 1;
-                optName[0] = "Continue";
-                for (i = 1; i < optVal.length - 3; i++) {
-                    optVal[i] = -1;
-                    optName[i] = null;
-                }
-                break;
-            case 1:
-                toPrint = "It has been almost three weeks since you signed up as a caravan guard."
-                        + "You have spent most of your time sitting on a hard wooden seat and it is starting to smart."
-                        + "";
-                optVal[0] = 2;
-                optName[0] = "Continue";
-                for (i = 1; i < optVal.length - 3; i++) {
-                    optVal[i] = -1;
-                    optName[i] = null;
-                }
-                break;
-                
-            case 2:
-                toPrint = "";
-		Combat com = new Combat_FirstBattle(player);
-                com.combatFunction();
-                break;
-                
-            case 3:
-                break;
-                
-            case 4:
-                
-                break;
-                
-            default: 
-                toPrint = "ERROR!"; 
-                break;
-        }
-        
-    }
-    
-    
-    private void wrapper() {
-        StringBuilder sb = new StringBuilder(toPrint);
-        
-        int i = 0;
-        while (i + 60 < sb.length() && (i = sb.lastIndexOf(" ", i + 60)) != -1) {
-            sb.replace(i, i + 1, "\n");
-        }
-        
-        System.out.println(sb.toString());
-    }
-    
-    public void tempProgressStory() {
-        storyStep = storyStep + 1;
-    }
-    
-    /**
-     * The story begins as you are on your way to Krohnhagen
-     * Less than a day out you are "ambushed" by Goblins (COMBAT)
-     * Once you defeat these goblins or (if possible 10 - 15 turns) Anna appears
-     * Attempting to attack her will make the bush attack (COMBAT)
-     * It is the shit
-     * Skeggulgt will say he thinks he might know who she is
-     * She follows the caravan to Krohnhagen (maybe find goblin camp?)
-     * Upon ariving in Krohnhagen
-     */
-    
     public void storyFunk() {
         boolean chooseOption = true;
         while (chooseOption) {
@@ -131,7 +54,6 @@ public class Story {
                     System.out.println("< " + i + " > " + optName[i]);
                 }
             }
-
 
             System.out.print("Please choose an option: ");
             int choice = sc.nextInt();
@@ -152,9 +74,98 @@ public class Story {
             } else {
                 storyStep = optVal[choice];
             }
-            
-            
-            
         }
     }
+    
+    /**
+     * https://stackoverflow.com/a/4212726
+     */
+    
+    private void wrapper() {
+        StringBuilder sb = new StringBuilder(toPrint);
+        
+        int i = 0;
+        while (i + 60 < sb.length() && (i = sb.lastIndexOf(" ", i + 80)) != -1) {
+            sb.replace(i, i + 1, "\n");
+        }
+        
+	System.out.println("\n");
+        System.out.println(sb.toString());
+	System.out.println("\n");
+    }
+    
+    public void tempProgressStory() {
+        storyStep = storyStep + 1;
+    }
+    
+    public void storyPrint() {
+        int i = 0;
+        switch(storyStep) {
+            case 0: 
+                toPrint = "!! INSTRUCTIONS !!\n"
+                        + "Congratulations, you are now playing Krohnhagen Adventures! "
+                        + "This game is text heavy and uses text graphics. As such you should change your output font to a monospace font. If you are unable to do so the game is still playable, but not as enjoyable."
+                        + "To do anything in this game you will need a keyboard. A promt will apear to inform you of your options. It is case sensetive!!! "
+                        + "For the time being you start the game as a CN dwarf fighter. "
+                        + "Are you ready to start your adventure or do you want to save it for later?";
+		
+                optVal[0] = 1;
+                optName[0] = "Continue";
+                for (i = 1; i < optVal.length - 3; i++) {
+                    optVal[i] = -1;
+                    optName[i] = null;
+                }
+                break;
+            case 1:
+                toPrint = "It has been almost three weeks since you signed up as"
+			+ " a caravan guard back in Golat. The fact that some of the scenery was "
+			+ "rather nice does not make up for the pain in your arse. "
+			+ "The caravan is not a large one and only has two carts. "
+			+ "Most of your time has been spent riding in the back of the "
+			+ "first cart together Skeggulgt, the only other guard hired by "
+			+ "the caravan master.";
+		
+                optVal[0] = 2;
+                optName[0] = "Continue";
+                for (i = 1; i < optVal.length - 3; i++) {
+                    optVal[i] = -1;
+                    optName[i] = null;
+                }
+                break;
+                
+            case 2:
+                toPrint = "";
+		
+		optVal[0] = 3;
+                optName[0] = "Continue";
+                for (i = 1; i < optVal.length - 3; i++) {
+                    optVal[i] = -1;
+                    optName[i] = null;
+                }
+                break;
+                
+            case 3:
+		toPrint = "";
+		
+		optVal[0] = 4;
+                optName[0] = "Continue";
+                for (i = 1; i < optVal.length - 3; i++) {
+                    optVal[i] = -1;
+                    optName[i] = null;
+                }
+                break;
+                
+            case 4:
+                Combat com = new Combat_FirstBattle(player);
+                com.combatFunction();
+                break;
+                
+            default: 
+                toPrint = "ERROR!"; 
+                break;
+        }
+        
+    }
+    
+
 }
