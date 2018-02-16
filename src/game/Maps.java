@@ -32,7 +32,7 @@ public class Maps {
 //        this.map = map;
 //    }
     
-    private char[] obstacles = {'¤'};
+    private char[] obstacles = {'¤', '╦'};
     
     private char[] charSymbol = new char[4];
     
