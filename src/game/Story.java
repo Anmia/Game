@@ -34,17 +34,6 @@ public class Story {
         optName[19] = "End Game";
     }
     
-    public String getWarning() {
-        String warning = "There is a real chance that any attempt at playing this game might fail. \n"
-                + "This game uses D&D combat, meaning that dice are used and \n"
-                + "that damage given and taken are, within set paramaters, random. \n"
-                + "Think of it as rougelike, just kind of oposite. \n"
-                + "This game features and will feature some language that may make children ask questions that adults may find akward. \n"
-                + "This game is not completed as of yet! \n"
-                + " ";
-        
-        return warning;
-    }
     
     public void storyFunk() {
         boolean chooseOption = true;
@@ -143,12 +132,16 @@ public class Story {
                 break;
                 
             case 2:
-                toPrint = "";
+		/**
+		 * Tried to introduce checks here for now it is assumed as a success
+		 */
+                toPrint = "Oddly enough you feel that time has somehow stoodd "
+			+ "still as you talked with Skeggulgt.";
 		
 		SkeggulgtQuestion fluffy = new SkeggulgtQuestion();
 		
 		optVal[0] = 3;
-                optName[0] = "Continue";
+                optName[0] = "Odd";
                 break;
                 
             case 3:
@@ -164,7 +157,8 @@ public class Story {
                 break;
                 
             default: 
-                toPrint = "ERROR!"; 
+                toPrint = "ERROR! You have reached the end of the story for now "
+			+ "or managed something really weird."; 
                 break;
         }
         

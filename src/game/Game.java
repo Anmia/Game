@@ -55,7 +55,18 @@ public class Game {
 
         Story story = new Story(me);
 	System.out.println(story.txtDmp.getTitle());
-	System.out.println(story.getWarning());
+	
+	
+        System.out.println("There is a real chance that any attempt at playing this game might fail. \n"
+                + "This game uses D&D combat, meaning that dice are used and \n"
+                + "that damage given and taken are, within set paramaters, random. \n"
+                + "Think of it as rougelike, just kind of oposite. \n"
+                + "This game features and will feature some language that may make \n"
+		+ "children ask questions that adults may find awkward. \n"
+                + "This game is not completed as of yet! \n"
+                + "The author can be contacted on twitter as @Anmia_Ambraelle");
+	
+	
 	story.storyFunk();
 	
         Combat com = new Combat_FirstBattle(me);

@@ -108,34 +108,94 @@ public class SkeggulgtQuestion {
 		optName[0] = "Skeggulgt";
 		
 		optVal[1] = 3;
-                optName[1] = "The duchy of Krohnhagen";
+                optName[1] = "Krohnhagen";
 		
 		optVal[8] = 20;
                 optName[8] = "You're good";
-		
 		break;
 		
 	    case 2:
-		toPrint = "";
-		break;
+		toPrint = "Skeggulgt barks out a laugh. \"You want to know more "
+			+ "about me! I am charmed!\" he chuckles. He tells you "
+			+ "he once worked as a guard in the town of Krohnhagen, "
+			+ "managing to rise as far as captain. After the death "
+			+ "of the former duchess and the failed attempt on the "
+			+ "current duchees's life by her father, Skeggulgt left "
+			+ "the guard to become a caravan guard. For one reason "
+			+ "or another he seems to think he changed to a safer job.";
 		
+		optVal[0] = 1;
+		optName[0] = "That wasn't much, but fair enough.";
+		break;
+
 	    case 3:
-		toPrint = "";
+		toPrint = "\"The town or the duchy?\" Skeggulgt asks. He "
+			+ "chuckles to himself in a way that tells you this is "
+			+ "not the first time he asks the question.";
+		
+		optVal[0] = 4;
+		optName[0] = "The town";
+		
+		optVal[1] = 5;
+                optName[1] = "The duchy";
+		
+		optVal[2] = 7;
+                optName[2] = "The difference";
+		
+		optVal[3] = 1;
+                optName[3] = "Never mind";
 		break;
 	    
 	    case 4:
-		toPrint = "";
+		toPrint = "\"The town is where we are heading,\" Skeggulgt says "
+			+ "matter-of-factly. He tell you about how it was built "
+			+ "on top of what is thought to be an ancient fortress. "
+			+ "Long ago it started to outgrow the confines of the "
+			+ "fortress that had been its foundations and main "
+			+ "source of building material. It spread in all "
+			+ "directions, even managing to straddle the river "
+			+ "Jeker. Despite being the largest city in the duchy "
+			+ "of Krohnhagen, it is still refered to as a town. The "
+			+ "reason behind this is thought to be mostly habit, "
+			+ "but also the cost of changing all the stationary. "
+			+ "The town is where the duchess and most of the nobles "
+			+ "in Krohnhagen have their residences. The town has a "
+			+ "diverse population, whatever that means.";
+		
+		optVal[0] = 3;
+                optName[0] = "Weird";
 		break;
 	    
 	    case 5: 
-		toPrint = "";
+		toPrint = "\"Ah, yes...\" Skeggulgt says with a smile, \"The "
+			+ "most glorious duchy of Krohnhagen.\" He hums a quick "
+			+ "tune and starts giving you ";
+		
+		optVal[0] = 3;
+		optName[0] = "";
+		
+		optVal[0] = 6;
+		optName[0] = "";
 		break;
-	
-	    case 6:
+		
+	    case 6: 
 		toPrint = "";
+		
+		optVal[0] = 3;
+		optName[0] = "";
 		break;
-	
+		
 	    case 7:
+		toPrint = "\"Indeed there is,\" Skeggulgt says. He goes on to "
+			+ "tell you that no one knows if one was named after "
+			+ "the other or if they both were named after something "
+			+ "else entirely.";
+		
+		optVal[0] = 3;
+		optName[0] = "Fair enough";
+		break;
+	
+	    case 8:
 		toPrint = "";
 		break;
 	    
