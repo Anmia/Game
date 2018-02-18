@@ -135,7 +135,7 @@ public class Story {
 		/**
 		 * Tried to introduce checks here for now it is assumed as a success
 		 */
-                toPrint = "Oddly enough you feel that time has somehow stoodd "
+                toPrint = "Oddly enough you feel that time has somehow stood "
 			+ "still as you talked with Skeggulgt.";
 		
 		SkeggulgtQuestion fluffy = new SkeggulgtQuestion();

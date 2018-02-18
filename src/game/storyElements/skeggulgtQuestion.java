@@ -6,7 +6,7 @@
 package game.storyElements;
 
 /**
- *
+ * Still needs work
  * @author Magnus
  */
 public class SkeggulgtQuestion {
@@ -15,6 +15,8 @@ public class SkeggulgtQuestion {
     
     private int[] optVal = new int[10];
     private String[] optName = new String[10];
+    
+    private boolean duchess[] = {false, false};
     
     java.util.Scanner sc = new java.util.Scanner(System.in);
     
@@ -86,13 +88,13 @@ public class SkeggulgtQuestion {
         switch (step) {
             case 0: 
                 toPrint = "\"We should be less than a day away from Krohnhagen now,\" "
-			+ "Skeggulgt says just as you are about todoze off. "
+			+ "Skeggulgt says just as you are about to doze off. "
 			+ "\" If we are lucky we will be there before the gates "
 			+ "close for the evening,\" he continues, speaking louder "
 			+ "than strictly necessary. "
 			+ "After a few moments Skeggulgt nudges you with his "
 			+ "foot. \"How much do you know about Krohnhagen?\" he asks.";
-                
+              
                 optVal[0] = 1;
                 optName[0] = "Almost nothing";
                 
@@ -120,7 +122,7 @@ public class SkeggulgtQuestion {
 			+ "he once worked as a guard in the town of Krohnhagen, "
 			+ "managing to rise as far as captain. After the death "
 			+ "of the former duchess and the failed attempt on the "
-			+ "current duchees's life by her father, Skeggulgt left "
+			+ "current duchess's life by her father, Skeggulgt left "
 			+ "the guard to become a caravan guard. For one reason "
 			+ "or another he seems to think he changed to a safer job.";
 		
@@ -142,8 +144,13 @@ public class SkeggulgtQuestion {
 		optVal[2] = 7;
                 optName[2] = "The difference";
 		
-		optVal[3] = 1;
-                optName[3] = "Never mind";
+		if (duchess[0] && duchess[1]) {
+		    optVal[3] = 8;
+		    optName[3] = "The Duchess";
+		}
+		
+		optVal[4] = 1;
+                optName[4] = "Never mind";
 		break;
 	    
 	    case 4:
@@ -155,41 +162,52 @@ public class SkeggulgtQuestion {
 			+ "source of building material. It spread in all "
 			+ "directions, even managing to straddle the river "
 			+ "Jeker. Despite being the largest city in the duchy "
-			+ "of Krohnhagen, it is still refered to as a town. The "
+			+ "of Krohnhagen, it is still referred to as a town. The "
 			+ "reason behind this is thought to be mostly habit, "
 			+ "but also the cost of changing all the stationary. "
 			+ "The town is where the duchess and most of the nobles "
 			+ "in Krohnhagen have their residences. The town has a "
 			+ "diverse population, whatever that means.";
-		
+		duchess[1] = true;
 		optVal[0] = 3;
                 optName[0] = "Weird";
 		break;
 	    
 	    case 5: 
-		toPrint = "\"Ah, yes...\" Skeggulgt says with a smile, \"The "
-			+ "most glorious duchy of Krohnhagen.\" He hums a quick "
-			+ "tune and starts giving you ";
+		toPrint = "\"Ah, yes...\" Skeggulgt says with a smile. He tell "
+			+ "you about how the duchy is an independent one. The "
+			+ "duchy has always been ruled by the duchess. It covers "
+			+ "the lands east of The Rolling Hills to the desserts "
+			+ "in the west, and from the coast to the Blunted Razors "
+			+ "in the north. The duchy is well off, but any attempt "
+			+ "to take it over has usually resulted in failure. This "
+			+ "has famously been due to the people of Krohnhagen "
+			+ "simply ignoring invaders until they either appologize "
+			+ "or leave.";
+		
+		duchess[0] = true;
 		
 		optVal[0] = 3;
-		optName[0] = "";
+		optName[0] = "Odd";
 		
-		optVal[0] = 6;
-		optName[0] = "";
+		optVal[1] = 6;
+		optName[1] = "OWLBEAR!";
 		break;
 		
 	    case 6: 
-		toPrint = "";
+		toPrint = "Skeggulgt gives you a blank stare. The stare tells "
+			+ "you that it's not that it isn't funny, but that it "
+			+ "might be true.";
 		
 		optVal[0] = 3;
 		optName[0] = "";
 		break;
 		
 	    case 7:
-		toPrint = "\"Indeed there is,\" Skeggulgt says. He goes on to "
-			+ "tell you that no one knows if one was named after "
-			+ "the other or if they both were named after something "
-			+ "else entirely.";
+		toPrint = "\"Indeed there is,\" Skeggulgt says. He tells you "
+			+ "that no one knows if one was named after the other "
+			+ "or if they both were named after something else "
+			+ "entirely.";
 		
 		optVal[0] = 3;
 		optName[0] = "Fair enough";

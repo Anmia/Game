@@ -18,9 +18,13 @@ public class Combat_FirstBattle extends Combat {
    
     
     private static Character[] combatants = {null, banditOne, banditTwo, banditThree};
-    private static final int[][] locations = {{5, 15}, {5, 8}, {6, 15}, {5, 5}};
+    /**
+     * x the y
+     * horizon first
+     */
+    private static final int[][] locations = {{5, 15}, {3, 4}, {5, 5}, {7, 4}};
     
-    
+   
     
     private static final Maps map = new Maps_FirstBattle();
 

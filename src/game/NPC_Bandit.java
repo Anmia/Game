@@ -23,14 +23,14 @@ public class NPC_Bandit extends NPC {
     private static final Race race = new Race_Dwarf();
     private static final Proffesion proffesion = new Proffesion_Fighter();
     
-    static Armour arm = new Armour_Leather();
-    static Melee mwep = new Melee_Scimitar();
-    static Ranged rwep = new Ranged_LightCrossbow();
+    private static final Armour arm = new Armour_Leather();
+    private static final Melee mwep = new Melee_Scimitar();
+    private static final Ranged rwep = new Ranged_LightCrossbow();
     
     static Equipment stuff = new Equipment(arm, null, null, null, mwep, rwep, false);
     private final static Inventory inventory = new Inventory(stuff, null);
     
-    int[] atr = {11, 12, 12, 10, 10, 10};
+    private final int[] atr = {11, 12, 12, 10, 10, 10};
     private final  Atributes atributes = new Atributes(atr);
 
     
