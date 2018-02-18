@@ -55,7 +55,7 @@ public class Story {
 	    } else {
 		switch (choice) {
 		    case 17:
-			player.getInventory().getEquipment().printeEuipment();
+			player.getInventory().getEquipment().printEuipment();
 			break;
 		    case 18:
 			player.getInventory().backpack.printBackpack();
@@ -74,6 +74,7 @@ public class Story {
     }
     
     /**
+     * The Wrapper is copied from
      * https://stackoverflow.com/a/4212726
      */
     
@@ -155,6 +156,9 @@ public class Story {
             case 4:
                 Combat com = new Combat_FirstBattle(player);
                 com.combatFunction();
+		
+		optVal[0] = 5;
+                optName[0] = "Continue";
                 break;
                 
             default: 

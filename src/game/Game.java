@@ -26,7 +26,7 @@ public class Game {
          */ 
         
         
-        int[] atr = {18, 14, 16, 12, 9, 8};
+        int[] atr = {17, 13, 15, 11, 13, 12};
         Melee battleaxe = new Melee_Battleaxe();
         Melee club = new Melee_Club();
         Atributes atri = new Atributes(atr);
@@ -95,6 +95,13 @@ public class Game {
 //        System.out.println(me);
     }
     
-    
+//This here is just so i have template 
+//╔═╦═╦═╗
+//║*║8║*║
+//╠═╬═╬═╣
+//║4║0║6║
+//╠═╬═╬═╣
+//║*║2║*║
+//╚═╩═╩═╝
     
 }

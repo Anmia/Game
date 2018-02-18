@@ -31,5 +31,6 @@ public class Maps_FirstBattle extends Maps {
     
     public Maps_FirstBattle() {
         super.setMap(map);
+	
     }
 }

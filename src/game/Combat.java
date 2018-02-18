@@ -29,13 +29,14 @@ public abstract class Combat {
     }
     
     
-    public void createCombatants() {
+    private void createCombatants() {
         for (int i = 1; i < combatants.length; i++) {
             combatants[i].createCharacter();
         }
     }
     
-    public void setUpCombatMap() {
+    public void setUpCombatMap(int leng) {
+	map.setLength(leng);
         for (int i = 0; i < combatants.length; i++) {
             map.setInitialLocation(i, locations[i][0], locations[i][1], combatants[i].getIdentifyingChar());
         }
@@ -48,18 +49,29 @@ public abstract class Combat {
     public void combatMove(int i) {
         for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
             map.printMap();
-            System.out.println("you have " + j + " Moves left.");
+            System.out.println("╔═╦═╦═╗");
+	    System.out.println("║*║8║*║");
+	    System.out.println("╠═╬═╬═╣");
+	    System.out.println("║4║0║6║");
+	    System.out.println("╠═╬═╬═╣");
+	    System.out.println("║*║2║*║");
+	    System.out.println("╚═╩═╩═╝");
+	    System.out.println("you have " + j + " Moves left.");
             System.out.print("Insert direction for " + combatants[i].getName() + 
                     " using WASD to chose direction or E to end turn: ");
 
-            char direction = sc.next().charAt(0);
-
-            map.movePlayer(i, direction);
-            if (map.getEndMovement()) {
-                j = 0;
-            } else if (map.getObstacle()) {
-                j = j + 1; 
-            }
+            int dir = sc.nextInt();
+	    if (dir % 2 == 0 && dir < 10 || dir == 0) {
+		map.movePlayer(i, dir);
+		if (map.getEndMovement()) {
+		    j = 0;
+		} else if (map.getObstacle()) {
+		    j = j + 1; 
+		}
+	    } else {
+		System.out.println("Please choose a valid option");
+	    }
+            
         }
     }
     
@@ -95,54 +107,63 @@ public abstract class Combat {
                     boolean actionBool = true;
                     while (actionBool) {
 
-                        System.out.print("Choose an action for " + combatants[hasTurn].getName() + " (" + hasTurn + ") . m for move, a for "
-                                + "attack, e to end turn, c to end game: ");
-                        char actionChar = sc.next().charAt(0);
+                        System.out.println("------------");
+			System.out.println("< 0 > to move");
+			System.out.println("< 1 > to attack");
+			System.out.println("< 2 > to skip turn");
+			System.out.println("< 3 > to cancel game (remove later)");
+			System.out.print("Choose an action for " + combatants[hasTurn].getName() + 
+				" (" + hasTurn + "): ");
+                        int actChoice = sc.nextInt();
 
-                        if (actionChar == 'm') {
+                        if (actChoice == 0) {
                             combatMove(hasTurn);
                             map.printMap();
                             boolean secChoiceBool = true;
                             while (secChoiceBool) {
-                                System.out.print("Do you wish to attack?  y/n: ");
+				System.out.println("< 0 > Attack");
+				System.out.println("< 1 > Don't attack");
+                                System.out.print("please choose an option: ");
 
-                                char secChoice = sc.next().charAt(0);
+                                int secChoice = sc.nextInt();
 
-                                if (secChoice == 'y') {
+                                if (secChoice == 0) {
                                     attack(hasTurn);
                                     secChoiceBool = false;
-                                } else if (secChoice == 'n') {
+                                } else if (secChoice == 1) {
                                     secChoiceBool = false;
                                 } else {
                                     System.out.println("Please choose a valid option.");
                                 }
                             }
                             actionBool = false;
-                        } else if (actionChar == 'a') {
+                        } else if (actChoice == 1) {
                             attack(hasTurn); 
                             boolean secChoiceBool = true;
 
                             while (secChoiceBool) {
-                                System.out.print("Do you wish to move?  y/n: ");
+				System.out.println("< 0 > Move");
+				System.out.println("< 1 > stay where you are");
+                                System.out.print("Do you wish to move?  0/1: ");
 
-                                char secChoice = sc.next().charAt(0);
+                                int secChoice = sc.nextInt();
 
-                                if (secChoice == 'y') {
+                                if (secChoice == 0) {
                                     combatMove(hasTurn);
                                     secChoiceBool = false;
-                                } else if (secChoice == 'n') {
+                                } else if (secChoice == 1) {
                                     secChoiceBool = false;
                                 } else {
                                     System.out.println("Please choose a valid option: ");
                                 }
                             }
                             actionBool = false;
-                        } else if (actionChar == 'c') {
+                        } else if (actChoice == 2) {
+                            actionBool = false;
+                        } else if (actChoice == 3) {
                             notEnd = false;
                             actionBool = false;
                             hasTurn = combatants.length;
-                        } else if (actionChar == 'e') {
-                            actionBool = false;
                         } else {
                             System.out.println("Please choose a valid option: ");
                         }
@@ -177,10 +198,13 @@ public abstract class Combat {
         boolean attackBool = true;
         char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
         while (attackBool) {
-            System.out.print("M for Melee, r for ranged, c to cancel.");
-            char attack = sc.next().charAt(0);
+	    System.out.println("< 0 > for melee attack");
+	    System.out.println("< 1 > for ranged attack");
+	    System.out.println("< 2 > to cancel");
+            System.out.print("Please choose an option: ");
+            int attack = sc.nextInt();
             
-            if (attack == 'm') {
+            if (attack == 0) {
                 int[] inRange = map.withinRange(hasTurn, 5, 5);
                 
                 for (int i = 0; i < inRange.length; i++) {
@@ -218,7 +242,7 @@ public abstract class Combat {
                         attackBool = false;
                     }
                 }
-            } else if (attack == 'r') {
+            } else if (attack == 1) {
                 int[] range = combatants[hasTurn].getInventory().equipment.getRangedWeapon().getRange();
                 int[] inRange = map.withinRange(hasTurn, range[0], range[1]);
                 
@@ -255,7 +279,7 @@ public abstract class Combat {
                         attackBool = false;
                     }
                 }
-            } else if ( attack == 'c') {
+            } else if ( attack == 2) {
                 attackBool = false;
             } else {
                 System.out.println("Please choose a valid option.");
@@ -320,6 +344,13 @@ public abstract class Combat {
         def.takeDamage(damage);
     }
     
+    /**
+     *
+     * @param atk the attacker
+     * @param def the target
+     * @param hasTurn the array position the attacker has
+     * @param target the array position the target has
+     */
     public void rangedAttack(Character atk, Character def, int hasTurn, int target) {
         int damage = 0;
         int range = map.getDistance(hasTurn, target);

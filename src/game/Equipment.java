@@ -85,7 +85,7 @@ public class Equipment{
     }
     
     
-    public void printeEuipment() {
+    public void printEuipment() {
         String armourName;
         String necklaceName;
         String ringRightName;
@@ -129,7 +129,7 @@ public class Equipment{
             rangedWeaponName = rangedWeapon.getName();
         }
         
-        System.out.println("\n Melee weapon: " + meleeWeaponName + " Ranged Weapon: " + rangedWeaponName 
+        System.out.println("\n Melee weapon: " + meleeWeaponName + " | Ranged Weapon: " + rangedWeaponName 
 		+ "\n Armour: " + armourName + "\n");
     }
 }

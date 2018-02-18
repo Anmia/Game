@@ -13,18 +13,13 @@ public class Combat_FirstBattle extends Combat {
     
     private static final Character banditOne = new NPC_Bandit();
     private static final Character banditTwo = new NPC_Bandit();
-    private static final Character banditThree = new NPC_Bandit();
     
-   
-    
-    private static Character[] combatants = {null, banditOne, banditTwo, banditThree};
+    private static Character[] combatants = {null, banditOne, banditTwo};
     /**
      * x the y
      * horizon first
      */
-    private static final int[][] locations = {{5, 15}, {3, 4}, {5, 5}, {7, 4}};
-    
-   
+    private static final int[][] locations = {{5, 15}, {3, 4}, {7, 4}};
     
     private static final Maps map = new Maps_FirstBattle();
 
@@ -32,7 +27,7 @@ public class Combat_FirstBattle extends Combat {
         super(combatants, locations, map);
         Combat_FirstBattle.combatants[0] = player;
         
-        super.setUpCombatMap();
+        super.setUpCombatMap(3);
     }
     
     

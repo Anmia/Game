@@ -34,9 +34,14 @@ public class Maps {
     
     private char[] obstacles = {'¤', '╦'};
     
-    private char[] charSymbol = new char[4];
+    private char[] charSymbol = new char[1];
     
-    private int[][] charLocations = new int[4][2];
+    private int[][] charLocations = new int[1][2];
+    
+    public void setLength(int leng) {
+	charSymbol = new char[leng];
+	charLocations = new int[leng][2];
+    }
     
     private boolean obstacle = true;
 
@@ -57,7 +62,7 @@ public class Maps {
     
     
     
-    public void movePlayer(int who, char direction) {
+    public void movePlayer(int who, int direction) {
         endMovement = false;
         
         char name = charSymbol[who];
@@ -66,7 +71,7 @@ public class Maps {
         int y = charLocations[who][1];
         obstacle = true;
         
-        if (direction == 'w') {
+        if (direction == 8) {
             if (!(y > 0)) {
                     System.out.println("Cannot go north from " + x + "-" + y);
                 } else if (checkSquare(x, y - 1)){
@@ -78,7 +83,7 @@ public class Maps {
                     charLocations[who][1] = y - 1;
                     obstacle = false;
                 }
-        } else if (direction == 'd') {
+        } else if (direction == 6) {
             if (x == map[x].length - 1) {
                     System.out.println("Cannot go east from " + x + "-" + y);
                 } else if (checkSquare(x + 1, y)){
@@ -90,7 +95,7 @@ public class Maps {
                     charLocations[who][0] = x + 1;
                     obstacle = false;
                 }
-        } else if (direction == 's') {
+        } else if (direction == 2) {
             if (y == map.length - 1) {
                     System.out.println("Cannot go south from " + x + "-" + y);
                 } else if (checkSquare(x, y + 1)){
@@ -102,7 +107,7 @@ public class Maps {
                     charLocations[who][1] = y + 1;
                     obstacle = false;
                 }
-        } else if (direction == 'a') {
+        } else if (direction == 4) {
             if (!(x > 0)) {
                     System.out.println("Cannot go west from " + x + "-" + y);
                 } else if (checkSquare(x - 1, y)){
@@ -114,7 +119,7 @@ public class Maps {
                     charLocations[who][0] = x - 1;
                     obstacle = false;
                 }
-        } else if (direction == 'e') {
+        } else if (direction == 0) {
             endMovement = true;
         } 
     }
