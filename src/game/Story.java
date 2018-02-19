@@ -160,7 +160,42 @@ public class Story {
 		optVal[0] = 5;
                 optName[0] = "Continue";
                 break;
-                
+	    case 5:
+		toPrint = "";
+		optVal[0] = 5;
+                optName[0] = "Continue";
+		
+		break;
+	    case 6:
+		toPrint = "6";
+		optVal[0] = 5;
+                optName[0] = "Continue";
+		
+		break;
+	    case 7:
+		toPrint = "7";
+		optVal[0] = 5;
+                optName[0] = "Continue";
+		
+		break;
+	    case 8:
+		toPrint = "8";
+		optVal[0] = 5;
+                optName[0] = "Continue";
+		
+		break;
+	    case 9:
+		toPrint = "9";
+		optVal[0] = 10;
+                optName[0] = "Continue";
+		
+		break;
+	    case 10:
+		toPrint = "10";
+		optVal[0] = 5;
+                optName[0] = "Continue";
+		
+		break;
             default: 
                 toPrint = "ERROR! You have reached the end of the story for now "
 			+ "or managed something really weird."; 

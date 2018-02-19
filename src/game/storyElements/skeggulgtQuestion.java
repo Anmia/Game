@@ -30,6 +30,7 @@ public class SkeggulgtQuestion {
     private void fluffFunc() {
 	boolean proceed = true;
         
+	
         while (proceed) {
             fluffText();
             wrapper();
