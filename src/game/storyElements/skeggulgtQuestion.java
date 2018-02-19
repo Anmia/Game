@@ -31,6 +31,7 @@ public class SkeggulgtQuestion {
 	boolean proceed = true;
         
 	
+	
         while (proceed) {
             fluffText();
             wrapper();
