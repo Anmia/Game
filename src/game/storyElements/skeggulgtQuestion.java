@@ -219,13 +219,28 @@ public class SkeggulgtQuestion {
 		/**
 		 * talk about duchess and inheritance here
 		 */
-		toPrint = "";
+		toPrint = "\"Yes, Duchess Karalina,\" Skeggulgt says. He tells "
+			+ "you, again, that the Duchy of Krohnhagen, as far as "
+			+ "anyone knows, has always been ruled by a duchess from "
+			+ "the uns Razin family. The former duchess, Duchess "
+			+ "Helena, died a little over five years ago. Her "
+			+ "daughter, Karalina, as tradition had always been, "
+			+ "inherited her mother's title and became the new ruler "
+			+ "of Krohnhagen. Seeing your confused expression, "
+			+ "Skeggulgt continues to say that in Krohnhagen it is "
+			+ "usually, with a few exeptions, the eldest girl who "
+			+ "inherits.";
+		/**
+		 * Maybe do a thing here to check the gender of the p(l)ayer
+		 */
+		
 		optVal[0] = 3;
-		optName[0] = "Oops!";
+		optName[0] = "Intresting";
 		break;
 	    
 	    case 20: 
-		toPrint = "\"Well, if you say so,\" Skeggulgt says ";
+		toPrint = "\"Well, if you say so,\" Skeggulgt says and leans "
+			+ "back closing his eyes.";
 		break;
 	    default: 
 		toPrint = "Error!";

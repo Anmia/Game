@@ -16,6 +16,8 @@ public class Story {
     private int storyStep = 0;
     private int location;
     
+    private boolean gameOver = false;
+    
     private Character player;
     
     private String toPrint;
@@ -36,8 +38,7 @@ public class Story {
     
     
     public void storyFunk() {
-        boolean chooseOption = true;
-        while (chooseOption) {
+        while (!gameOver) {
             storyPrint();
             wrapper();
             
@@ -61,7 +62,7 @@ public class Story {
 			player.getInventory().backpack.printBackpack();
 			break;
 		    case 19:
-			chooseOption = false;
+			gameOver = true;
 		}            
 
 		if (optVal[choice] == -1) {
@@ -99,7 +100,7 @@ public class Story {
     }
     
     public void storyPrint() {
-        wiper ();
+        wiper();
         switch(storyStep) {
             case 0: 
                 toPrint = "!! INSTRUCTIONS !!\n"
@@ -147,10 +148,21 @@ public class Story {
                 break;
                 
             case 3:
-		toPrint = "";
+		toPrint = "As you come around a bend in the road you hear a "
+			+ "rather colourful curse from the wagon driver. "
+			+ "Moments later the wagon comes to a halt. Curious "
+			+ "about what is going on you get out of the wagon. "
+			+ "Looking out from behind it you see two leather clad "
+			+ "figures standing on either side of the road. At "
+			+ "Skeggulgt’s advice you take a look behind you and "
+			+ "see two more figures stepping out of the forest to "
+			+ "block any retreat. \"You take the two in front and "
+			+ "I’ll deal with the two in the back,\" Skeggulgt "
+			+ "tells you. You give a grunt in agreement and ready "
+			+ "your weapons as you walk to the front of the wagon.";
 		
 		optVal[0] = 4;
-                optName[0] = "Continue";
+                optName[0] = "Finaly some action!";
                 break;
                 
             case 4:
@@ -161,9 +173,13 @@ public class Story {
                 optName[0] = "Continue";
                 break;
 	    case 5:
-		toPrint = "";
+		toPrint = "Sam apears ++";
+		
 		optVal[0] = 5;
-                optName[0] = "Continue";
+                optName[0] = "Stare at her";
+		
+		optVal[1] = -2;
+                optName[1] = "Try to kill her";
 		
 		break;
 	    case 6:
@@ -195,6 +211,18 @@ public class Story {
 		optVal[0] = 5;
                 optName[0] = "Continue";
 		
+		break;
+	    /**
+	     * Currently all values less than 0 are game overs.
+	     * These will mostly be customised to how you died and will show 
+	     * stats. Might move to its own class for readability
+	     * MOVE TO OWN CLASS!
+	     */ 
+	    case -2:
+		toPrint = "The girl throws the bush at you. The las thing you "
+			+ "feel before your life leaves you is a scathing pain "
+			+ "as the bush rips your head from your body. GAME OVER";
+		gameOver = true;
 		break;
             default: 
                 toPrint = "ERROR! You have reached the end of the story for now "
