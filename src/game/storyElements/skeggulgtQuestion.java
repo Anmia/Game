@@ -201,7 +201,7 @@ public class SkeggulgtQuestion {
 			+ "might be true.";
 		
 		optVal[0] = 3;
-		optName[0] = "";
+		optName[0] = "Oops!";
 		break;
 		
 	    case 7:
@@ -215,7 +215,12 @@ public class SkeggulgtQuestion {
 		break;
 	
 	    case 8:
+		/**
+		 * talk about duchess and inheritance here
+		 */
 		toPrint = "";
+		optVal[0] = 3;
+		optName[0] = "Oops!";
 		break;
 	    
 	    case 20: 
