@@ -133,7 +133,8 @@ public class Story {
                 
             case 2:
 		/**
-		 * Tried to introduce checks here for now it is assumed as a success
+		 * Will try to introduce ability checks her later on, but for 
+                 * now the check is assumed a success
 		 */
                 toPrint = "Oddly enough you feel that time has somehow stood "
 			+ "still as you talked with Skeggulgt.";
