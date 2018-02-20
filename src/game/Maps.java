@@ -181,7 +181,7 @@ public class Maps {
             if (checker[i]) {
                 inRange[i] = i;
             } else {
-                inRange[i] = 99;
+                inRange[i] = -1;
             }
         }
         

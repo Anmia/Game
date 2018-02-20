@@ -7,6 +7,7 @@ package game.storyElements;
 
 /**
  * Still needs work
+ * wtf is it "deleted" in netbeans?
  * @author Magnus
  */
 public class SkeggulgtQuestion {

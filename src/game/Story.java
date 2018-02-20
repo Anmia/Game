@@ -42,35 +42,38 @@ public class Story {
             storyPrint();
             wrapper();
             
-	    System.out.println("\n");
-	    for (int i = 0; i < optVal.length; i++) {
-		if (optName[i] != null) {
-		    System.out.println("< " + i + " > " + optName[i]);
+	    if (!gameOver) {
+		System.out.println("\n");
+		for (int i = 0; i < optVal.length; i++) {
+		    if (optName[i] != null) {
+			System.out.println("< " + i + " > " + optName[i]);
+		    }
 		}
-	    }
-	    System.out.print("Please choose an option: ");
-	    int choice = sc.nextInt();
+		System.out.print("Please choose an option: ");
+		int choice = sc.nextInt();
 
-	    if (choice > 19) {
-		System.out.println("Please choose a valid option");
-	    } else {
-		switch (choice) {
-		    case 17:
-			player.getInventory().getEquipment().printEuipment();
-			break;
-		    case 18:
-			player.getInventory().backpack.printBackpack();
-			break;
-		    case 19:
-			gameOver = true;
-		}            
-
-		if (optVal[choice] == -1) {
+		if (choice > 19) {
 		    System.out.println("Please choose a valid option");
 		} else {
-		    storyStep = optVal[choice];
+		    switch (choice) {
+			case 17:
+			    player.getInventory().getEquipment().printEuipment();
+			    break;
+			case 18:
+			    player.getInventory().backpack.printBackpack();
+			    break;
+			case 19:
+			    gameOver = true;
+		    }            
+
+		    if (optVal[choice] == -1) {
+			System.out.println("Please choose a valid option");
+		    } else {
+			storyStep = optVal[choice];
+		    }
 		}
 	    }
+	    
         }
     }
     
@@ -167,7 +170,20 @@ public class Story {
                 
             case 4:
                 Combat com = new Combat_FirstBattle(player);
-                com.combatFunction();
+                gameOver = com.combatFunction();
+		
+				if(gameOver) {
+					toPrint = "As your life leaves your body you regret not "
+						+ "listening to your mother. She told you that, even if "
+						+ "it was less exciting than becoming an adventurer, "
+						+ "becoming a stone-mason would have provided a steady "
+						+ "income. Now your mother has lost her last child, but "
+						+ "will never know. Her face apears in your vision and "
+						+ "you feebly try to cry out just as darkness engulfs "
+						+ "you. GAME OVER";
+				} else {
+
+				}
 		
 		optVal[0] = 5;
                 optName[0] = "Continue";
