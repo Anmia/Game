@@ -50,12 +50,12 @@ public abstract class Combat {
         for (int j = combatants[i].race.getSpeed() / 5; j > 0; j--) {
             map.printMap();
             System.out.println("╔═╦═╦═╗");
-	    System.out.println("║*║8║*║");
-	    System.out.println("╠═╬═╬═╣");
-	    System.out.println("║4║0║6║");
-	    System.out.println("╠═╬═╬═╣");
-	    System.out.println("║*║2║*║");
-	    System.out.println("╚═╩═╩═╝");
+			System.out.println("║*║8║*║");
+			System.out.println("╠═╬═╬═╣");
+			System.out.println("║4║0║6║");
+			System.out.println("╠═╬═╬═╣");
+			System.out.println("║*║2║*║");
+			System.out.println("╚═╩═╩═╝");
 	    System.out.println("you have " + j + " Moves left.");
             System.out.print("Please insert a direction for " + combatants[i].getName() + 
                     " (0 will end movement): ");
@@ -116,12 +116,12 @@ public abstract class Combat {
                     while (actionBool) {
 
                         System.out.println("------------");
-			System.out.println("< 0 > to move");
-			System.out.println("< 1 > to attack");
-			System.out.println("< 2 > to skip turn");
-			System.out.println("< 3 > to cancel game (remove later)");
-			System.out.print("Choose an action for " + combatants[hasTurn].getName() + 
-				" (" + hasTurn + "): ");
+						System.out.println("< 0 > to move");
+						System.out.println("< 1 > to attack");
+						System.out.println("< 2 > to skip turn");
+						System.out.println("< 3 > to cancel game (remove later)");
+						System.out.print("Choose an action for " + combatants[hasTurn].getName() + 
+							" (" + hasTurn + "): ");
                         int actChoice = sc.nextInt();
 
                         if (actChoice == 0) {
@@ -129,8 +129,8 @@ public abstract class Combat {
                             map.printMap();
                             boolean secChoiceBool = true;
                             while (secChoiceBool) {
-				System.out.println("\n< 0 > Attack");
-				System.out.println("< 1 > Don't attack");
+								System.out.println("\n< 0 > Attack");
+								System.out.println("< 1 > Don't attack");
                                 System.out.print("please choose an option: ");
 
                                 int secChoice = sc.nextInt();
@@ -150,8 +150,8 @@ public abstract class Combat {
                             boolean secChoiceBool = true;
 
                             while (secChoiceBool) {
-				System.out.println("\n< 0 > Move");
-				System.out.println("< 1 > stay where you are");
+								System.out.println("\n< 0 > Move");
+								System.out.println("< 1 > stay where you are");
                                 System.out.print("Do you wish to move? ");
 
                                 int secChoice = sc.nextInt();
@@ -177,30 +177,31 @@ public abstract class Combat {
                         }
                     }
                 }
-		if (combatants[0].getCurentHealthPoints() < 1) {
-		    hasTurn = combatants.length;
-		}
+				if (combatants[0].getCurentHealthPoints() < 1) {
+					hasTurn = combatants.length;
+				}
             }
             
-	    boolean theEnd = false;
-	    
-	    if (combatants[0].getCurentHealthPoints() < 1) {
-		theEnd = true;
-		gameOver = true;
-	    } else {
-		theEnd = true;
-		for (int i = 1; i < combatants.length; i++) {
-		    if (combatants[i].getCurentHealthPoints() > 0) {
-			theEnd = false;
-		    }
+			boolean theEnd = false;
+
+			if (combatants[0].getCurentHealthPoints() < 1) {
+				theEnd = true;
+				gameOver = true;
+			} else {
+			theEnd = true;
+				for (int i = 1; i < combatants.length; i++) {
+					if (combatants[i].getCurentHealthPoints() > 0) {
+					theEnd = false;
+					}
+				}
+			}
+
+			if (theEnd) {
+				notEnd = false;
+			}
 		}
-	    }
-	    
-            if (theEnd) {
-		notEnd = false;
-	    }
-        }
-	return gameOver;
+		
+		return gameOver;
     }
     
     /**

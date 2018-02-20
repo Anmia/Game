@@ -182,7 +182,7 @@ public class Story {
 						+ "you feebly try to cry out just as darkness engulfs "
 						+ "you. GAME OVER";
 				} else {
-
+					
 				}
 		
 		optVal[0] = 5;

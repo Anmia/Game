@@ -48,7 +48,7 @@ public class Game {
         
         Proffesion fighter = new Proffesion_Fighter();
        
-        Character me = new Player("Anmia", dwarf, fighter, inv, 0, 1, 22, '@');
+        Character me = new Character("Anmia", dwarf, fighter, inv, 1, 22, '@');
         me.setAtributes(atri);
         me.setArmourClass();
         me.createCharacter();

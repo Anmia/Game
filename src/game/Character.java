@@ -14,7 +14,7 @@ import game.race.Race;
  */
 
 
-public abstract class Character {
+public class Character {
     private String name;
     protected Race race;
     private Proffesion proffesion;
@@ -30,6 +30,7 @@ public abstract class Character {
     private int charArmourClass;
     private char identifyingChar;
     
+	private int exp;
     
     
     /**
@@ -49,17 +50,11 @@ public abstract class Character {
         this.proffesion = proffesion;
         this.inventory = inventory;
         this.atributes = atributes;
-//        this.baseHealthPoints = baseHealthPoints;
         this.level = level;
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
-        
-
-//        setArmourClass();
-//        createCharacter();
-
-        
-        
+		
+		this.exp = 0;
     }
     
     public void setAtributes(Atributes atributes) {
@@ -249,5 +244,111 @@ public abstract class Character {
                 " | Ranged Weapon: " + inventory.equipment.rangedWeapon.getName() + "\n";
     }
     
+    public int getExp() {
+        return exp;
+    }
     
+    public void setExp(int newExp) {
+        int level = getLevel();
+        
+        exp = exp + newExp;
+        
+        switch (level) {
+            case 1:
+                if (exp >= 300) {
+                    levelUp();
+                } break;
+                
+            case 2:
+                if (exp >= 900) {
+                    levelUp();
+                } break;
+                
+            case 3:
+                if (exp >= 2700) {
+                    levelUp();
+                } break;
+                
+            case 4:
+                if (exp >= 6500) {
+                    levelUp();
+                } break;
+                
+            case 5:
+                if (exp >= 14000) {
+                    levelUp();
+                } break;
+                
+            case 6:
+                if (exp >= 23000) {
+                    levelUp();
+                } break;
+                
+            case 7:
+                if (exp >= 34000) {
+                    levelUp();
+                } break;
+            
+            case 8:if (exp >= 48000) {
+                    levelUp();
+                } break;
+                
+            case 9: 
+                if (exp >= 64000) {
+                    levelUp();
+                } break;
+                
+            case 10:
+                if (exp >= 85000) {
+                    levelUp();
+                } break;
+                
+            case 11:
+                if (exp >= 100000) {
+                    levelUp();
+                } break;
+                
+            case 12:
+                if (exp >= 120000) {
+                    levelUp();
+                } break;
+                
+            case 13:
+                if (exp >= 140000) {
+                    levelUp();
+                } break;
+            
+            case 14:
+                if (exp >= 165000) {
+                    levelUp();
+                } break;
+                
+            case 15:
+                if (exp >= 195000) {
+                    levelUp();
+                } break;
+            
+            case 16:
+                if (exp >= 225000) {
+                    levelUp();
+                } break;
+                
+            case 17:
+                if (exp >= 265000) {
+                    levelUp();
+                } break;
+                
+            case 18:
+                if (exp >= 305000) {
+                    levelUp();
+                } break;
+                
+            case 19:
+                if (exp >= 355000) {
+                    levelUp();
+                } break;
+                
+            default: break;
+        }
+    }
 }
