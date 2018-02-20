@@ -182,7 +182,7 @@ public class Story {
 						+ "you feebly try to cry out just as darkness engulfs "
 						+ "you. GAME OVER";
 				} else {
-					
+					combatEnd(50);
 				}
 		
 		optVal[0] = 5;
@@ -248,5 +248,13 @@ public class Story {
         
     }
     
-
+	private void combatEnd(int xp) {
+		int lvl = player.getLevel();
+		player.setExp(xp);
+		System.out.println("You gained " + xp + "xp, your new xp is " + player.getExp());
+		if (lvl < player.getLevel()) {
+			System.out.println("You gained a level. You are now level " + player.getLevel());
+		}
+		
+	}
 }
