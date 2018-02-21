@@ -199,28 +199,42 @@ public class Story {
 				optVal[0] = 5;
                 optName[0] = "Turn around";
                 break;
+				
 			case 5:
-			toPrint = "You turn to see a girl standing over one of the corpses of the dead bandits ";
+			toPrint = "You see a girl come out of the forest to the right of the "
+					+ "road. She aproaches the corpse of tha bandit furthest "
+					+ "away from you and begins to go through its pockets, "
+					+ "aprantly oblivious of the fact that you are watching her. "
+					+ "As far as you can see she is human, maybe 17, no older "
+					+ "than 19. Her hair is short and a copper red colour. After "
+					+ "a few moments Skeggulgt clears his throat. Upon hearing "
+					+ "it she looks up, a mix of fear and anger in her blue eyes. "
+					+ "For a few more moments she continues to glare at you. "
+					+ "Then she turns on her toes and bolts for the cover of the "
+					+ "forest.";
 
-				optVal[0] = 5;
-				optName[0] = "Stare at her";
+				optVal[0] = 6;
+				optName[0] = "Go after her";
 
 				optVal[1] = -2;
-				optName[1] = "Try to kill her";
+				optName[1] = "Shoot her";
 
 				break;
+				
 			case 6:
 				toPrint = "6";
 				optVal[0] = 5;
 						optName[0] = "Continue";
 
 				break;
+				
 			case 7:
 				toPrint = "7";
 				optVal[0] = 5;
 				optName[0] = "Continue";
 
 				break;
+				
 			case 8:
 				toPrint = "8";
 				optVal[0] = 5;
@@ -233,12 +247,14 @@ public class Story {
 				optName[0] = "Continue";
 
 				break;
+				
 			case 10:
 				toPrint = "10";
 				optVal[0] = 5;
 				optName[0] = "Continue";
 
 				break;
+				
 				/**
 				 * Currently all values less than 0 are game overs.
 				 * These will mostly be customised to how you died and will show 
@@ -246,18 +262,23 @@ public class Story {
 				 * MOVE TO OWN CLASS!
 				 */ 
 			case -2:
-				toPrint = "The girl throws the bush at you. The las thing you "
-					+ "feel before your life leaves you is a scathing pain "
-					+ "as the bush rips your head from your body. GAME OVER";
+				toPrint = "As you line up your shot to hit the girl before she "
+						+ "disapears into the forest a small leaf covered dot "
+						+ "launches itself from the forest. Just before it lands "
+						+ "on your face you see it is a bush and you find it "
+						+ "facintingly odd that it actually looks angry. The "
+						+ "last thing you feel before your life leaves you is a "
+						+ "scathing pain as the bush rips your head from your "
+						+ "body. GAME OVER";
 				gameOver = true;
 				break;
 				
 			default: 
 				toPrint = "ERROR! You have reached the end of the story for now "
-			+ "or managed something really weird."; 
+						+ "or managed something really weird. Please contact dev "
+						+ "and the physically be possible!"; 
 			break;
         }
-        
     }
     
 	private void combatEnd(int xp) {
@@ -265,8 +286,7 @@ public class Story {
 		player.setExp(xp);
 		System.out.println("You gained " + xp + "xp, your new xp is " + player.getExp());
 		if (lvl < player.getLevel()) {
-			System.out.println("You gained a level. You are now level " + player.getLevel());
+			System.out.println("You gained a level and are now level " + player.getLevel());
 		}
-		
 	}
 }
