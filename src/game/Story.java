@@ -183,6 +183,8 @@ public class Story {
 						+ "you. GAME OVER";
 				} else {
 					combatEnd(50);
+					
+					toPrint = "";
 				}
 		
 		optVal[0] = 5;
