@@ -8,7 +8,7 @@ package game.item;
 /**
  * itemID uses branching value 
  * will be worked out later.
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Item {
     protected int itemID;

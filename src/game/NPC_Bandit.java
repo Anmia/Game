@@ -16,7 +16,7 @@ import game.race.Race_Dwarf;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class NPC_Bandit extends NPC {
     private static final String name = "Bandit";

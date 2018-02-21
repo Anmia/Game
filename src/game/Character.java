@@ -10,7 +10,7 @@ import game.race.Race;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 
 

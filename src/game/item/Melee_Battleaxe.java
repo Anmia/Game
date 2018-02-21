@@ -7,7 +7,7 @@ package game.item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Melee_Battleaxe extends Melee {
     private final static int itemID = 11030;

@@ -16,7 +16,7 @@ import java.util.Random;
  * NOTE: find way to allow different dice to be rolled 
  * like 2d6 + 1d4. 
  * or should this be done in the object rolling the dice?
- * @author Magnus
+ * @author Anmia
  */
 public class Dice {
     public int rollDice(int dice, int rolls) {

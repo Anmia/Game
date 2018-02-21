@@ -9,7 +9,7 @@ import game.item.Accesory;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Necklace extends Accesory {
     private final static int itemTypeID = 31;

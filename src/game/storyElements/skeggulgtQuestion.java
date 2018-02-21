@@ -8,7 +8,7 @@ package game.storyElements;
 /**
  * Still needs work
  * wtf is it "deleted" in netbeans?
- * @author Magnus
+ * @author Anmia
  */
 public class SkeggulgtQuestion {
     private int step = 0;

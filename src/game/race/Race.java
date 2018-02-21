@@ -10,7 +10,7 @@ package game.race;
  * 
  *as with the c_clases, modyfier methods are needed. They are to run once upon 
  * creation and leveling up
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Race {
     private int raceID;

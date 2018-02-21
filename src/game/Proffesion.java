@@ -8,7 +8,7 @@ package game;
 /**
  * as with the races, modyfier methods are needed. They are to run once upon 
  * creation and leveling up
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Proffesion {
     private int proffesionID;

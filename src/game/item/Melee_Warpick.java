@@ -7,7 +7,7 @@ package game.item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Melee_Warpick extends Melee {
     private final static int itemID = 11041;

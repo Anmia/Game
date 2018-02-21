@@ -9,7 +9,7 @@ import game.item.Item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Weapon extends Item {
     private boolean twoHanded;

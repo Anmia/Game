@@ -7,7 +7,7 @@ package game.item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Accesory extends Item {
 

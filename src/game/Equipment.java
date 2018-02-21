@@ -13,7 +13,7 @@ import game.item.Armour;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Equipment{
     protected Armour armour;

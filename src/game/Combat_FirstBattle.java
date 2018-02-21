@@ -7,7 +7,7 @@ package game;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Combat_FirstBattle extends Combat {
     

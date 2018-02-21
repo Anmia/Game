@@ -9,7 +9,7 @@ import game.race.Race;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public abstract class NPC extends Character {
     private int expWorth;

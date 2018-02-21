@@ -7,7 +7,7 @@ package game;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Maps_FirstBattle extends Maps {
     private static final char[][][] map = 

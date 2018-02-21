@@ -9,7 +9,7 @@ import game.item.Item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Backpack {
     private int money;

@@ -7,7 +7,7 @@ package game;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Combat {
     private Character[] combatants;
@@ -213,7 +213,6 @@ public abstract class Combat {
     
     private void attack(int hasTurn) {
         boolean attackBool = true;
-        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f'};
         while (attackBool) {
 			System.out.println("< 0 > for melee attack");
 			System.out.println("< 1 > for ranged attack");
@@ -223,7 +222,7 @@ public abstract class Combat {
             
             if (attack == 0) {
                 int[] inRange = map.withinRange(hasTurn, 5, 5);
-                System.out.println("\n" + inRange.length);
+                System.out.println("\n");
                 for (int i = 0; i < inRange.length; i++) {
                     if (inRange[i] != -1) {
                         System.out.println("<" + i + "> | Name: " + 
@@ -239,7 +238,9 @@ public abstract class Combat {
                     System.out.print("Choose target (or + to cancel): ");
 					int target = sc.nextInt();
 
-					if (target >= inRange.length) {
+					if (target == 9) {
+						angryBool = false;
+					} else if (target >= inRange.length) {
 						System.out.println("That is not a valid target!");
 					} else {
 						if (inRange[target] == -1){
@@ -267,14 +268,15 @@ public abstract class Combat {
                 while (angryBool) {
 					System.out.print("Choose target (or + to cancel): ");
 					int target = sc.nextInt();
-
-					if (target >= inRange.length) {
+					
+					if (target == 9) {
+						angryBool = false;
+					} else if (target >= inRange.length) {
 						System.out.println("That is not a valid target!");
 					} else {
 						if (inRange[target] == -1){
 							System.out.println("That is not a valid target!");
 						} else {
-							System.out.println(inRange[target] + " | " + combatants[target].toString());
 							rangedAttack(combatants[hasTurn], combatants[target], hasTurn, target);
 							angryBool = false;
 							attackBool = false;

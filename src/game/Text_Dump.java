@@ -7,7 +7,7 @@ package game;
 
 /**
  * This class is temporary and is made to hold text art which would just waste space anywhere else.
- * @author Magnus
+ * @author Anmia
  */
 public class Text_Dump {
     public String getTitle() {

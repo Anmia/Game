@@ -7,7 +7,7 @@ package game;
 
 /**
  * Find way to add proficiencies etc
- * @author Magnus
+ * @author Anmia
  */
 
 

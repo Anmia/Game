@@ -7,7 +7,7 @@ package game.item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Melee extends Weapon {
     private boolean reach;

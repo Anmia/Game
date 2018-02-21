@@ -9,7 +9,7 @@ package game;
  * Here the combat maps will be stored as arrays
  * maps are squares for now, maybe hexes in the future
  * doubt it though
- * @author Magnus
+ * @author Anmia
  */
 public class Maps {
     private char[][][] map;

@@ -10,7 +10,7 @@ import game.race.*;
 
 /**
  * 
- * @author Magnus
+ * @author Anmia
  */
 public class Game {
 

@@ -7,7 +7,7 @@ package game.item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public class Ranged_Javelin extends Ranged {
     private static final int itemID = 11010;

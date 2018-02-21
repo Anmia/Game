@@ -7,7 +7,7 @@ package game.item;
 
 /**
  *
- * @author Magnus
+ * @author Anmia
  */
 public abstract class Ranged extends Weapon {
     private int[] range = new int[2];
