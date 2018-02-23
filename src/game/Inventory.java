@@ -18,6 +18,8 @@ public class Inventory {
     protected Equipment equipment;
     protected Backpack backpack;
     
+	java.util.Scanner sc = new java.util.Scanner(System.in);
+	
     public Inventory (Equipment equipment, Backpack backpack) {
         this.equipment = equipment;
         this.backpack = backpack;
@@ -34,7 +36,7 @@ public class Inventory {
     public void changeEquiptment() {
         
         System.out.print("Choose item type you wish to change (curently only 11, 12 and 20: ");
-        java.util.Scanner sc = new java.util.Scanner(System.in);
+        
         int type = sc.nextInt();
         
         backpack.showItemsOfType(type);
@@ -63,4 +65,14 @@ public class Inventory {
         
         
     }
+	
+	public void invFunc() {
+		boolean cont = true;
+		
+		
+		
+		while(cont) {
+			
+		}
+	}
 }

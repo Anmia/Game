@@ -258,97 +258,99 @@ public class Character {
                 if (exp >= 300) {
                     levelUp();
                 } break;
-                
             case 2:
                 if (exp >= 900) {
                     levelUp();
                 } break;
-                
             case 3:
                 if (exp >= 2700) {
                     levelUp();
                 } break;
-                
             case 4:
                 if (exp >= 6500) {
                     levelUp();
                 } break;
-                
             case 5:
                 if (exp >= 14000) {
                     levelUp();
                 } break;
-                
             case 6:
                 if (exp >= 23000) {
                     levelUp();
                 } break;
-                
             case 7:
                 if (exp >= 34000) {
                     levelUp();
                 } break;
-            
             case 8:if (exp >= 48000) {
                     levelUp();
                 } break;
-                
             case 9: 
                 if (exp >= 64000) {
                     levelUp();
                 } break;
-                
             case 10:
                 if (exp >= 85000) {
                     levelUp();
                 } break;
-                
             case 11:
                 if (exp >= 100000) {
                     levelUp();
                 } break;
-                
             case 12:
                 if (exp >= 120000) {
                     levelUp();
                 } break;
-                
             case 13:
                 if (exp >= 140000) {
                     levelUp();
                 } break;
-            
             case 14:
                 if (exp >= 165000) {
                     levelUp();
                 } break;
-                
             case 15:
                 if (exp >= 195000) {
                     levelUp();
                 } break;
-            
             case 16:
                 if (exp >= 225000) {
                     levelUp();
                 } break;
-                
             case 17:
                 if (exp >= 265000) {
                     levelUp();
                 } break;
-                
             case 18:
                 if (exp >= 305000) {
                     levelUp();
                 } break;
-                
             case 19:
                 if (exp >= 355000) {
                     levelUp();
                 } break;
-                
-            default: break;
+            default: 
+				System.out.println("ERROR");
+				break;
         }
     }
+	
+	/**
+	 * Intended to allow the player to view stats, view and change equipment. 
+	 * Other stuff as well, but will figure that out as I go along
+	 */
+	
+	public void characterManagement() {
+		java.util.Scanner sc = new java.util.Scanner(System.in);
+		boolean cont = true;
+		
+		while(cont) {
+			System.out.println("< 0 > View character stats");
+			System.out.println("< 1 > View equiptment");
+			System.out.println("<  >");
+			System.out.println("< 1 >");
+			System.out.println("< 1 >");
+			System.out.println("< 1 >");
+		}
+	}
 }

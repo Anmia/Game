@@ -44,39 +44,39 @@ public class Story {
             wrapper();
             
 	    if (!gameOver) {
-		System.out.println("\n");
-		for (int i = 0; i < optVal.length; i++) {
-		    if (optName[i] != null) {
-			System.out.println("< " + i + " > " + optName[i]);
-		    }
-		}
-		System.out.print("Please choose an option: ");
-		int choice = sc.nextInt();
+			System.out.println("\n");
+			for (int i = 0; i < optVal.length; i++) {
+				if (optName[i] != null) {
+				System.out.println("< " + i + " > " + optName[i]);
+				}
+			}
+			System.out.print("Please choose an option: ");
+			int choice = sc.nextInt();
 
-		if (choice > 19) {
-		    System.out.println("Please choose a valid option");
-		} else {
-		    switch (choice) {
-				case 16:
-					System.out.println(player.getCurentHealthPoints());
-					break;
-				case 17:
-					player.getInventory().getEquipment().printEuipment();
-					break;
-				case 18:
-					player.getInventory().backpack.printBackpack();
-					break;
-				case 19:
-					gameOver = true;
-					break;
-		    }            
+			if (choice > 19) {
+				System.out.println("Please choose a valid option");
+			} else {
+				switch (choice) {
+					case 16:
+						System.out.println(player.getCurentHealthPoints());
+						break;
+					case 17:
+						player.getInventory().getEquipment().printEuipment();
+						break;
+					case 18:
+						player.getInventory().backpack.printBackpack();
+						break;
+					case 19:
+						gameOver = true;
+						break;
+				}
 
-		    if (optVal[choice] == -1) {
-			System.out.println("Please choose a valid option");
-		    } else {
-			storyStep = optVal[choice];
-		    }
-		}
+				if (optVal[choice] == -1) {
+				System.out.println("Please choose a valid option");
+				} else {
+				storyStep = optVal[choice];
+				}
+			}
 	    }
 	    
         }
@@ -95,7 +95,7 @@ public class Story {
             sb.replace(i, i + 1, "\n");
         }
         
-	System.out.println("\n");
+		System.out.println("\n");
         System.out.println(sb.toString());
 	
     }
@@ -126,6 +126,7 @@ public class Story {
                 optVal[0] = 1;
                 optName[0] = "Continue";
                 break;
+				
             case 1:
                 toPrint = "It has been almost three weeks since you signed up as "
 					+ "a caravan guard back in Golat. The caravan is not a "
@@ -201,7 +202,7 @@ public class Story {
                 break;
 				
 			case 5:
-			toPrint = "You see a girl come out of the forest to the right of the "
+				toPrint = "You see a girl come out of the forest to the right of the "
 					+ "road. She aproaches the corpse of tha bandit furthest "
 					+ "away from you and begins to go through its pockets, "
 					+ "aprantly oblivious of the fact that you are watching her. "
@@ -217,12 +218,12 @@ public class Story {
 				optName[0] = "Go after her";
 
 				optVal[1] = -2;
-				optName[1] = "Shoot her";
-
+				optName[1] = "Shoot her (posibly remove)";
+				
 				break;
 				
 			case 6:
-				toPrint = "6";
+				toPrint = "For ";
 				optVal[0] = 5;
 						optName[0] = "Continue";
 
