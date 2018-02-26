@@ -116,11 +116,11 @@ public abstract class Combat {
                     while (actionBool) {
 
                         System.out.println("------------");
-						System.out.println("< 0 > to move");
-						System.out.println("< 1 > to attack");
-						System.out.println("< 2 > to skip turn");
-						System.out.println("< 3 > to cancel game (remove later)");
-						System.out.print("Choose an action for " + combatants[hasTurn].getName() + 
+			System.out.println("< 0 > to move");
+			System.out.println("< 1 > to attack");
+			System.out.println("< 2 > to skip turn");
+			System.out.println("< 3 > to cancel game (remove later)");
+			System.out.print("Choose an action for " + combatants[hasTurn].getName() + 
 							" (" + hasTurn + "): ");
                         int actChoice = sc.nextInt();
 
@@ -129,8 +129,8 @@ public abstract class Combat {
                             map.printMap();
                             boolean secChoiceBool = true;
                             while (secChoiceBool) {
-								System.out.println("\n< 0 > Attack");
-								System.out.println("< 1 > Don't attack");
+				System.out.println("\n< 0 > Attack");
+				System.out.println("< 1 > Don't attack");
                                 System.out.print("please choose an option: ");
 
                                 int secChoice = sc.nextInt();
@@ -235,7 +235,7 @@ public abstract class Combat {
                 while (angryBool) {
                     
                     
-                    System.out.print("Choose target (or + to cancel): ");
+                    System.out.print("Choose target (or 9 to cancel): ");
 					int target = sc.nextInt();
 
 					if (target == 9) {
@@ -266,7 +266,7 @@ public abstract class Combat {
                 
                 boolean angryBool = true;
                 while (angryBool) {
-					System.out.print("Choose target (or + to cancel): ");
+					System.out.print("Choose target (or 9 to cancel): ");
 					int target = sc.nextInt();
 					
 					if (target == 9) {
