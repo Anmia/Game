@@ -31,7 +31,7 @@ public class Story {
     public Story(Character player) {
         this.player = player;
         
-		optName[16] = "View Health";
+	optName[16] = "View Health";
         optName[17] = "View Equiptment";
         optName[18] = "View Inventory";
         optName[19] = "End Game";
@@ -44,41 +44,40 @@ public class Story {
             wrapper();
             
 	    if (!gameOver) {
-			System.out.println("\n");
-			for (int i = 0; i < optVal.length; i++) {
-				if (optName[i] != null) {
-				System.out.println("< " + i + " > " + optName[i]);
-				}
+		System.out.println("\n");
+		for (int i = 0; i < optVal.length; i++) {
+			if (optName[i] != null) {
+			System.out.println("< " + i + " > " + optName[i]);
 			}
-			System.out.print("Please choose an option: ");
-			int choice = sc.nextInt();
+		}
+		System.out.print("Please choose an option: ");
+		int choice = sc.nextInt();
 
-			if (choice > 19) {
-				System.out.println("Please choose a valid option");
+		if (choice > 19) {
+			System.out.println("Please choose a valid option");
+		} else {
+			switch (choice) {
+				case 16:
+					System.out.println(player.getCurentHealthPoints());
+					break;
+				case 17:
+					player.getInventory().getEquipment().printEuipment();
+					break;
+				case 18:
+					player.getInventory().backpack.printBackpack();
+					break;
+				case 19:
+					gameOver = true;
+					break;
+			}
+
+			if (optVal[choice] == -1) {
+			System.out.println("Please choose a valid option");
 			} else {
-				switch (choice) {
-					case 16:
-						System.out.println(player.getCurentHealthPoints());
-						break;
-					case 17:
-						player.getInventory().getEquipment().printEuipment();
-						break;
-					case 18:
-						player.getInventory().backpack.printBackpack();
-						break;
-					case 19:
-						gameOver = true;
-						break;
-				}
-
-				if (optVal[choice] == -1) {
-				System.out.println("Please choose a valid option");
-				} else {
-				storyStep = optVal[choice];
-				}
+			storyStep = optVal[choice];
 			}
+		}
 	    }
-	    
         }
     }
     
@@ -113,15 +112,15 @@ public class Story {
             case 0: 
                 toPrint = "!! INSTRUCTIONS !!\n"
                     + "Congratulations, you are now playing Krohnhagen Adventures! "
-					+ "This game is text heavy and uses text graphics. As "
-					+ "such you should change your output font to a monospace "
-					+ "font. If you are unable to do so the game is still "
-					+ "playable, but not as enjoyable.To do anything in this "
-					+ "game you will need a keyboard. A promt will apear to "
-					+ "inform you of your options. It is case sensetive!!! "
-					+ "For the time being you start the game as a CN dwarf "
-					+ "fighter. Are you ready to start your adventure or do "
-					+ "you want to save it for later?";
+			+ "This game is text heavy and uses text graphics. As "
+			+ "such you should change your output font to a monospace "
+			+ "font. If you are unable to do so the game is still "
+			+ "playable, but not as enjoyable.To do anything in this "
+			+ "game you will need a keyboard. A promt will apear to "
+			+ "inform you of your options. It is case sensetive!!! "
+			+ "For the time being you start the game as a CN dwarf "
+			+ "fighter. Are you ready to start your adventure or do "
+			+ "you want to save it for later?";
 		
                 optVal[0] = 1;
                 optName[0] = "Continue";
@@ -129,48 +128,48 @@ public class Story {
 				
             case 1:
                 toPrint = "It has been almost three weeks since you signed up as "
-					+ "a caravan guard back in Golat. The caravan is not a "
-					+ "large one and only has two wagons. Most of your time "
-					+ "has been spent riding in the back of the first wagon "
-					+ "together Skeggulgt, the only other guard hired by the "
-					+ "caravan master, watching the scenery go by, some of "
-					+ "it you grudgingly admit is rather nice. The weather "
-					+ "is nice and you get paid either way if something "
-					+ "happens or not, so you don’t really mind.";
+			+ "a caravan guard back in Golat. The caravan is not a "
+			+ "large one and only has two wagons. Most of your time "
+			+ "has been spent riding in the back of the first wagon "
+			+ "together Skeggulgt, the only other guard hired by the "
+			+ "caravan master, watching the scenery go by, some of "
+			+ "it you grudgingly admit is rather nice. The weather "
+			+ "is nice and you get paid either way if something "
+			+ "happens or not, so you don’t really mind.";
 		
                 optVal[0] = 2;
                 optName[0] = "Continue";
                 break;
                 
             case 2:
-				/**
-				 * Will try to introduce ability checks her later on, but for 
-						 * now the check is assumed a success
-				 */
-						toPrint = "Oddly enough you feel that time has somehow stood "
-					+ "still as you talked with Skeggulgt.";
+		/**
+		 * Will try to introduce ability checks her later on, but for 
+				 * now the check is assumed a success
+		 */
+				toPrint = "Oddly enough you feel that time has somehow stood "
+			+ "still as you talked with Skeggulgt.";
 
-				SkeggulgtQuestion fluffy = new SkeggulgtQuestion();
+		SkeggulgtQuestion fluffy = new SkeggulgtQuestion();
 
-				optVal[0] = 3;
-				optName[0] = "Odd";
-				break;
+		optVal[0] = 3;
+		optName[0] = "Odd";
+		break;
                 
             case 3:
-				toPrint = "As you come around a bend in the road you hear a "
-					+ "rather colourful curse from the wagon driver. "
-					+ "Moments later the wagon comes to a halt. Curious "
-					+ "about what is going on you get out of the wagon. "
-					+ "Looking out from behind it you see two leather clad "
-					+ "figures standing on either side of the road. At "
-					+ "Skeggulgt’s advice you take a look behind you and "
-					+ "see two more figures stepping out of the forest to "
-					+ "block any retreat. \"You take the two in front and "
-					+ "I’ll deal with the two in the back,\" Skeggulgt "
-					+ "tells you. You give a grunt in agreement and ready "
-					+ "your weapons as you walk to the front of the wagon.";
-		
-				optVal[0] = 4;
+		toPrint = "As you come around a bend in the road you hear a "
+			+ "rather colourful curse from the wagon driver. "
+			+ "Moments later the wagon comes to a halt. Curious "
+			+ "about what is going on you get out of the wagon. "
+			+ "Looking out from behind it you see two leather clad "
+			+ "figures standing on either side of the road. At "
+			+ "Skeggulgt’s advice you take a look behind you and "
+			+ "see two more figures stepping out of the forest to "
+			+ "block any retreat. \"You take the two in front and "
+			+ "I’ll deal with the two in the back,\" Skeggulgt "
+			+ "tells you. You give a grunt in agreement and ready "
+			+ "your weapons as you walk to the front of the wagon.";
+
+		optVal[0] = 4;
                 optName[0] = "Finaly some action!";
                 break;
                 
