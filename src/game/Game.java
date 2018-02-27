@@ -62,7 +62,7 @@ public class Game {
                 + "that damage given and taken are, within set paramaters, random. \n"
                 + "Think of it as rougelike, just kind of oposite. \n"
                 + "This game features and will feature some language that may make \n"
-		+ "children ask questions that adults may find awkward. \n"
+				+ "children ask questions that adults may find awkward. \n"
                 + "This game is not completed as of yet! \n"
                 + "The author can be contacted on twitter as @Anmia_Ambraelle");
 	
@@ -70,29 +70,6 @@ public class Game {
 	story.storyFunk();
 	
         Combat com = new Combat_FirstBattle(me);
-        
-//        com.combatFunction();
-        
-       
-        
-//        Character bandit = new NPC_Bandit();
-//        
-//        System.out.println(me);
-//        System.out.println(bandit.getCurentHealthPoints());
-//        
-//        
-//        
-//         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
-//        
-//         me.getInventory().changeEquiptment();
-//        
-//         System.out.println(me.getInventory().equipment.getMeleeWeapon().getName());
-//        
-//        
-//        
-//        
-//        me.levelUp();
-//        System.out.println(me);
     }
     
 //This here is just so i have template 

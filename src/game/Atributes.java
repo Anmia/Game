@@ -16,13 +16,13 @@ public class Atributes {
     /**
      * atributesBase describes the base set of atributes for the character
      */
-    protected int[] atributesBase = new int[6];
+    private int[] atributesBase = new int[6];
     /**
      * atributesActual describes the modified atributes of the character
      * this is based on atributesBase in adition to any item that increases or decrease 
      * the value of an atribute
      */
-    protected int[] atributesActual = new int[6];
+    private int[] atributesActual = new int[6];
     
 
     
@@ -75,6 +75,14 @@ public class Atributes {
     public int getAtribute(int whichAtribute) {
         return atributesActual[whichAtribute];
     }
+	
+	public int[] getAtrBase() {
+		return atributesBase;
+	}
+	
+	public int[] getAtrAct() {
+		return atributesActual;
+	}
     
         
     public void resetAtribute(int atribute) {

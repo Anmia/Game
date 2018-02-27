@@ -31,9 +31,7 @@ public class Story {
     public Story(Character player) {
         this.player = player;
         
-	optName[16] = "View Health";
-        optName[17] = "View Equiptment";
-        optName[18] = "View Inventory";
+        optName[18] = "Character Management (WIP)";
         optName[19] = "End Game";
     }
     
@@ -57,14 +55,8 @@ public class Story {
 			System.out.println("Please choose a valid option");
 		} else {
 			switch (choice) {
-				case 16:
-					System.out.println(player.getCurentHealthPoints());
-					break;
-				case 17:
-					player.getInventory().getEquipment().printEuipment();
-					break;
 				case 18:
-					player.getInventory().backpack.printBackpack();
+					player.characterManagement();
 					break;
 				case 19:
 					gameOver = true;

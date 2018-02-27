@@ -63,7 +63,7 @@ public class Character {
     
     public void createCharacter() {
 
-        for (int i = 0; i < atributes.atributesBase.length; i++) {
+        for (int i = 0; i < atributes.getAtrBase().length; i++) {
             atributes.setCharacterCreationBase(i, race.getRaceModifiers(i));
             
         }
@@ -335,6 +335,47 @@ public class Character {
         }
     }
 	
+//╔═╦═╦═╗
+//║*║8║*║
+//╠═╬═╬═╣
+//║4║0║6║
+//╠═╬═╬═╣
+//║*║2║*║
+//╚═╩═╩═╝
+	
+	private String paddy(int x) {
+		String padded;
+		if (x > -1 && x < 10) {
+				padded = " 0" + x;
+			} else {
+				padded = " " + x;
+			}
+		return padded;
+	}
+	
+	private void charStats() {
+		int[] actual = atributes.getAtrAct();
+		String[] names = {"STR......", "DEX......", "CON......", "WIZ......", "INT......", "CHA......"};
+		
+		String cur = paddy(curentHealthPoints);
+		String bas = paddy(baseHealthPoints);
+		
+		System.out.println();
+		System.out.println("╔═════════╦═══════╗");
+		System.out.println("║.HEALTH..║" + cur + "/" + bas + "║");
+		System.out.println("╠═════════╬═══╦═══╣");
+		System.out.println("╠═════════╬═══╬═══╣");
+		System.out.println("║ATRIBUTES║val║mod║");
+		
+		for (int i = 0; i < actual.length; i++) {
+			String as = paddy(actual[i]);
+			String mod = paddy(atributes.getModifier(i));
+			System.out.println("╠═════════╬═══╬═══╣");
+			System.out.println("║" + names[i] + "║" + as + "║" + mod + "║");
+		}
+		System.out.println("╚═════════╩═══╩═══╝");
+	}
+	
 	/**
 	 * Intended to allow the player to view stats, view and change equipment. 
 	 * Other stuff as well, but will figure that out as I go along
@@ -345,12 +386,32 @@ public class Character {
 		boolean cont = true;
 		
 		while(cont) {
-			System.out.println("< 0 > View character stats");
-			System.out.println("< 1 > View equiptment");
-			System.out.println("<  >");
-			System.out.println("< 1 >");
-			System.out.println("< 1 >");
-			System.out.println("< 1 >");
+			System.out.println("\n < 0 > View character stats");
+			System.out.println("< 1 > View equipment");
+			System.out.println("< 2 > ");
+			System.out.println("< 3 >");
+			System.out.println("< 4 >");
+			System.out.println("< 5 > Back to story");
+			System.out.print("Please choose an option");
+			int choice = sc.nextInt();
+			
+			switch(choice) {
+				case 0:
+					charStats();
+					break;
+				case 1: 
+					inventory.getEquipment().printEuipment();
+					break;
+				case 2: 
+					break;
+				case 3: 
+					break;
+				case 5:
+					cont = false;
+					break;
+				default: 
+					System.out.println("Please choose a valid option");
+			}
 		}
 	}
 }
