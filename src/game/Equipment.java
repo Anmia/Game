@@ -93,6 +93,7 @@ public class Equipment{
         String meleeWeaponName;
         String rangedWeaponName;
         
+		
         if ( armour == null) {
             armourName = "none";
         } else {
@@ -129,7 +130,10 @@ public class Equipment{
             rangedWeaponName = rangedWeapon.getName();
         }
         
-        System.out.println("\n Melee weapon: " + meleeWeaponName + " | Ranged Weapon: " + rangedWeaponName 
-		+ "\n Armour: " + armourName + "\n");
+        System.out.println("\nMelee weapon: " + meleeWeaponName);
+		System.out.println("Ranged Weapon: " + rangedWeaponName);
+		System.out.println("Armour: " + armourName);
+		System.out.println("Rings: " + ringRightName + " & " + ringLeftName);
+		System.out.println("Necklace: " + necklaceName);
     }
 }

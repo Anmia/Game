@@ -92,7 +92,7 @@ public class SkeggulgtQuestion {
             case 0: 
                 toPrint = "\"We should be less than a day away from Krohnhagen now,\" "
 			+ "Skeggulgt says just as you are about to doze off. "
-			+ "\" If we are lucky we will be there before the gates "
+			+ "\"If we are lucky we will be there before the gates "
 			+ "close for the evening,\" he continues, speaking louder "
 			+ "than strictly necessary. "
 			+ "After a few moments Skeggulgt nudges you with his "

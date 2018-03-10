@@ -15,7 +15,7 @@ public class Ranged_LightCrossbow extends Ranged{
     
     private static final boolean twoHanded = true;
     private static final int damageDice = 8;
-    private static final int[] range = {80, 320};
+    private static final int[] range = {10, 320};
     private static final char damageType = 'p';
     private static final boolean heavy = false;
     

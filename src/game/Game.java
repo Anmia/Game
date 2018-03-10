@@ -32,7 +32,7 @@ public class Game {
         Atributes atri = new Atributes(atr);
         Armour armour = new Armour_Plate();
         Race dwarf = new Race_Dwarf();
-        Ranged ranged = new Ranged_HandCrossbow();
+        Ranged ranged = new Ranged_LightCrossbow();
         Ranged dart = new Ranged_Dart();
         Equipment equip = new Equipment(armour, null, null, null, battleaxe, ranged, false);
         

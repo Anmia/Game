@@ -254,7 +254,7 @@ public abstract class Combat {
                 }
             } else if (attack == 1) {
                 int[] range = combatants[hasTurn].getInventory().equipment.getRangedWeapon().getRange();
-                int[] inRange = map.withinRange(hasTurn, range[0], range[1]);
+                int[] inRange = map.withinRange(hasTurn, range[1], range[1]);
                 System.out.println("\n");
                 for (int i = 0; i < inRange.length; i++) {
                     if (inRange[i] != -1) {

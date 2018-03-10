@@ -386,13 +386,13 @@ public class Character {
 		boolean cont = true;
 		
 		while(cont) {
-			System.out.println("\n < 0 > View character stats");
+			System.out.println("\n< 0 > View character stats");
 			System.out.println("< 1 > View equipment");
 			System.out.println("< 2 > ");
 			System.out.println("< 3 >");
 			System.out.println("< 4 >");
 			System.out.println("< 5 > Back to story");
-			System.out.print("Please choose an option");
+			System.out.print("Please choose an option: ");
 			int choice = sc.nextInt();
 			
 			switch(choice) {
