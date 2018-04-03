@@ -334,84 +334,80 @@ public class Character {
 				break;
         }
     }
-	
-//╔═╦═╦═╗
-//║*║8║*║
-//╠═╬═╬═╣
-//║4║0║6║
-//╠═╬═╬═╣
-//║*║2║*║
-//╚═╩═╩═╝
-	
-	private String paddy(int x) {
-		String padded;
-		if (x > -1 && x < 10) {
-				padded = " 0" + x;
-			} else {
-				padded = " " + x;
-			}
-		return padded;
+    
+    private String paddy(int x) {
+	String valueAsString;
+	    
+	if (x < 0) {
+	    valueAsString = "-0" + x;
+	} else if (x < 10) {
+	    valueAsString = "+0" + x;
+	} else {
+	    valueAsString = "+" + x;
 	}
-	
-	private void charStats() {
-		int[] actual = atributes.getAtrAct();
-		String[] names = {"STR......", "DEX......", "CON......", "WIZ......", "INT......", "CHA......"};
-		
-		String cur = paddy(curentHealthPoints);
-		String bas = paddy(baseHealthPoints);
-		
-		System.out.println();
-		System.out.println("╔═════════╦═══════╗");
-		System.out.println("║.HEALTH..║" + cur + "/" + bas + "║");
-		System.out.println("╠═════════╬═══╦═══╣");
-		System.out.println("╠═════════╬═══╬═══╣");
-		System.out.println("║ATRIBUTES║val║mod║");
-		
-		for (int i = 0; i < actual.length; i++) {
-			String as = paddy(actual[i]);
-			String mod = paddy(atributes.getModifier(i));
-			System.out.println("╠═════════╬═══╬═══╣");
-			System.out.println("║" + names[i] + "║" + as + "║" + mod + "║");
-		}
-		System.out.println("╚═════════╩═══╩═══╝");
-	}
-	
-	/**
-	 * Intended to allow the player to view stats, view and change equipment. 
-	 * Other stuff as well, but will figure that out as I go along
-	 */
-	
-	public void characterManagement() {
-		java.util.Scanner sc = new java.util.Scanner(System.in);
-		boolean cont = true;
-		
-		while(cont) {
-			System.out.println("\n< 0 > View character stats");
-			System.out.println("< 1 > View equipment");
-			System.out.println("< 2 > ");
-			System.out.println("< 3 >");
-			System.out.println("< 4 >");
-			System.out.println("< 5 > Back to story");
-			System.out.print("Please choose an option: ");
-			int choice = sc.nextInt();
-			
-			switch(choice) {
-				case 0:
-					charStats();
-					break;
-				case 1: 
-					inventory.getEquipment().printEuipment();
-					break;
-				case 2: 
-					break;
-				case 3: 
-					break;
-				case 5:
-					cont = false;
-					break;
-				default: 
-					System.out.println("Please choose a valid option");
-			}
-		}
-	}
+	    
+	return valueAsString;
+    }
+
+    private void charStats() {
+	    int[] actual = atributes.getAtrAct();
+	    String[] names = {"STR......", "DEX......", "CON......", "WIZ......", "INT......", "CHA......"};
+
+	    String cur = paddy(curentHealthPoints);
+	    String bas = paddy(baseHealthPoints);
+
+	    System.out.println();
+	    System.out.println("╔═════════╦═══════╗");
+	    System.out.println("║.HEALTH..║" + cur + "/" + bas + "║");
+	    System.out.println("╠═════════╬═══╦═══╣");
+	    System.out.println("╠═════════╬═══╬═══╣");
+	    System.out.println("║ATRIBUTES║val║mod║");
+
+	    for (int i = 0; i < actual.length; i++) {
+		    String statValue = paddy(actual[i]);
+		    String statMod = paddy(atributes.getModifier(i));
+		    System.out.println("╠═════════╬═══╬═══╣");
+		    System.out.println("║" + names[i] + "║" + statValue + "║" + statMod + "║");
+	    }
+	    System.out.println("╚═════════╩═══╩═══╝");
+    }
+
+    /**
+     * Intended to allow the player to view stats, view and change equipment. 
+     * Other stuff as well, but will figure that out as I go along
+     */
+
+    public void characterManagement() {
+	    java.util.Scanner sc = new java.util.Scanner(System.in);
+	    boolean cont = true;
+
+	    while(cont) {
+		    System.out.println("\n< 0 > View character stats");
+		    System.out.println("< 1 > View equipment");
+		    System.out.println("< 2 > ");
+		    System.out.println("< 3 >");
+		    System.out.println("< 4 >");
+		    System.out.println("< 5 > Back to story");
+		    System.out.print("Please choose an option: ");
+		    int choice = sc.nextInt();
+
+		    switch(choice) {
+			    case 0:
+				    charStats();
+				    break;
+			    case 1: 
+				    inventory.getEquipment().printEuipment();
+				    break;
+			    case 2: 
+				    break;
+			    case 3: 
+				    break;
+			    case 5:
+				    cont = false;
+				    break;
+			    default: 
+				    System.out.println("Please choose a valid option");
+		    }
+	    }
+    }
 }
