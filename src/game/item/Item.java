@@ -65,6 +65,6 @@ public abstract class Item {
     public String toString() {
         return "Item ID: " + itemID + " | TypeID: " + itemTypeID + 
                 " | Name: " + name + " | Amount: " + amount + 
-                " | Atr / Req: " + reqAtribute + " / " + reqLevel + " ";
+                " | Atr - Req: " + reqAtribute + " - " + reqLevel + " ";
     }
 }

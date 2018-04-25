@@ -38,7 +38,6 @@ public class Character {
      * @param name String
      * @param race (see race)
      * @param inventory (see inventory) (needs work)
-     * @param atributes (see atributes)
      * @param level
      * @param alignment 
      */
@@ -49,7 +48,7 @@ public class Character {
         this.race = race;
         this.proffesion = proffesion;
         this.inventory = inventory;
-        this.atributes = atributes;
+
         this.level = level;
         this.alignment = alignment;
         this.identifyingChar = identifyingChar;
@@ -384,8 +383,8 @@ public class Character {
 	    while(cont) {
 		    System.out.println("\n< 0 > View character stats");
 		    System.out.println("< 1 > View equipment");
-		    System.out.println("< 2 > ");
-		    System.out.println("< 3 >");
+		    System.out.println("< 2 > Change equipment");
+		    System.out.println("< 3 > View backpack");
 		    System.out.println("< 4 >");
 		    System.out.println("< 5 > Back to story");
 		    System.out.print("Please choose an option: ");
@@ -398,9 +397,11 @@ public class Character {
 			    case 1: 
 				    inventory.getEquipment().printEuipment();
 				    break;
-			    case 2: 
+			    case 2:
+			        inventory.changeEquiptment();
 				    break;
-			    case 3: 
+			    case 3:
+			        inventory.backpack.printBackpack();
 				    break;
 			    case 5:
 				    cont = false;

@@ -43,7 +43,7 @@ public class Game {
         
         Item[] stuff = {lance, bp, club, handaxe, dart, null, null};
         Backpack pack = new Backpack(0, stuff, 100);
-        
+
         Inventory inv = new Inventory(equip, pack);
         
         Proffesion fighter = new Proffesion_Fighter();
@@ -59,8 +59,8 @@ public class Game {
 	
         System.out.println("There is a real chance that any attempt at playing this game might fail. \n"
                 + "This game uses D&D combat, meaning that dice are used and \n"
-                + "that damage given and taken are, within set paramaters, random. \n"
-                + "Think of it as rougelike, just kind of oposite. \n"
+                + "that damage given and taken are, within set parameters, random. \n"
+                + "Think of it as rougelike, just kind of opposite. \n"
                 + "This game features and will feature some language that may make \n"
 				+ "children ask questions that adults may find awkward. \n"
                 + "This game is not completed as of yet! \n"
