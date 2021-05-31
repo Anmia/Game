@@ -5,8 +5,6 @@
  */
 package game;
 
-import game.storyElements.SkeggulgtQuestion;
-
 
 /**
  * This one is going to be massive. 
@@ -141,7 +139,7 @@ public class Story {
 				toPrint = "Oddly enough you feel that time has somehow stood "
 			+ "still as you talked with Skeggulgt.";
 
-		SkeggulgtQuestion fluffy = new SkeggulgtQuestion();
+		// SkeggulgtQuestion fluffy = new SkeggulgtQuestion();
 
 		optVal[0] = 3;
 		optName[0] = "Odd";
@@ -175,7 +173,7 @@ public class Story {
 						+ "it was less exciting than becoming an adventurer, "
 						+ "becoming a stone-mason would have provided a steady "
 						+ "income. Now your mother has lost her last child, but "
-						+ "will never know. Her face apears in your vision and "
+						+ "will never know. Her face appears in your vision and "
 						+ "you feebly try to cry out just as darkness engulfs "
 						+ "you. GAME OVER";
 				} else {
